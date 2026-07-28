@@ -1,0 +1,31 @@
+﻿Cycle,iRsn,iDataEn,iData(hex),iDelay,write_ptr(after edge),read_ptr,oDataEn,oData(hex),Scenario
+0,0,0,0000,3,0,0,0,0000,Scenario1 reset
+1,0,0,0000,3,0,0,0,0000,Scenario1 reset
+2,0,0,0000,3,0,0,0,0000,Scenario1 reset
+3,1,0,0000,3,1,8,0,0000,Scenario1 release/idle
+4,1,0,0000,3,2,9,0,0000,Scenario1 release/idle
+5,1,1,1001,3,3,0,0,0000,Scenario2 continuous En
+6,1,1,1002,3,4,1,0,0000,Scenario2 continuous En
+7,1,1,1003,3,5,2,1,1001,Scenario2 continuous En
+8,1,1,1004,3,6,3,1,1002,Scenario2 continuous En
+9,1,1,1005,3,7,4,1,1003,Scenario2 continuous En
+10,1,1,1006,3,8,5,1,1004,Scenario2 continuous En
+11,1,0,0000,3,9,6,1,1005,Scenario2 drain
+12,1,0,0000,3,0,7,1,1006,Scenario2 drain
+13,1,0,0000,3,1,8,0,0000,Scenario2 drain
+14,1,0,0000,3,2,9,0,0000,Scenario2 drain
+15,1,1,2001,2,3,1,0,0000,Scenario3 Delay=2
+16,1,1,2002,2,4,2,1,2001,Scenario3 Delay=2
+17,1,1,2003,2,5,3,1,2002,Scenario3 Delay=2
+18,1,1,2004,2,6,4,1,2003,Scenario3 Delay=2
+19,1,1,3001,5,7,2,1,2001,Scenario3 Delay=5
+20,1,1,3002,5,8,3,1,2002,Scenario3 Delay=5
+21,1,1,3003,5,9,4,1,2003,Scenario3 Delay=5
+22,1,1,3004,5,0,5,1,2004,Scenario3 Delay=5
+23,1,0,0000,5,1,6,1,3001,Scenario3 drain
+24,1,0,0000,5,2,7,1,3002,Scenario3 drain
+25,1,0,0000,5,3,8,1,3003,Scenario3 drain
+26,1,0,0000,5,4,9,1,3004,Scenario3 drain
+27,1,0,0000,5,5,0,0,0000,Scenario3 drain
+28,1,0,0000,5,6,1,0,0000,Scenario3 drain
+29,1,0,0000,5,7,2,0,0000,Scenario3 drain

@@ -1,0 +1,5 @@
+Architecture,DEPTH,ALMs/Logic Utilization,Registers,Memory Bits,Memory Blocks,Fmax (MHz),Total Power (W),Core Dynamic Power (W),Static Power (W),Notes
+Shift Register,10,,,,,,,,,
+Circular Queue,10,,,,,,,,,
+Shift Register,100,,,,,,,,,
+Circular Queue,100,,,,,,,,,

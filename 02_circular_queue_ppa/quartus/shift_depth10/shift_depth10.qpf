@@ -1,0 +1,3 @@
+QUARTUS_VERSION = "25.1"
+DATE = "06:00:00  July 25, 2026"
+PROJECT_REVISION = "shift_depth10"
