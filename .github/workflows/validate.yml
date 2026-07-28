@@ -1,0 +1,40 @@
+name: Validate portfolio
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  consistency:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check Python syntax
+        run: python -m compileall -q scripts 02_circular_queue_ppa/scripts 03_memory_based_dv/scripts
+
+      - name: Regenerate Project 3 reference vectors
+        run: python 03_memory_based_dv/scripts/generate_reference_vectors.py
+
+      - name: Reject reference-vector drift
+        run: git diff --exit-code -- 03_memory_based_dv/vectors 03_memory_based_dv/results
+
+      - name: Validate structure, links, and evidence policy
+        run: python scripts/validate_repository.py
+
+      - name: Explain CI scope
+        run: |
+          echo "This CI validates repository consistency and reference vectors."
+          echo "Quartus synthesis and ModelSim simulation require a licensed local environment."
+
