@@ -38,7 +38,7 @@
     <text x="382" y="526" fill="#53617D" font-size="17">Every reference cycle matches data and valid</text>
     <text x="382" y="556" fill="#53617D" font-size="17">Actual valid count equals expected valid count</text>
     <text x="382" y="584" fill="#53617D" font-size="17">Final markers: [CHECKER][PASS] and [TEST PASS]</text>
-    <text x="62" y="662" fill="#53617D" font-size="17">Current evidence: Python Reference Vector Consistency PASS · DUT ModelSim execution pending</text>
+    <text x="62" y="662" fill="#53617D" font-size="17">Current evidence: Icarus Verilog 13.0 · Scenarios 1–3 · DUT + Checker PASS</text>
   </g>
 </svg>
 

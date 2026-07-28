@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">메모리 기반 지연 로직 블록도</title>
+  <desc id="desc">동기식 쓰기/읽기 경로와 무효 사이클의 출력 유지 동작을 나타냅니다.</desc>
+  <rect width="1200" height="680" rx="24" fill="#F6F8FC"/>
+  <text x="58" y="70" fill="#0B1531" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="34" font-weight="750">메모리 기반 지연 로직</text>
+  <g font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+    <rect x="58" y="145" width="220" height="148" rx="18" fill="#E8F7FC" stroke="#34AAD4" stroke-width="2"/>
+    <text x="168" y="185" fill="#197FA5" font-size="17" font-weight="750" text-anchor="middle">입력</text>
+    <text x="168" y="224" fill="#0B1531" font-size="22" font-weight="700" text-anchor="middle">iData</text>
+    <text x="168" y="257" fill="#0B1531" font-size="22" font-weight="700" text-anchor="middle">iDataEn</text>
+    <rect x="365" y="119" width="355" height="262" rx="20" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="3"/>
+    <text x="543" y="166" fill="#6C42D9" font-size="18" font-weight="750" text-anchor="middle">단순 듀얼 포트 저장소</text>
+    <rect x="410" y="202" width="265" height="70" rx="12" fill="#F0EBFF" stroke="#B399F4"/>
+    <text x="543" y="245" fill="#0B1531" font-size="22" font-weight="700" text-anchor="middle">data_mem[0:DEPTH-1]</text>
+    <rect x="410" y="292" width="265" height="52" rx="12" fill="#E5FAF6" stroke="#2DD4BF"/>
+    <text x="543" y="325" fill="#0B1531" font-size="19" font-weight="700" text-anchor="middle">valid_mem[0:DEPTH-1]</text>
+    <rect x="365" y="444" width="355" height="126" rx="20" fill="#FFF7E5" stroke="#F59E0B" stroke-width="2"/>
+    <text x="543" y="486" fill="#A86500" font-size="17" font-weight="750" text-anchor="middle">주소 제어</text>
+    <text x="543" y="525" fill="#0B1531" font-size="20" font-weight="700" text-anchor="middle">read_addr = write_ptr - iDelay (mod DEPTH)</text>
+    <text x="543" y="551" fill="#53617D" font-size="16" text-anchor="middle">write_ptr은 매 클록 증가</text>
+    <rect x="815" y="145" width="327" height="226" rx="20" fill="#E5FAF6" stroke="#18A991" stroke-width="2"/>
+    <text x="978" y="188" fill="#0D826F" font-size="17" font-weight="750" text-anchor="middle">레지스터 출력</text>
+    <text x="978" y="232" fill="#0B1531" font-size="22" font-weight="700" text-anchor="middle">oDataEn ← valid_mem[read_addr]</text>
+    <text x="978" y="275" fill="#0B1531" font-size="22" font-weight="700" text-anchor="middle">valid이면: oData ← data_mem</text>
+    <text x="978" y="321" fill="#53617D" font-size="18" text-anchor="middle">invalid이면: 마지막 유효 oData 유지</text>
+    <path d="M278 219H365M720 244H815M543 444V381" stroke="#2B3A5D" stroke-width="4"/>
+    <path d="M351 210L365 219 351 228M801 235L815 244 801 253M534 395L543 381 552 395" fill="none" stroke="#2B3A5D" stroke-width="3"/>
+    <rect x="815" y="444" width="327" height="126" rx="20" fill="#FFFFFF" stroke="#D5DDED" stroke-width="2"/>
+    <text x="978" y="486" fill="#0B1531" font-size="19" font-weight="750" text-anchor="middle">리셋</text>
+    <text x="978" y="520" fill="#53617D" font-size="17" text-anchor="middle">valid 상태와 포인터 초기화</text>
+    <text x="978" y="548" fill="#53617D" font-size="17" text-anchor="middle">data_mem은 리셋하지 않음</text>
+  </g>
+</svg>

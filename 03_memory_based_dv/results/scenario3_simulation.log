@@ -1,0 +1,4 @@
+Project 3 memory delay logic checker
+Scenario: 3
+Reference cycles: 17
+PASS cycles=17 valid_outputs=14 errors=0

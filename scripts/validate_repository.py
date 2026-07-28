@@ -18,12 +18,14 @@ REQUIRED = [
     "CHANGELOG_PORTFOLIO.md",
     "assets/hero/fpga_delay_logic_hero.svg",
     "assets/hero/github_social_preview.png",
-    "assets/architecture/architecture_evolution.svg",
-    "assets/architecture/shift_register_block.svg",
-    "assets/architecture/circular_queue_block.svg",
-    "assets/architecture/memory_delay_block.svg",
-    "assets/verification/file_driven_dv_flow.svg",
-    "assets/ppa/ppa_comparison_matrix.svg",
+    "docs/assets/en/architecture/architecture_evolution.svg",
+    "docs/assets/en/architecture/shift_register_block.svg",
+    "docs/assets/en/architecture/circular_queue_block.svg",
+    "docs/assets/en/architecture/memory_delay_block.svg",
+    "docs/assets/en/verification/file_driven_dv_flow.svg",
+    "docs/assets/en/ppa/ppa_comparison_matrix.svg",
+    "docs/assets/ko/architecture/architecture_evolution.svg",
+    "docs/assets/ko/verification/file_driven_dv_flow.svg",
     "01_shift_register_baseline/rtl/delay_logic.sv",
     "02_circular_queue_ppa/rtl/circular_queue_delay_logic.sv",
     "03_memory_based_dv/rtl/memory_delay_logic.sv",
@@ -78,7 +80,7 @@ def iter_local_targets(path: Path, text: str):
     html = re.compile(r"""(?:href|src)=["']([^"']+)["']""")
     for target in [*markdown.findall(text), *html.findall(text)]:
         target = target.strip().split()[0].strip("<>")
-        if not target or target.startswith(("http://", "https://", "mailto:", "#", "data:")):
+        if not target or target.startswith(("http://", "https://", "mailto:", "#", "data:", "/")):
             continue
         yield unquote(target.split("#", 1)[0].split("?", 1)[0])
 

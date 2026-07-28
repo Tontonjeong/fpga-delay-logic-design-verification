@@ -1,19 +1,19 @@
 # Evidence Matrix
 
-| Claim | Source | Evidence state |
+| Claim | Primary evidence | State |
 |---|---|---|
-| Project 1 uses parallel data/valid shift stages | [`delay_logic.sv`](../01_shift_register_baseline/rtl/delay_logic.sv) | Documented |
-| Project 1 covers reset, fixed delay, and delay change | [`tb_delay_logic.sv`](../01_shift_register_baseline/tb/tb_delay_logic.sv) | Documented |
-| Project 1 waveform figure is expected behavior | [`expected_waveform_scenario1_2.png`](../01_shift_register_baseline/figures/expected_waveform_scenario1_2.png) | Expected waveform |
+| Project 1 aligns data and valid at a selected tap | [`delay_logic.sv`](../01_shift_register_baseline/rtl/delay_logic.sv) | Documented |
+| Project 1 passes fixed, sparse-valid, and dynamic-delay traffic | [simulation log](../01_shift_register_baseline/results/project1_simulation.log), [VCD](../01_shift_register_baseline/results/project1_waveform.vcd) | **PASS — 20 checks** |
 | Project 2 uses one-slot circular writes | [`circular_queue_delay_logic.sv`](../02_circular_queue_ppa/rtl/circular_queue_delay_logic.sv) | Documented |
-| Project 2 contains four identical-condition Quartus cases | [`quartus/`](../02_circular_queue_ppa/quartus/) | Configured |
-| Project 2 numerical PPA exists | No complete result CSV | Pending |
-| Project 3 holds last valid data on invalid cycles | [`memory_delay_logic.sv`](../03_memory_based_dv/rtl/memory_delay_logic.sv) | Documented |
+| Project 2 shift and circular architectures match an independent history model | [equivalence log](../02_circular_queue_ppa/results/project2_simulation.log), [VCD](../02_circular_queue_ppa/results/project2_waveform.vcd) | **PASS — 26 checks** |
+| Project 2 contains four common-condition Quartus cases | [`quartus/`](../02_circular_queue_ppa/quartus/) | Configured |
+| Project 2 numerical PPA exists | No complete Fit/Timing/Power reports | **BLOCKED** |
+| Project 3 holds last valid data on invalid output cycles | [`memory_delay_logic.sv`](../03_memory_based_dv/rtl/memory_delay_logic.sv) | Documented |
 | Project 3 parses input/config files | [`input_driver.sv`](../03_memory_based_dv/tb/input_driver.sv) | Documented |
 | Project 3 checks data, valid, and count | [`output_checker.sv`](../03_memory_based_dv/tb/output_checker.sv) | Documented |
-| Scenario 1 has 8 cycles and 5 valid outputs | [`reference_summary.csv`](../03_memory_based_dv/results/reference_summary.csv) | Reference Validated |
-| Scenario 2 has 14 cycles and 4 valid outputs | [`reference_summary.csv`](../03_memory_based_dv/results/reference_summary.csv) | Reference Validated |
-| Scenario 3 has 17 cycles and 14 valid outputs | [`reference_summary.csv`](../03_memory_based_dv/results/reference_summary.csv) | Reference Validated |
-| Project 3 ModelSim PASS | No local simulation log | Pending |
-| Project 3 Quartus compilation | No local Quartus report | Pending |
+| Project 3 scenario 1 passes 8 cycles / 5 valid outputs | [console log](../03_memory_based_dv/results/scenario1_console.log) | **PASS** |
+| Project 3 scenario 2 passes 14 cycles / 4 valid outputs | [console log](../03_memory_based_dv/results/scenario2_console.log) | **PASS** |
+| Project 3 scenario 3 passes 17 cycles / 14 valid outputs | [console log](../03_memory_based_dv/results/scenario3_console.log), [VCD](../03_memory_based_dv/results/scenario3_waveform.vcd) | **PASS** |
+| Quartus synthesis completed | Quartus executables absent from tool scan | **BLOCKED** |
 
+The consolidated machine-readable record is [`results/verification_summary.json`](../results/verification_summary.json).

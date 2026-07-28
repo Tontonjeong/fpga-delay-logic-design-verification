@@ -2,7 +2,7 @@
 
 This project replaces whole-pipeline shifting with a circular time-slot store and prepares an apples-to-apples four-case Quartus PPA study.
 
-![Circular queue write and read addressing](../assets/architecture/circular_queue_block.svg)
+![Circular queue write and read addressing](../docs/assets/en/architecture/circular_queue_block.svg)
 
 ## Problem
 
@@ -21,7 +21,7 @@ The validity array prevents stale memory content from being exposed. Avoiding a 
 
 ## PPA Matrix
 
-![Four-case PPA comparison matrix](../assets/ppa/ppa_comparison_matrix.svg)
+![Four-case PPA comparison matrix](../docs/assets/en/ppa/ppa_comparison_matrix.svg)
 
 | Architecture | DEPTH | Top-level entity |
 |---|---:|---|
@@ -43,7 +43,7 @@ Collected fields include logic utilization/ALMs, registers, memory bits or block
 
 ## Current PPA Status
 
-**PPA automation implemented. Local Quartus execution required. Numerical PPA results pending.**
+**PPA automation implemented · Numerical PPA BLOCKED because Quartus Fit/Timing/Power reports are unavailable.**
 
 `results/PPA_results_template.csv` intentionally contains blank metric cells. No zero-filled chart, estimated improvement, or fabricated reduction percentage is published.
 
@@ -56,11 +56,10 @@ Structural expectations are not measurements:
 
 ## Reproduce
 
-From `02_circular_queue_ppa/modelsim`:
+Functional equivalence from the repository root:
 
-```bat
-run_modelsim_gui.bat
-run_modelsim_batch.bat
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run_project2.ps1
 ```
 
 From a Quartus Prime Pro command prompt:
@@ -82,11 +81,11 @@ The chart script refuses incomplete data.
 
 | Evidence | Status |
 |---|---|
-| RTL and testbenches | Source available |
+| RTL and self-checking equivalence testbench | Source available |
 | Four Quartus projects | Configured |
-| Functional ModelSim run | Not rerun; local ModelSim required |
-| Quartus reports | Not available |
-| Numerical PPA CSV | Pending |
+| Icarus Verilog 13.0 equivalence | **PASS — 26 checks, 0 errors** |
+| Simulation evidence | [log](results/project2_simulation.log), [VCD](results/project2_waveform.vcd) |
+| Quartus reports | **BLOCKED — Quartus unavailable** |
+| Numerical PPA CSV | **BLOCKED** |
 
 Expected-waveform PNGs are models of intended behavior, not ModelSim captures.
-

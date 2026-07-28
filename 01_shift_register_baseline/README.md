@@ -2,7 +2,7 @@
 
 This baseline implements a programmable delay as parallel data and valid shift pipelines. It establishes the cycle semantics later preserved by the circular-addressed designs.
 
-![Shift-register data and valid paths](../assets/architecture/shift_register_block.svg)
+![Shift-register data and valid paths](../docs/assets/en/architecture/shift_register_block.svg)
 
 ## Problem
 
@@ -39,22 +39,21 @@ The supplied testbench drives:
 2. `16'h1001` through `16'h1006` with `iDelay=3`;
 3. a runtime delay transition from 2 to 5.
 
-This project uses manual waveform eye-checking rather than an automatic checker. The committed PNGs are **Expected Waveform** diagrams generated for inspection, not ModelSim screenshots.
+The original testbench remains available for manual review. A separate portable self-checking regression now drives fixed delay, sparse valid traffic, and runtime tap changes against an independent reference pipeline.
 
 | Evidence | Status |
 |---|---|
-| RTL and testbench | Source available |
-| Expected cycle table | Documented |
-| ModelSim execution | Not rerun; local ModelSim required |
-| Quartus compilation | Not rerun; local Quartus Prime Pro required |
+| RTL and regression testbench | Source available |
+| Icarus Verilog 13.0 functional regression | **PASS — 20 checks, 0 errors** |
+| Simulation evidence | [log](results/project1_simulation.log), [VCD](results/project1_waveform.vcd) |
+| Quartus compilation | **BLOCKED — Quartus unavailable on verified host** |
 
 ## Reproduce
 
-From `01_shift_register_baseline/modelsim`:
+From the repository root:
 
-```bat
-run_modelsim_gui.bat
-run_modelsim_batch.bat
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run_project1.ps1
 ```
 
 From `01_shift_register_baseline/quartus` in a Quartus Prime Pro command prompt:
@@ -69,7 +68,6 @@ The Quartus project targets Agilex 5 `A5ED065BB32AE6SR0`, uses virtual pins, and
 
 - The 3-bit baseline interface cannot select delays above 7 even though `DEPTH` defaults to 10.
 - The supplied scenarios use delays 2, 3, and 5; `iDelay=0` is not part of the baseline contract.
-- No automatic scoreboard, preserved simulation transcript, or synthesis report is claimed.
+- The executed self-check and transcript are committed; no synthesis report is claimed.
 
 See [provenance](PROVENANCE.md) and the [expected waveform table](results/expected_waveform_table.csv).
-

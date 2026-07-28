@@ -33,8 +33,16 @@ jobs:
       - name: Validate structure, links, and evidence policy
         run: python scripts/validate_repository.py
 
+      - name: Validate GitHub Pages asset graph
+        run: python scripts/check_pages_assets.py
+
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      - name: Execute all RTL regressions
+        run: python scripts/run_verification.py --repo . --project all
+
       - name: Explain CI scope
         run: |
-          echo "This CI validates repository consistency and reference vectors."
-          echo "Quartus synthesis and ModelSim simulation require a licensed local environment."
-
+          echo "This CI validates repository consistency, Pages assets, reference vectors, and functional RTL."
+          echo "Quartus synthesis and numerical PPA require a licensed local FPGA-tool environment."

@@ -2,9 +2,9 @@
 
 This is the featured case study: a circular memory delay DUT connected to a file-driven Input Driver and deterministic Output Checker.
 
-![File-driven verification flow](../assets/verification/file_driven_dv_flow.svg)
+![File-driven verification flow](../docs/assets/en/verification/file_driven_dv_flow.svg)
 
-![Memory-based DUT architecture](../assets/architecture/memory_delay_block.svg)
+![Memory-based DUT architecture](../docs/assets/en/architecture/memory_delay_block.svg)
 
 ## Problem
 
@@ -54,10 +54,10 @@ Dynamic tap selection can revisit earlier memory slots; repeated values around t
 |---|---|
 | Source and scenario files | Documented |
 | Python reference-vector consistency | **REFERENCE PASS** for all 3 scenarios |
-| DUT + Checker ModelSim simulation | Not run in the assembly environment |
-| Quartus synthesis | Not run in the assembly environment |
+| DUT + Checker Icarus Verilog 13.0 simulation | **PASS** for scenarios 1–3 |
+| Quartus synthesis | **BLOCKED — Quartus unavailable** |
 
-Reference validation is not presented as DUT simulation. The exact committed evidence is in [reference_validation.txt](results/reference_validation.txt) and [reference_summary.csv](results/reference_summary.csv).
+The exact executed console logs, checker logs, and VCD files are committed in [`results/`](results/). Reference-only evidence remains separately available in [reference_validation.txt](results/reference_validation.txt) and [reference_summary.csv](results/reference_summary.csv).
 
 ## Reproduce
 
@@ -67,10 +67,10 @@ Reference vectors:
 python scripts/generate_reference_vectors.py
 ```
 
-ModelSim, from `03_memory_based_dv`:
+Executed portable flow, from the repository root:
 
-```bat
-modelsim\run_all_batch.bat
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run_project3.ps1
 ```
 
 A successful local run must show both markers for each scenario:
@@ -88,6 +88,6 @@ run_quartus_compile.bat
 
 ## Limitations
 
-- Commercial-tool execution evidence is not included because ModelSim and Quartus Prime Pro were unavailable during portfolio assembly.
-- The Python generator validates the reference model and committed vectors; it does not execute SystemVerilog.
+- The committed simulation evidence uses Icarus Verilog 13.0; no ModelSim/Questa PASS is claimed.
+- The Python generator validates the reference model and vectors, while the Icarus regression separately executes SystemVerilog.
 - Memory inference and timing depend on Quartus, device support, and the final Fit report.

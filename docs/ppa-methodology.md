@@ -2,7 +2,7 @@
 
 ## Comparison matrix
 
-![PPA comparison matrix](../assets/ppa/ppa_comparison_matrix.svg)
+![PPA comparison matrix](assets/en/ppa/ppa_comparison_matrix.svg)
 
 | Case | Architecture | DEPTH |
 |---|---|---:|
@@ -28,9 +28,8 @@ The collector looks for logic utilization/ALMs, registers, memory bits, memory b
 
 ## Current state
 
-Quartus Prime Pro is not available in the portfolio assembly environment. `PPA_results.csv` is therefore absent and `PPA_results_template.csv` remains blank. Numerical PPA results are pending.
+Quartus Prime Pro executables were not found on the verified Windows host. `PPA_results.csv` is therefore absent and `PPA_results_template.csv` remains blank. Numerical PPA status is **BLOCKED**; no values are estimated.
 
 ## Interpretation boundary
 
 The circular queue may update fewer storage bits per clock and may map to FPGA memory. Pointer/address logic can offset this at small depth. These are structural expectations only. Actual claims require Fit, Timing Analyzer, and Power Analyzer reports.
-

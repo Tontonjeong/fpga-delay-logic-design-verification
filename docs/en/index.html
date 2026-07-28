@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An FPGA RTL and digital-verification portfolio evolving programmable delay logic through shift-register, circular-queue, and memory-based designs with executed Icarus Verilog logs and VCD waveforms.">
+  <meta name="theme-color" content="#071020">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FPGA Programmable Delay Logic | RTL · PPA · DV">
+  <meta property="og:description" content="Projects 1–3 functional regression PASS · logs · VCD · waveforms · reproducible scripts">
+  <meta property="og:url" content="https://tontonjeong.github.io/fpga-delay-logic-design-verification/en/">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Tontonjeong/fpga-delay-logic-design-verification/main/assets/hero/github_social_preview.png">
+  <link rel="canonical" href="https://tontonjeong.github.io/fpga-delay-logic-design-verification/en/">
+  <link rel="alternate" hreflang="ko" href="https://tontonjeong.github.io/fpga-delay-logic-design-verification/">
+  <link rel="alternate" hreflang="en" href="https://tontonjeong.github.io/fpga-delay-logic-design-verification/en/">
+  <link rel="alternate" hreflang="x-default" href="https://tontonjeong.github.io/fpga-delay-logic-design-verification/">
+  <link rel="stylesheet" href="../assets/site.css">
+  <title>FPGA Programmable Delay Logic | Hyeongrok Ryu</title>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top"><span>FPGA</span> Delay Logic</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#architecture">Architecture</a>
+        <a href="#verification">Evidence</a>
+        <a href="#status">Validation</a>
+        <a class="button" href="../" lang="ko">한국어</a>
+        <a class="button" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div class="eyebrow">SystemVerilog · RTL Architecture · Digital Verification</div>
+        <h1>Programmable delay logic,<br>developed as verifiable architecture</h1>
+        <p class="lead">One delay contract is implemented as a shift register, circular queue, and memory-based DUT. The portfolio includes actual Icarus Verilog 13.0 regression logs, VCD files, and rendered waveforms—not only design descriptions.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#verification">Inspect executed evidence</a>
+          <a class="button" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/README.md">English README</a>
+        </div>
+        <div class="metrics" aria-label="Verification metrics">
+          <div class="metric"><strong>3 / 3 PASS</strong><span>project functional regressions</span></div>
+          <div class="metric"><strong>46</strong><span>Project 1–2 self-checks</span></div>
+          <div class="metric"><strong>3</strong><span>Project 3 file scenarios</span></div>
+          <div class="metric"><strong>13.0</strong><span>Icarus Verilog version</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Architecture Evolution</div><h2>Same function, different engineering questions</h2></div>
+          <p>Project 1 establishes data/valid alignment. Project 2 replaces whole-stage movement with one-slot writes. Project 3 adds repeatable file-driven stimulus and deterministic error reporting.</p>
+        </div>
+        <div class="panel visual">
+          <picture>
+            <source srcset="../assets/en/architecture/architecture_evolution.svg" type="image/svg+xml">
+            <img src="../assets/en/architecture/architecture_evolution.png" alt="Architecture evolution across three FPGA delay-logic projects" width="1440" height="620">
+          </picture>
+        </div>
+        <div class="grid-3" style="margin-top:1rem">
+          <article class="card"><span class="tag">Project 1 · Baseline</span><h3>Shift register</h3><p>Data and valid traverse equal depth; <code>iDelay-1</code> selects the historical transaction.</p><span class="status pass">Regression PASS</span></article>
+          <article class="card"><span class="tag">Project 2 · Scale</span><h3>Circular queue</h3><p><code>(write_ptr-iDelay) mod DEPTH</code> and one-slot writes preserve the delay behavior.</p><span class="status pass">Equivalence PASS</span></article>
+          <article class="card"><span class="tag">Project 3 · DV</span><h3>Memory-based verification</h3><p>Input Driver, DUT, and Output Checker compare data, valid, and final output count.</p><span class="status pass">3 scenarios PASS</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="designs">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Key RTL</div><h2>Structure and state policy</h2></div>
+          <p>Every implementation treats data and valid as one transaction. Memory-coded designs leave the data array unreset and use valid state to prevent stale data from becoming observable.</p>
+        </div>
+        <div class="grid-2">
+          <div class="panel visual"><picture><source srcset="../assets/en/architecture/shift_register_block.svg" type="image/svg+xml"><img src="../assets/en/architecture/shift_register_block.png" alt="Parallel data and valid shift-register paths" width="1200" height="610"></picture></div>
+          <div class="panel visual"><picture><source srcset="../assets/en/architecture/circular_queue_block.svg" type="image/svg+xml"><img src="../assets/en/architecture/circular_queue_block.png" alt="Circular queue write pointer and modulo read address" width="1200" height="680"></picture></div>
+          <div class="panel visual"><picture><source srcset="../assets/en/architecture/memory_delay_block.svg" type="image/svg+xml"><img src="../assets/en/architecture/memory_delay_block.png" alt="Memory-based programmable delay block diagram" width="1200" height="680"></picture></div>
+          <div class="panel visual"><picture><source srcset="../assets/en/verification/file_driven_dv_flow.svg" type="image/svg+xml"><img src="../assets/en/verification/file_driven_dv_flow.png" alt="File-driven Input Driver, DUT, and Output Checker flow" width="1400" height="720"></picture></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="verification">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Executed Evidence</div><h2>Waveforms rendered from actual runs</h2></div>
+          <p>These are not expected-waveform illustrations. They are rendered directly from VCD files generated by Icarus Verilog 13.0 while executing RTL and testbenches from commit <code>c356ade</code>.</p>
+        </div>
+        <div class="waveforms">
+          <figure class="panel visual dark"><img src="../assets/en/results/project1_waveform.png" alt="Project 1 shift-register regression PASS waveform" width="1500" height="722"><figcaption class="caption">Project 1 · fixed, sparse-valid, and dynamic-delay traffic · 20 checks PASS</figcaption></figure>
+          <figure class="panel visual dark"><img src="../assets/en/results/project2_waveform.png" alt="Project 2 shift-register and circular-queue equivalence PASS waveform" width="1500" height="878"><figcaption class="caption">Project 2 · shift register = circular queue = independent reference · 26 checks PASS</figcaption></figure>
+          <figure class="panel visual dark"><img src="../assets/en/results/project3_scenario3_waveform.png" alt="Project 3 file-driven delay 3 to 5 change and Checker PASS waveform" width="1500" height="722"><figcaption class="caption">Project 3 scenario 3 · delay 3→5 · 17 cycles, 14 valid outputs, Checker PASS</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="status">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Validation Matrix</div><h2>PASS and BLOCKED are separate states</h2></div>
+          <p>Functional simulation is labeled PASS only where an executed log exists. Synthesis and numerical PPA remain BLOCKED because Quartus was not installed on the verification host.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Project</th><th>RTL</th><th>Simulation</th><th>Synthesis</th><th>PPA</th></tr></thead>
+            <tbody>
+              <tr><td data-label="Project">1 · Shift Register</td><td data-label="RTL"><span class="status pass">Reviewed</span></td><td data-label="Simulation"><span class="status pass">PASS</span><br>Icarus 13.0 · 20 checks</td><td data-label="Synthesis"><span class="status blocked">BLOCKED</span><br>Quartus unavailable</td><td data-label="PPA"><span class="status na">N/A</span></td></tr>
+              <tr><td data-label="Project">2 · Circular Queue</td><td data-label="RTL"><span class="status pass">Reviewed</span></td><td data-label="Simulation"><span class="status pass">PASS</span><br>2 implementations + reference · 26 checks</td><td data-label="Synthesis"><span class="status blocked">BLOCKED</span><br>Quartus unavailable</td><td data-label="PPA"><span class="status blocked">BLOCKED</span><br>No Fit/Timing/Power reports</td></tr>
+              <tr><td data-label="Project">3 · Memory DV</td><td data-label="RTL"><span class="status pass">Reviewed</span></td><td data-label="Simulation"><span class="status pass">PASS</span><br>Scenarios 1–3 · Checker + Test PASS</td><td data-label="Synthesis"><span class="status blocked">BLOCKED</span><br>Quartus unavailable</td><td data-label="PPA"><span class="status na">N/A</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid-3" style="margin-top:1rem">
+          <article class="card"><span class="tag">Project 1 Evidence</span><h3>20 checks</h3><div class="evidence-list"><a href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/01_shift_register_baseline/results/project1_simulation.log">Simulation log</a><a href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/01_shift_register_baseline/results/project1_waveform.vcd">VCD</a></div></article>
+          <article class="card"><span class="tag">Project 2 Evidence</span><h3>26 checks</h3><div class="evidence-list"><a href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/02_circular_queue_ppa/results/project2_simulation.log">Equivalence log</a><a href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/02_circular_queue_ppa/results/project2_waveform.vcd">VCD</a></div></article>
+          <article class="card"><span class="tag">Project 3 Evidence</span><h3>3 scenarios</h3><div class="evidence-list"><a href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/tree/main/03_memory_based_dv/results">Logs + VCD</a><a href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/results/verification_summary.json">Evidence manifest</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ppa">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">PPA Boundary</div><h2>Method prepared, numbers not claimed</h2></div>
+          <p>Four DEPTH 10/100 projects share device, clock, optimization, virtual-pin, and toggle assumptions. Without Quartus Fit, Timing, and Power reports, no area, Fmax, or power advantage is published.</p>
+        </div>
+        <div class="panel visual"><picture><source srcset="../assets/en/ppa/ppa_comparison_matrix.svg" type="image/svg+xml"><img src="../assets/en/ppa/ppa_comparison_matrix.png" alt="Four-case PPA method and BLOCKED numerical status" width="1200" height="650"></picture></div>
+        <p class="note"><strong>Numerical PPA: BLOCKED.</strong> The host scan found no <code>quartus_sh</code>, <code>quartus_fit</code>, <code>quartus_sta</code>, or <code>quartus_pow</code>. Blank CSV cells were not visualized and estimates were not fabricated.</p>
+      </div>
+    </section>
+
+    <section id="reproduce">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Reproducibility</div><h2>One command reruns all three projects</h2></div>
+          <p>On Windows with PowerShell and Icarus Verilog 13.0, this command rebuilds the logs, VCD files, and JSON evidence manifest.</p>
+        </div>
+        <pre class="repro"><code>powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run_all_verification.ps1</code></pre>
+        <div class="hero-actions"><a class="button" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/results/verification_summary.txt">Verification summary</a><a class="button" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/docs/reproducibility.md">Reproduction guide</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>Hyeongrok Ryu · FPGA / RTL / Digital Verification Portfolio</div>
+      <div>Verified 2026-07-29 · source commit <code>c356ade</code></div>
+    </div>
+  </footer>
+</body>
+</html>

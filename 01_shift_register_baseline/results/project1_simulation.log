@@ -1,0 +1,5 @@
+$ D:\msys64\ucrt64\bin\vvp.exe build\project1_regression.vvp
+VCD info: dumpfile results/project1_waveform.vcd opened for output.
+[P1][PASS] checks=20 errors=0
+
+[exit_code=0]

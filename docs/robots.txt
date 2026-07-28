@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tontonjeong.github.io/fpga-delay-logic-design-verification/sitemap.xml

@@ -12,7 +12,11 @@ def executable(name: str) -> str | None:
     found = shutil.which(name)
     if found:
         return found
-    for root in (Path(r"D:\msys64\ucrt64\bin"), Path(r"C:\msys64\ucrt64\bin")):
+    roots = []
+    if os.environ.get("MSYS2_ROOT"):
+        roots.append(Path(os.environ["MSYS2_ROOT"]) / "ucrt64/bin")
+    roots.extend(Path(f"{drive}:/") / "msys64/ucrt64/bin" for drive in "CDE")
+    for root in roots:
         candidate = root / f"{name}.exe"
         if candidate.exists():
             return str(candidate)
@@ -39,7 +43,9 @@ def run_logged(
         env=environment,
     )
     log_path.parent.mkdir(parents=True, exist_ok=True)
-    log_path.write_text(done.stdout, encoding="utf-8")
+    command_text = subprocess.list2cmdline(command)
+    log_text = f"$ {command_text}\n{done.stdout}\n[exit_code={done.returncode}]\n"
+    log_path.write_text(log_text, encoding="utf-8")
     print(done.stdout, end="")
     if done.returncode:
         raise RuntimeError(f"exit {done.returncode}; see {log_path}")

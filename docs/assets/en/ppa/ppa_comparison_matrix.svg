@@ -23,7 +23,7 @@
     <rect x="58" y="520" width="1084" height="82" rx="16" fill="#FFFFFF" stroke="#D5DDED" stroke-width="2"/>
     <text x="600" y="553" fill="#0B1531" font-size="17" font-weight="700" text-anchor="middle">Common setup: Agilex 5 A5ED065BB32AE6SR0 · 100 MHz · BALANCED · Virtual Pins</text>
     <text x="600" y="582" fill="#53617D" font-size="16" text-anchor="middle">Vectorless Power Analyzer · 12.5% toggle assumption · ALM / Registers / Memory / Fmax / Power</text>
-    <text x="600" y="628" fill="#A86500" font-size="16" font-weight="700" text-anchor="middle">Method configured; numerical Quartus results pending. This is not a result chart.</text>
+    <text x="600" y="628" fill="#A86500" font-size="16" font-weight="700" text-anchor="middle">Workflow configured · Quartus unavailable on verification host · Numerical PPA BLOCKED</text>
   </g>
 </svg>
 

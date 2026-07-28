@@ -1,0 +1,9 @@
+FPGA Delay Logic - Verification Evidence
+Generated: 2026-07-29T00:39:16.958405+09:00
+Commit tested: c356ade3998e36a76255b573aa9f93bbf274be3e
+Simulator: Icarus Verilog version 13.0 (stable) (v13_0)
+Project 1: PASS (20 checks)
+Project 2: PASS (26 checks)
+Project 3: PASS (3 scenarios)
+Synthesis: BLOCKED (Quartus not installed)
+Numerical PPA: BLOCKED (Fit/Timing/Power reports unavailable)

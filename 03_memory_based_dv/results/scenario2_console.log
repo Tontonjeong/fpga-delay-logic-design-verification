@@ -1,0 +1,14 @@
+$ D:\msys64\ucrt64\bin\vvp.exe build\project3_regression.vvp +SCENARIO=2 +DUMP_VCD
+[INPUT DRIVER] Loaded 9 input cycles from vectors/scenario2/Input.txt
+[INPUT DRIVER] Initial iDelay=5, scheduled changes=0
+[CHECKER] Loaded 14 reference cycles, valid outputs=4
+============================================================
+ Project 3: Memory Based Delay Logic Verification
+ Scenario 2
+============================================================
+VCD info: dumpfile results/memory_delay_logic.vcd opened for output.
+[CHECKER][PASS] Scenario 2: 14 cycles, 4 valid outputs
+[TEST PASS] Scenario 2 completed without errors
+tb/tb_memory_delay_logic.sv:88: $finish called at 166000 (1ps)
+
+[exit_code=0]

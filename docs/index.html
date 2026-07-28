@@ -1,170 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="FPGA programmable delay logic portfolio covering RTL architecture, a circular-queue PPA workflow, and memory-based file-driven verification.">
-  <meta name="theme-color" content="#081225">
-  <meta property="og:title" content="FPGA Programmable Delay Logic">
-  <meta property="og:description" content="Shift Register → Circular Queue → Memory-Based File-Driven Verification">
+  <meta name="description" content="프로그래머블 지연 로직을 시프트 레지스터, 순환 큐, 메모리 기반 파일 검증으로 발전시킨 FPGA RTL·DV 포트폴리오입니다. Icarus Verilog 13.0 실제 회귀 로그와 VCD 파형을 제공합니다.">
+  <meta name="theme-color" content="#071020">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FPGA 프로그래머블 지연 로직 | RTL · PPA · DV">
+  <meta property="og:description" content="Project 1–3 실제 기능 회귀 PASS · 로그 · VCD · 한글 파형 · 재현 스크립트">
+  <meta property="og:url" content="https://tontonjeong.github.io/fpga-delay-logic-design-verification/">
   <meta property="og:image" content="https://raw.githubusercontent.com/Tontonjeong/fpga-delay-logic-design-verification/main/assets/hero/github_social_preview.png">
-  <title>FPGA Programmable Delay Logic | Hyeongrok Ryu</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      --ink: #eef2ff;
-      --muted: #aeb9d5;
-      --bg: #071020;
-      --surface: #111a30;
-      --surface-2: #17223c;
-      --line: #2e3b5d;
-      --cyan: #4cc9f0;
-      --violet: #a58bfa;
-      --mint: #38dcc9;
-      --amber: #f7b84b;
-      --max: 1160px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at 78% 12%, rgba(139,92,246,.17), transparent 34rem),
-        radial-gradient(circle at 15% 42%, rgba(76,201,240,.10), transparent 31rem),
-        var(--bg);
-      color: var(--ink);
-      font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
-      line-height: 1.65;
-    }
-    a { color: inherit; }
-    img { display: block; max-width: 100%; }
-    .skip {
-      position: absolute; left: -9999px; top: 0;
-      background: var(--cyan); color: #071020; padding: .75rem 1rem; z-index: 20;
-    }
-    .skip:focus { left: 1rem; top: 1rem; }
-    .wrap { width: min(calc(100% - 2.4rem), var(--max)); margin-inline: auto; }
-    .nav {
-      position: sticky; top: 0; z-index: 10;
-      backdrop-filter: blur(18px);
-      background: rgba(7,16,32,.78);
-      border-bottom: 1px solid rgba(174,185,213,.15);
-    }
-    .nav-inner {
-      min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-    }
-    .brand { text-decoration: none; font-weight: 750; letter-spacing: -.02em; }
-    .brand span { color: var(--cyan); }
-    .nav-links { display: flex; align-items: center; gap: 1.2rem; font-size: .92rem; color: var(--muted); }
-    .nav-links a { text-decoration: none; }
-    .nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); }
-    .button {
-      display: inline-flex; align-items: center; justify-content: center;
-      min-height: 44px; padding: .68rem 1rem; border-radius: 10px;
-      border: 1px solid var(--line); background: var(--surface-2);
-      text-decoration: none; font-weight: 700;
-    }
-    .button.primary { border-color: transparent; background: var(--cyan); color: #071020; }
-    .hero { padding: 5.8rem 0 3.4rem; }
-    .eyebrow {
-      color: var(--cyan); text-transform: uppercase; letter-spacing: .16em;
-      font-size: .78rem; font-weight: 800;
-    }
-    h1, h2, h3 { line-height: 1.14; letter-spacing: -.035em; margin: 0; }
-    h1 { font-size: clamp(3rem, 7vw, 6.4rem); max-width: 930px; margin-top: 1rem; }
-    h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
-    h3 { font-size: 1.32rem; }
-    .lead {
-      max-width: 780px; margin: 1.45rem 0 0; color: var(--muted);
-      font-size: clamp(1.06rem, 2vw, 1.3rem);
-    }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
-    .metrics {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: .9rem; margin-top: 3.4rem;
-    }
-    .metric {
-      min-height: 118px; padding: 1.2rem; border: 1px solid var(--line);
-      border-radius: 16px; background: linear-gradient(160deg, rgba(23,34,60,.9), rgba(12,22,42,.75));
-    }
-    .metric strong { display: block; font-size: 1.75rem; color: var(--ink); }
-    .metric span { color: var(--muted); font-size: .9rem; }
-    section { padding: 5rem 0; }
-    .section-head { display: grid; grid-template-columns: .78fr 1.22fr; gap: 3rem; align-items: end; margin-bottom: 2.4rem; }
-    .section-head p { margin: 0; color: var(--muted); }
-    .panel {
-      border: 1px solid var(--line); border-radius: 22px; background: rgba(17,26,48,.86);
-      box-shadow: 0 22px 65px rgba(0,0,0,.16); overflow: hidden;
-    }
-    .visual { padding: 1rem; background: #f6f8fc; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .card { padding: 1.55rem; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
-    .card .tag {
-      display: inline-block; margin-bottom: 1rem; color: var(--cyan);
-      font-size: .76rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase;
-    }
-    .card:nth-child(2) .tag { color: var(--violet); }
-    .card:nth-child(3) .tag { color: var(--mint); }
-    .card p, .card li { color: var(--muted); }
-    .card ul { padding-left: 1.1rem; margin-bottom: 0; }
-    .card a { display: inline-block; margin-top: .8rem; color: var(--ink); font-weight: 700; }
-    .featured {
-      display: grid; grid-template-columns: .9fr 1.1fr; gap: 1rem;
-    }
-    .featured-copy { padding: 2rem; }
-    .featured-copy p { color: var(--muted); }
-    .state {
-      display: inline-flex; gap: .45rem; align-items: center; margin-top: .6rem;
-      border: 1px solid rgba(56,220,201,.45); border-radius: 999px;
-      padding: .35rem .7rem; color: var(--mint); font-size: .82rem; font-weight: 750;
-    }
-    .state::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: currentColor; }
-    .checks { display: grid; gap: .65rem; margin-top: 1.2rem; }
-    .check {
-      display: flex; justify-content: space-between; gap: 1rem; padding: .75rem 0;
-      border-bottom: 1px solid rgba(174,185,213,.14); color: var(--muted);
-    }
-    .check strong { color: var(--ink); }
-    .method { display: grid; grid-template-columns: 1.1fr .9fr; gap: 1rem; }
-    .note { padding: 1.5rem; border-left: 4px solid var(--amber); background: rgba(247,184,75,.08); color: var(--muted); }
-    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; }
-    table { border-collapse: collapse; width: 100%; min-width: 760px; background: var(--surface); }
-    th, td { padding: 1rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-    th { color: var(--muted); font-size: .76rem; text-transform: uppercase; letter-spacing: .08em; }
-    td { font-size: .94rem; }
-    .pending { color: var(--amber); font-weight: 700; }
-    .validated { color: var(--mint); font-weight: 700; }
-    .footer { padding: 3rem 0 4rem; border-top: 1px solid var(--line); color: var(--muted); }
-    .footer-inner { display: flex; justify-content: space-between; gap: 2rem; }
-    code { color: #c9d5ff; font-family: "Cascadia Code", Consolas, monospace; }
-    @media (max-width: 850px) {
-      .nav-links a:not(.button) { display: none; }
-      .metrics { grid-template-columns: repeat(2, 1fr); }
-      .section-head, .featured, .method { grid-template-columns: 1fr; }
-      .grid-3 { grid-template-columns: 1fr; }
-      .section-head { gap: 1rem; }
-    }
-    @media (max-width: 520px) {
-      .wrap { width: min(calc(100% - 1.4rem), var(--max)); }
-      .hero { padding-top: 4rem; }
-      .metrics { grid-template-columns: 1fr 1fr; }
-      .metric { min-height: 102px; padding: 1rem; }
-      section { padding: 3.8rem 0; }
-      .footer-inner { display: block; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  </style>
+  <link rel="canonical" href="https://tontonjeong.github.io/fpga-delay-logic-design-verification/">
+  <link rel="alternate" hreflang="ko" href="https://tontonjeong.github.io/fpga-delay-logic-design-verification/">
+  <link rel="alternate" hreflang="en" href="https://tontonjeong.github.io/fpga-delay-logic-design-verification/en/">
+  <link rel="alternate" hreflang="x-default" href="https://tontonjeong.github.io/fpga-delay-logic-design-verification/">
+  <link rel="stylesheet" href="assets/site.css">
+  <title>FPGA 프로그래머블 지연 로직 | 류형록</title>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main">본문으로 이동</a>
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top"><span>FPGA</span> Delay Logic</a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#evolution">Evolution</a>
-        <a href="#featured">Featured DV</a>
-        <a href="#ppa">PPA</a>
-        <a href="#validation">Validation</a>
-        <a class="button" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification">Repository</a>
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="#architecture">아키텍처</a>
+        <a href="#verification">실행 근거</a>
+        <a href="#status">검증 표</a>
+        <a class="button" href="en/" lang="en">English</a>
+        <a class="button" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification">GitHub</a>
       </nav>
     </div>
   </header>
@@ -172,81 +35,133 @@
   <main id="main">
     <section class="hero" id="top">
       <div class="wrap">
-        <div class="eyebrow">SystemVerilog · Quartus Prime · ModelSim · Python</div>
-        <h1>FPGA Programmable Delay Logic</h1>
-        <p class="lead">One delay contract developed through RTL baseline design, circular-addressed architecture and PPA automation, then a file-driven self-checking verification environment.</p>
+        <div class="eyebrow">SystemVerilog · RTL Architecture · Digital Verification</div>
+        <h1>FPGA 지연 로직을<br>검증 가능한 구조로</h1>
+        <p class="lead">동일한 지연 규약을 시프트 레지스터, 순환 큐, 메모리 기반 DUT로 전개했습니다. 설계 설명에 그치지 않고 Icarus Verilog 13.0으로 세 프로젝트를 실제 실행해 로그, VCD, 파형 PNG를 함께 공개합니다.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#featured">View featured case study</a>
-          <a class="button" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/README.ko.md">한국어 README</a>
+          <a class="button primary" href="#verification">실행 근거 보기</a>
+          <a class="button" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/README.ko.md">한글 README</a>
         </div>
-        <div class="metrics" aria-label="Project metrics">
-          <div class="metric"><strong>3</strong><span>architecture stages</span></div>
-          <div class="metric"><strong>3</strong><span>verification scenarios</span></div>
-          <div class="metric"><strong>4</strong><span>PPA configurations</span></div>
-          <div class="metric"><strong>100 MHz</strong><span>design constraint</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="overview">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow">Overview</div><h2>A portfolio built around evidence</h2></div>
-          <p>Structural expectations, Python reference consistency, ModelSim execution, and Quartus analysis are reported as separate states. No missing commercial-tool result is replaced with a guess.</p>
-        </div>
-        <div class="grid-3">
-          <article class="card">
-            <span class="tag">RTL foundation</span>
-            <h3>Data / valid alignment</h3>
-            <p>Parallel storage paths maintain transactional timing while a runtime delay selects the historical sample.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Architecture</span>
-            <h3>Circular addressing</h3>
-            <p>A single write slot, pointer wrap and modulo read address replace whole-stage movement.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Digital verification</span>
-            <h3>Deterministic checking</h3>
-            <p>Tagged vectors drive scenarios; the Checker validates data, valid and final output count.</p>
-          </article>
+        <div class="metrics" aria-label="핵심 검증 수치">
+          <div class="metric"><strong>3 / 3 PASS</strong><span>프로젝트 기능 회귀</span></div>
+          <div class="metric"><strong>46</strong><span>Project 1·2 self-check</span></div>
+          <div class="metric"><strong>3</strong><span>Project 3 파일 시나리오</span></div>
+          <div class="metric"><strong>13.0</strong><span>Icarus Verilog 버전</span></div>
         </div>
       </div>
     </section>
 
-    <section id="evolution">
+    <section id="architecture">
       <div class="wrap">
         <div class="section-head">
-          <div><div class="eyebrow">Architecture Evolution</div><h2>One problem, three questions</h2></div>
-          <p>The sequence moves from cycle correctness, to architectural scale, to repeatable verification without changing the underlying delay intent.</p>
+          <div><div class="eyebrow">Architecture Evolution</div><h2>같은 기능, 다른 설계 질문</h2></div>
+          <p>Project 1은 데이터/valid 정렬을, Project 2는 전체 stage 이동을 한 슬롯 갱신으로 바꾸는 확장성을, Project 3은 파일 기반 반복 검증과 결정적 오류 보고를 다룹니다.</p>
         </div>
         <div class="panel visual">
-          <img src="assets/architecture/architecture_evolution.svg" alt="Shift Register Baseline leads to Circular Queue and PPA, then Memory-Based File-Driven Verification">
+          <picture>
+            <source srcset="assets/ko/architecture/architecture_evolution.svg" type="image/svg+xml">
+            <img src="assets/ko/architecture/architecture_evolution.png" alt="세 프로젝트의 아키텍처 발전 과정" width="1440" height="620">
+          </picture>
+        </div>
+        <div class="grid-3" style="margin-top:1rem">
+          <article class="card">
+            <span class="tag">Project 1 · Baseline</span>
+            <h3>시프트 레지스터</h3>
+            <p>데이터와 valid를 같은 깊이로 이동시키고 <code>iDelay-1</code> 탭을 선택합니다.</p>
+            <span class="status pass">기능 회귀 PASS</span>
+          </article>
+          <article class="card">
+            <span class="tag">Project 2 · Scale</span>
+            <h3>순환 큐</h3>
+            <p><code>(write_ptr-iDelay) mod DEPTH</code> 주소와 한 슬롯 쓰기로 동일 동작을 구현합니다.</p>
+            <span class="status pass">등가성 PASS</span>
+          </article>
+          <article class="card">
+            <span class="tag">Project 3 · DV</span>
+            <h3>메모리 기반 검증</h3>
+            <p>Input Driver, DUT, Output Checker를 분리하고 데이터·valid·출력 개수를 비교합니다.</p>
+            <span class="status pass">3 시나리오 PASS</span>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="featured">
+    <section id="designs">
       <div class="wrap">
         <div class="section-head">
-          <div><div class="eyebrow">Featured Project</div><h2>Memory-Based File-Driven DV</h2></div>
-          <p>The strongest case study combines a memory-coded DUT, scenario parser, dynamic delay events, cycle comparison, count comparison and deterministic error reporting.</p>
+          <div><div class="eyebrow">Key RTL</div><h2>구조와 상태 정책</h2></div>
+          <p>모든 저장 구조는 데이터와 valid를 하나의 transaction으로 취급합니다. 메모리형 구현은 data array를 리셋하지 않고 valid state로 stale data의 관측을 막습니다.</p>
         </div>
-        <div class="featured">
-          <div class="panel visual">
-            <img src="assets/verification/file_driven_dv_flow.svg" alt="Input.txt and register.txt feed the Input Driver, DUT outputs feed the Checker, and output.txt provides expected data and valid values">
-          </div>
-          <article class="panel featured-copy">
-            <span class="state">Reference vectors validated</span>
-            <h3 style="margin-top:1.2rem">Three scenarios, explicit verdict boundaries</h3>
-            <p>Project 3 holds the last valid <code>oData</code> when <code>oDataEn=0</code>, matching the authored sparse-valid reference sequence. Projects 1 and 2 instead force invalid data to zero.</p>
-            <div class="checks">
-              <div class="check"><span>Scenario 1 · reset / delay 3</span><strong>8 cycles · 5 valid</strong></div>
-              <div class="check"><span>Scenario 2 · sparse enable</span><strong>14 cycles · 4 valid</strong></div>
-              <div class="check"><span>Scenario 3 · delay 3→5</span><strong>17 cycles · 14 valid</strong></div>
-            </div>
-            <a class="button" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/tree/main/03_memory_based_dv">Read Project 3 source</a>
-          </article>
+        <div class="grid-2">
+          <div class="panel visual"><picture><source srcset="assets/ko/architecture/shift_register_block.svg" type="image/svg+xml"><img src="assets/ko/architecture/shift_register_block.png" alt="시프트 레지스터 데이터와 valid 병렬 경로" width="1200" height="610"></picture></div>
+          <div class="panel visual"><picture><source srcset="assets/ko/architecture/circular_queue_block.svg" type="image/svg+xml"><img src="assets/ko/architecture/circular_queue_block.png" alt="순환 큐 쓰기 포인터와 읽기 주소 구조" width="1200" height="680"></picture></div>
+          <div class="panel visual"><picture><source srcset="assets/ko/architecture/memory_delay_block.svg" type="image/svg+xml"><img src="assets/ko/architecture/memory_delay_block.png" alt="메모리 기반 지연 로직 블록도" width="1200" height="680"></picture></div>
+          <div class="panel visual"><picture><source srcset="assets/ko/verification/file_driven_dv_flow.svg" type="image/svg+xml"><img src="assets/ko/verification/file_driven_dv_flow.png" alt="파일 기반 Input Driver DUT Output Checker 검증 흐름" width="1400" height="720"></picture></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="verification">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Executed Evidence</div><h2>실행 로그에서 만든 파형</h2></div>
+          <p>아래 그림은 예상 파형이 아닙니다. 커밋 <code>c356ade</code>의 RTL/TB를 Icarus Verilog 13.0으로 실행해 생성한 VCD에서 직접 렌더링했습니다.</p>
+        </div>
+        <div class="waveforms">
+          <figure class="panel visual dark">
+            <img src="assets/ko/results/project1_waveform.png" alt="Project 1 시프트 레지스터 회귀 PASS 파형" width="1500" height="722">
+            <figcaption class="caption">Project 1 · 고정/희소 valid/동적 delay · 20개 self-check PASS</figcaption>
+          </figure>
+          <figure class="panel visual dark">
+            <img src="assets/ko/results/project2_waveform.png" alt="Project 2 시프트 레지스터와 순환 큐 등가성 PASS 파형" width="1500" height="878">
+            <figcaption class="caption">Project 2 · 시프트 레지스터 = 순환 큐 = 독립 참조 모델 · 26개 체크 PASS</figcaption>
+          </figure>
+          <figure class="panel visual dark">
+            <img src="assets/ko/results/project3_scenario3_waveform.png" alt="Project 3 delay가 3에서 5로 바뀌는 파일 기반 검증 PASS 파형" width="1500" height="722">
+            <figcaption class="caption">Project 3 시나리오 3 · delay 3→5 · 17사이클 비교, 14 valid 출력, Checker PASS</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="status">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Validation Matrix</div><h2>PASS와 BLOCKED를 분리</h2></div>
+          <p>기능 시뮬레이션은 실제 실행 결과로 PASS를 표시합니다. Quartus가 없는 호스트에서 합성·수치 PPA를 실행한 것처럼 표시하지 않고 BLOCKED로 명시합니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Project</th><th>RTL</th><th>Simulation</th><th>Synthesis</th><th>PPA</th></tr></thead>
+            <tbody>
+              <tr>
+                <td data-label="Project">1 · Shift Register</td>
+                <td data-label="RTL"><span class="status pass">검토 완료</span></td>
+                <td data-label="Simulation"><span class="status pass">PASS</span><br>Icarus 13.0 · 20 checks</td>
+                <td data-label="Synthesis"><span class="status blocked">BLOCKED</span><br>Quartus 미설치</td>
+                <td data-label="PPA"><span class="status na">N/A</span></td>
+              </tr>
+              <tr>
+                <td data-label="Project">2 · Circular Queue</td>
+                <td data-label="RTL"><span class="status pass">검토 완료</span></td>
+                <td data-label="Simulation"><span class="status pass">PASS</span><br>두 구현 + 참조 모델 · 26 checks</td>
+                <td data-label="Synthesis"><span class="status blocked">BLOCKED</span><br>Quartus 미설치</td>
+                <td data-label="PPA"><span class="status blocked">BLOCKED</span><br>Fit/Timing/Power 보고서 없음</td>
+              </tr>
+              <tr>
+                <td data-label="Project">3 · Memory DV</td>
+                <td data-label="RTL"><span class="status pass">검토 완료</span></td>
+                <td data-label="Simulation"><span class="status pass">PASS</span><br>시나리오 1–3 · Checker + Test PASS</td>
+                <td data-label="Synthesis"><span class="status blocked">BLOCKED</span><br>Quartus 미설치</td>
+                <td data-label="PPA"><span class="status na">N/A</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid-3" style="margin-top:1rem">
+          <article class="card"><span class="tag">Project 1 Evidence</span><h3>20 checks</h3><div class="evidence-list"><a href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/01_shift_register_baseline/results/project1_simulation.log">Simulation log</a><a href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/01_shift_register_baseline/results/project1_waveform.vcd">VCD</a></div></article>
+          <article class="card"><span class="tag">Project 2 Evidence</span><h3>26 checks</h3><div class="evidence-list"><a href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/02_circular_queue_ppa/results/project2_simulation.log">Equivalence log</a><a href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/02_circular_queue_ppa/results/project2_waveform.vcd">VCD</a></div></article>
+          <article class="card"><span class="tag">Project 3 Evidence</span><h3>3 scenarios</h3><div class="evidence-list"><a href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/tree/main/03_memory_based_dv/results">Logs + VCD</a><a href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/results/verification_summary.json">Evidence manifest</a></div></article>
         </div>
       </div>
     </section>
@@ -254,85 +169,33 @@
     <section id="ppa">
       <div class="wrap">
         <div class="section-head">
-          <div><div class="eyebrow">PPA Study</div><h2>Four controlled configurations</h2></div>
-          <p>Shift Register and Circular Queue are prepared at DEPTH 10 and 100 using the same target, clock, optimization mode, virtual-pin policy and vectorless toggle assumptions.</p>
+          <div><div class="eyebrow">PPA Boundary</div><h2>방법은 준비, 수치는 미주장</h2></div>
+          <p>DEPTH 10/100, 동일 device·clock·optimization·virtual pin·toggle 가정으로 4개 프로젝트를 구성했습니다. 하지만 Quartus Fit/Timing/Power 보고서가 없으므로 면적·Fmax·전력 우위 수치는 공개하지 않습니다.</p>
         </div>
-        <div class="method">
-          <div class="panel visual">
-            <img src="assets/ppa/ppa_comparison_matrix.svg" alt="Method-only four-case PPA comparison matrix with numerical results pending">
-          </div>
-          <div class="note">
-            <h3>Numerical results pending</h3>
-            <p>Quartus Prime Pro was not available in the assembly environment. The public flow includes four projects, report collection and a chart generator that refuses blank data.</p>
-            <p><strong>No ALM, Fmax, power or reduction percentage is inferred.</strong> Vectorless power would be an estimate, not measured board power.</p>
-            <a class="button" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/docs/ppa-methodology.md">PPA methodology</a>
-          </div>
-        </div>
+        <div class="panel visual"><picture><source srcset="assets/ko/ppa/ppa_comparison_matrix.svg" type="image/svg+xml"><img src="assets/ko/ppa/ppa_comparison_matrix.png" alt="4개 구성 PPA 비교 방법과 BLOCKED 상태" width="1200" height="650"></picture></div>
+        <p class="note"><strong>수치 PPA: BLOCKED.</strong> 대상 호스트에서 <code>quartus_sh</code>, <code>quartus_fit</code>, <code>quartus_sta</code>, <code>quartus_pow</code>를 찾지 못했습니다. 빈 CSV를 결과처럼 시각화하거나 추정치를 만들지 않았습니다.</p>
       </div>
     </section>
 
-    <section id="baseline">
+    <section id="reproduce">
       <div class="wrap">
         <div class="section-head">
-          <div><div class="eyebrow">Baseline</div><h2>Shift-register timing made visible</h2></div>
-          <p>Data and valid move through identical stage depth, and <code>iDelay=N</code> selects index <code>N-1</code>. The baseline uses manual expected-waveform review by design.</p>
+          <div><div class="eyebrow">Reproducibility</div><h2>한 명령으로 재실행</h2></div>
+          <p>Windows PowerShell과 Icarus Verilog 13.0 환경에서 세 프로젝트를 컴파일·실행하고 로그, VCD, JSON manifest를 다시 생성합니다.</p>
         </div>
-        <div class="panel visual">
-          <img src="assets/architecture/shift_register_block.svg" alt="Parallel data and valid shift-register paths selected by iDelay">
+        <pre class="repro"><code>powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run_all_verification.ps1</code></pre>
+        <div class="hero-actions">
+          <a class="button" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/results/verification_summary.txt">검증 요약</a>
+          <a class="button" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/docs/reproducibility.md">재현 문서</a>
         </div>
-      </div>
-    </section>
-
-    <section id="validation">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow">Verification Evidence</div><h2>Status without overclaiming</h2></div>
-          <p>The labels below distinguish source availability, reference consistency, actual simulation, synthesis and numerical PPA.</p>
-        </div>
-        <div class="table-wrap" role="region" aria-label="Validation status" tabindex="0">
-          <table>
-            <thead>
-              <tr><th>Project</th><th>RTL Source</th><th>Simulation</th><th>Synthesis</th><th>PPA</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>1 · Shift Register</td><td>Available</td><td class="pending">Not rerun</td><td class="pending">Not rerun</td><td>N/A</td></tr>
-              <tr><td>2 · Circular Queue</td><td>Available</td><td class="pending">Not rerun</td><td class="pending">Not rerun</td><td class="pending">Automation ready; numbers pending</td></tr>
-              <tr><td>3 · Memory DV</td><td>Available</td><td class="pending">ModelSim not run</td><td class="pending">Not rerun</td><td>N/A</td></tr>
-              <tr><td>3 · Reference model</td><td>Python model</td><td class="validated">3 scenarios validated</td><td>N/A</td><td>N/A</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section id="limitations">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow">Limitations</div><h2>What the evidence does not say</h2></div>
-          <p>Expected waveforms are not ModelSim captures. Reference PASS is not DUT PASS. Configured Quartus projects are not compilation reports. Vectorless estimation is not measured board power.</p>
-        </div>
-        <div class="grid-3">
-          <article class="card"><span class="tag">Simulation</span><h3>Licensed local tool required</h3><p>Project 3 needs both <code>[CHECKER][PASS]</code> and <code>[TEST PASS]</code> from an actual ModelSim run.</p></article>
-          <article class="card"><span class="tag">PPA</span><h3>Reports determine the result</h3><p>Fit, Timing Analyzer and Power Analyzer reports are the required basis for any advantage claim.</p></article>
-          <article class="card"><span class="tag">Public scope</span><h3>Source packages excluded</h3><p>Original ZIP/DOCX files, course material, local databases and private links are not published.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="repository">
-      <div class="wrap panel featured-copy" style="text-align:center">
-        <div class="eyebrow">Source and Reproduction</div>
-        <h2 style="margin-top:.8rem">Inspect the RTL, vectors and workflows</h2>
-        <p style="max-width:720px;margin:1rem auto 1.7rem;color:var(--muted)">The repository contains the three project directories, architectural diagrams, evidence matrix, local tool commands and open CI checks.</p>
-        <a class="button primary" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification">Open GitHub repository</a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="wrap footer-inner">
-      <div><strong style="color:var(--ink)">Hyeongrok Ryu · 류형록</strong><br>Academic FPGA RTL Design and Verification Project</div>
-      <div>SystemVerilog · Quartus Prime · ModelSim · Python</div>
+      <div>류형록 · FPGA / RTL / Digital Verification Portfolio</div>
+      <div>검증일 2026-07-29 · source commit <code>c356ade</code></div>
     </div>
   </footer>
 </body>

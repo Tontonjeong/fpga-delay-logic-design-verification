@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="620" viewBox="0 0 1440 620" role="img" aria-labelledby="title desc">
+  <title id="title">아키텍처 발전 과정</title>
+  <desc id="desc">시프트 레지스터 기준 설계에서 순환 큐 PPA 흐름과 메모리 기반 파일 검증으로 발전합니다.</desc>
+  <rect width="1440" height="620" rx="24" fill="#F5F7FC"/>
+  <text x="70" y="82" fill="#0B1531" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="38" font-weight="750">아키텍처 발전 과정</text>
+  <text x="70" y="119" fill="#53617D" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="18">하나의 지연 규약, 세 가지 엔지니어링 질문</text>
+  <path d="M220 302H1220" stroke="#CAD2E7" stroke-width="8" stroke-linecap="round"/>
+  <g font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+    <circle cx="230" cy="302" r="25" fill="#4CC9F0"/>
+    <circle cx="720" cy="302" r="25" fill="#8B5CF6"/>
+    <circle cx="1210" cy="302" r="25" fill="#2DD4BF"/>
+    <rect x="70" y="170" width="320" height="112" rx="18" fill="#E7F7FC" stroke="#36AEDA" stroke-width="2"/>
+    <text x="94" y="208" fill="#167B9E" font-size="15" font-weight="700">01 · 기준 RTL</text>
+    <text x="94" y="244" fill="#0B1531" font-size="25" font-weight="750">시프트 레지스터</text>
+    <rect x="560" y="170" width="320" height="112" rx="18" fill="#F0EBFF" stroke="#8B5CF6" stroke-width="2"/>
+    <text x="584" y="208" fill="#6C42D9" font-size="15" font-weight="700">02 · 확장성 / PPA</text>
+    <text x="584" y="244" fill="#0B1531" font-size="25" font-weight="750">순환 큐</text>
+    <rect x="1050" y="170" width="320" height="112" rx="18" fill="#E5FAF6" stroke="#18A991" stroke-width="2"/>
+    <text x="1074" y="208" fill="#0D826F" font-size="15" font-weight="700">03 · 핵심 DV</text>
+    <text x="1074" y="244" fill="#0B1531" font-size="25" font-weight="750">메모리 기반</text>
+    <text x="1074" y="269" fill="#0B1531" font-size="18" font-weight="650">Driver + Checker</text>
+
+    <rect x="70" y="340" width="320" height="188" rx="18" fill="#FFFFFF" stroke="#D5DDED"/>
+    <text x="94" y="379" fill="#0B1531" font-size="19" font-weight="700">질문</text>
+    <text x="94" y="411" fill="#53617D" font-size="17">선택한 탭에서 데이터와 valid를</text>
+    <text x="94" y="437" fill="#53617D" font-size="17">어떻게 같은 사이클로 정렬하는가?</text>
+    <text x="94" y="478" fill="#0B1531" font-size="19" font-weight="700">근거</text>
+    <text x="94" y="507" fill="#53617D" font-size="17">Icarus 회귀 · 20개 체크 PASS</text>
+
+    <rect x="560" y="340" width="320" height="188" rx="18" fill="#FFFFFF" stroke="#D5DDED"/>
+    <text x="584" y="379" fill="#0B1531" font-size="19" font-weight="700">질문</text>
+    <text x="584" y="411" fill="#53617D" font-size="17">한 엔트리 갱신이 전체 stage 이동보다</text>
+    <text x="584" y="437" fill="#53617D" font-size="17">더 효율적으로 확장되는가?</text>
+    <text x="584" y="478" fill="#0B1531" font-size="19" font-weight="700">근거</text>
+    <text x="584" y="507" fill="#53617D" font-size="17">등가성 PASS · Quartus PPA 차단</text>
+
+    <rect x="1050" y="340" width="320" height="188" rx="18" fill="#FFFFFF" stroke="#D5DDED"/>
+    <text x="1074" y="379" fill="#0B1531" font-size="19" font-weight="700">질문</text>
+    <text x="1074" y="411" fill="#53617D" font-size="17">시나리오가 데이터·valid·개수·오류를</text>
+    <text x="1074" y="437" fill="#53617D" font-size="17">결정적으로 검증할 수 있는가?</text>
+    <text x="1074" y="478" fill="#0B1531" font-size="19" font-weight="700">근거</text>
+    <text x="1074" y="507" fill="#53617D" font-size="17">DUT + Checker 3개 시나리오 PASS</text>
+  </g>
+</svg>
+

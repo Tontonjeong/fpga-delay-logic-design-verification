@@ -1,0 +1,111 @@
+{
+  "generated_at": "2026-07-29T00:39:16.958405+09:00",
+  "git_commit_tested": "c356ade3998e36a76255b573aa9f93bbf274be3e",
+  "simulator": "Icarus Verilog",
+  "simulator_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
+  "projects": {
+    "project1": {
+      "status": "PASS",
+      "checks": 20
+    },
+    "project2": {
+      "status": "PASS",
+      "checks": 26
+    },
+    "project3": {
+      "status": "PASS",
+      "scenarios": [
+        {
+          "scenario": 1,
+          "status": "PASS",
+          "log": "03_memory_based_dv/results/scenario1_console.log"
+        },
+        {
+          "scenario": 2,
+          "status": "PASS",
+          "log": "03_memory_based_dv/results/scenario2_console.log"
+        },
+        {
+          "scenario": 3,
+          "status": "PASS",
+          "log": "03_memory_based_dv/results/scenario3_console.log"
+        }
+      ]
+    }
+  },
+  "synthesis": {
+    "status": "BLOCKED",
+    "reason": "Quartus Prime executables were not found on this Windows host."
+  },
+  "ppa": {
+    "status": "BLOCKED",
+    "reason": "Fit, Timing, and Power reports were unavailable; no numbers claimed."
+  },
+  "tools": [
+    {
+      "name": "vsim",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "vlog",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "vlib",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "vmap",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "quartus_sh",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "quartus_map",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "quartus_fit",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "quartus_sta",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "quartus_pow",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "iverilog",
+      "found": true,
+      "path": "D:\\msys64\\ucrt64\\bin\\iverilog.exe"
+    },
+    {
+      "name": "vvp",
+      "found": true,
+      "path": "D:\\msys64\\ucrt64\\bin\\vvp.exe"
+    },
+    {
+      "name": "verilator",
+      "found": false,
+      "path": null
+    },
+    {
+      "name": "yosys",
+      "found": false,
+      "path": null
+    }
+  ]
+}

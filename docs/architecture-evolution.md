@@ -2,7 +2,7 @@
 
 The portfolio preserves a common programmable-delay contract while changing the storage and verification strategy.
 
-![Architecture evolution](../assets/architecture/architecture_evolution.svg)
+![Architecture evolution](assets/en/architecture/architecture_evolution.svg)
 
 ## Stage 1 — Shift Register Baseline
 
@@ -26,4 +26,3 @@ The DUT retains circular addressing but the portfolio focus moves to verificatio
 | Valid tracking | parallel with data | representation |
 | Invalid data policy | no | P1/P2 zero; P3 hold |
 | Verification | no | waveform → PPA workflow → self-checking |
-

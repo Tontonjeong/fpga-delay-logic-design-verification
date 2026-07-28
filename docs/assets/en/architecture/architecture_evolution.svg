@@ -25,21 +25,21 @@
     <text x="94" y="411" fill="#53617D" font-size="17">How do data and valid remain</text>
     <text x="94" y="437" fill="#53617D" font-size="17">cycle-aligned at a selected tap?</text>
     <text x="94" y="478" fill="#0B1531" font-size="19" font-weight="700">Evidence</text>
-    <text x="94" y="507" fill="#53617D" font-size="17">RTL + expected waveform</text>
+    <text x="94" y="507" fill="#53617D" font-size="17">Icarus regression · 20 checks PASS</text>
 
     <rect x="560" y="340" width="320" height="188" rx="18" fill="#FFFFFF" stroke="#D5DDED"/>
     <text x="584" y="379" fill="#0B1531" font-size="19" font-weight="700">Question</text>
     <text x="584" y="411" fill="#53617D" font-size="17">Can one-entry updates scale better</text>
     <text x="584" y="437" fill="#53617D" font-size="17">than whole-stage shifting?</text>
     <text x="584" y="478" fill="#0B1531" font-size="19" font-weight="700">Evidence</text>
-    <text x="584" y="507" fill="#53617D" font-size="17">4-case Quartus workflow; data pending</text>
+    <text x="584" y="507" fill="#53617D" font-size="17">Equivalence PASS · Quartus PPA blocked</text>
 
     <rect x="1050" y="340" width="320" height="188" rx="18" fill="#FFFFFF" stroke="#D5DDED"/>
     <text x="1074" y="379" fill="#0B1531" font-size="19" font-weight="700">Question</text>
     <text x="1074" y="411" fill="#53617D" font-size="17">Can scenarios produce deterministic</text>
     <text x="1074" y="437" fill="#53617D" font-size="17">data, valid, count, and errors?</text>
     <text x="1074" y="478" fill="#0B1531" font-size="19" font-weight="700">Evidence</text>
-    <text x="1074" y="507" fill="#53617D" font-size="17">3 reference scenarios validated</text>
+    <text x="1074" y="507" fill="#53617D" font-size="17">3 DUT + Checker scenarios PASS</text>
   </g>
 </svg>
 

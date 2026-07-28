@@ -1,12 +1,11 @@
 # Limitations
 
-- ModelSim and Quartus Prime Pro were not installed in the portfolio assembly environment.
-- Expected waveforms are not simulation captures.
-- The Project 3 Python model validates committed references but does not execute SystemVerilog.
-- No synthesis utilization, memory inference, Fmax, timing closure, or power values are published.
-- Vectorless power, when generated, is an estimate rather than board measurement.
-- The Project 1 3-bit `iDelay` interface does not cover all values of its default depth 10.
-- The circular queue's asynchronous array read coding style may map differently across devices and Quartus versions.
-- Public CI intentionally omits licensed commercial-tool execution.
+- Questa/ModelSim and Quartus Prime Pro were not installed on the verification host.
+- Functional regressions were executed with Icarus Verilog 13.0. The compiler emits a non-fatal constant-select sensitivity message for two `always_*` blocks; all self-checks completed with zero errors.
+- No synthesis utilization, inferred-memory report, Fmax, timing-closure, or power value is published.
+- Numerical Project 2 PPA is **BLOCKED** until complete Quartus Fit, Timing, and Power reports exist.
+- Vectorless power, if later generated, is an estimate rather than board measurement.
+- Project 1's 3-bit `iDelay` interface cannot represent all values of its default depth 10.
+- The circular queue's asynchronous array read may map differently across device families and tool versions.
+- Public CI does not replace local FPGA-tool execution.
 - No open-source reuse license is granted.
-
