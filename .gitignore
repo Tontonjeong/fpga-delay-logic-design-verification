@@ -14,6 +14,13 @@ transcript
 transcript.*
 vsim.wlf
 *.vcd
+build/
+*.vvp
+
+# Auditable regression waveforms are intentionally committed.
+!01_shift_register_baseline/results/*.vcd
+!02_circular_queue_ppa/results/*.vcd
+!03_memory_based_dv/results/*.vcd
 
 # Quartus generated data
 db/
@@ -31,4 +38,3 @@ Thumbs.db
 .idea/
 .vscode/
 *~
-

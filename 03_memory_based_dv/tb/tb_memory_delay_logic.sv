@@ -60,7 +60,7 @@ module tb_memory_delay_logic;
 
     output_checker #(
         .DATA_WIDTH (DATA_WIDTH)
-    ) checker (
+    ) output_check (
         .iClk                  (iClk),
         .iRsn                  (iRsn),
         .oDataEn               (oDataEn),
