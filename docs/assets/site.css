@@ -128,6 +128,9 @@ section { padding: 5rem 0; }
 .caption { margin: .8rem 0 0; color: var(--muted); font-size: .9rem; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.diagram-grid figure { margin: 0; }
+.diagram-grid .visual { padding: 0; background: var(--surface); }
+.diagram-grid .caption { margin: 0; padding: .9rem 1rem 1.05rem; }
 .card {
   padding: 1.55rem;
   border: 1px solid var(--line);

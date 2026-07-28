@@ -1,0 +1,68 @@
+# Architecture diagram provenance
+# Original lecture-slide images are not included in this public repository.
+# Every diagram is a clean-room redraw, not a source-slide capture.
+diagrams:
+  - id: project1_shift_register_datapath
+    source_document: "저전력 반도체 회로설계 - 프로젝트 1(상).pdf"
+    source_page: "2"
+    output_ko: ../ko/architecture/project1_shift_register_datapath.svg
+    output_en: ../en/architecture/project1_shift_register_datapath.svg
+    transformation: clean-room redraw
+    evidence_boundary: "Shift-register chain, iDelay tap, and data/valid interface redrawn against repository RTL."
+    source_slide_pixels_published: false
+  - id: project1_testbench_architecture
+    source_document: "저전력 반도체 회로설계 - 프로젝트 1(상).pdf"
+    source_page: "2"
+    output_ko: ../ko/architecture/project1_testbench_architecture.svg
+    output_en: ../en/architecture/project1_testbench_architecture.svg
+    transformation: clean-room redraw
+    evidence_boundary: "Brief testbench concept extended to the repository's automated Driver/reference/Checker evidence."
+    source_slide_pixels_published: false
+  - id: project1_expected_timing
+    source_document: "저전력 반도체 회로설계 - 프로젝트 1(상).pdf"
+    source_page: "1-2"
+    output_ko: ../ko/architecture/project1_expected_timing.svg
+    output_en: ../en/architecture/project1_expected_timing.svg
+    transformation: clean-room redraw
+    evidence_boundary: "Conceptual delay contract; executed timing evidence is the separately published VCD-derived waveform."
+    source_slide_pixels_published: false
+  - id: project2_circular_queue_architecture
+    source_document: "저전력 반도체 회로설계 - 프로젝트 2(상).pdf"
+    source_page: "1"
+    output_ko: ../ko/architecture/project2_circular_queue_architecture.svg
+    output_en: ../en/architecture/project2_circular_queue_architecture.svg
+    transformation: clean-room redraw
+    evidence_boundary: "Circular-queue requirement combined with implemented modulo-address RTL."
+    source_slide_pixels_published: false
+  - id: project2_architecture_comparison
+    source_document: "저전력 반도체 회로설계 - 프로젝트 2(상).pdf"
+    source_page: "1"
+    output_ko: ../ko/architecture/project2_architecture_comparison.svg
+    output_en: ../en/architecture/project2_architecture_comparison.svg
+    transformation: clean-room redraw
+    evidence_boundary: "Qualitative architecture comparison only; no numerical PPA claim."
+    source_slide_pixels_published: false
+  - id: project2_ppa_matrix
+    source_document: "저전력 반도체 회로설계 - 프로젝트 2(상).pdf"
+    source_page: "1"
+    output_ko: ../ko/architecture/project2_ppa_matrix.svg
+    output_en: ../en/architecture/project2_ppa_matrix.svg
+    transformation: clean-room redraw
+    evidence_boundary: "Four controlled cases from the brief; all numerical results remain BLOCKED without Quartus."
+    source_slide_pixels_published: false
+  - id: project3_file_driven_verification
+    source_document: "저전력 반도체 회로설계 - 프로젝트 3(상).pdf"
+    source_page: "2"
+    output_ko: ../ko/architecture/project3_file_driven_verification.svg
+    output_en: ../en/architecture/project3_file_driven_verification.svg
+    transformation: clean-room redraw
+    evidence_boundary: "input/register/output file roles redrawn against the implemented Driver and Checker."
+    source_slide_pixels_published: false
+  - id: project3_scenario_flow
+    source_document: "저전력 반도체 회로설계 - 프로젝트 3(상).pdf"
+    source_page: "1-2"
+    output_ko: ../ko/architecture/project3_scenario_flow.svg
+    output_en: ../en/architecture/project3_scenario_flow.svg
+    transformation: clean-room redraw
+    evidence_boundary: "Three required scenarios organized around the repository's common checker and PASS markers."
+    source_slide_pixels_published: false

@@ -4,6 +4,8 @@
 
 # FPGA Programmable Delay Logic
 
+[![Validate portfolio](https://github.com/Tontonjeong/fpga-delay-logic-design-verification/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/Tontonjeong/fpga-delay-logic-design-verification/actions/workflows/validate.yml)
+
 **RTL Architecture · PPA Methodology · File-Driven Digital Verification**
 
 Shift Register → Circular Queue → Memory-Based DUT
@@ -46,6 +48,21 @@ SystemVerilog · Icarus Verilog 13.0 · Quartus Project Automation · Python
 | [01 — Shift Register Baseline](01_shift_register_baseline/README.md) | cycle semantics, data/valid 정렬 | **PASS**, 20 checks, log + VCD |
 | [02 — Circular Queue and PPA](02_circular_queue_ppa/README.md) | one-slot update, pointer wrap, 규모 비교 | **PASS**, 26 equivalence checks, log + VCD |
 | [03 — Memory-Based File-Driven DV](03_memory_based_dv/README.md) | Driver/Checker, 동적 delay event | **PASS**, scenario 1–3, logs + VCD |
+
+## 과제 브리프 재도식화
+
+강의자료 5페이지를 해석해 한·영 8종 엔지니어링 구조도로 새로 그렸습니다. 원본 슬라이드 이미지는 공개하지 않았으며, 그림별 출처 매핑과 증거 경계는 [provenance manifest](docs/assets/architecture/diagram_provenance.yaml)에 기록했습니다.
+
+<picture>
+  <source srcset="docs/assets/ko/architecture/project1_shift_register_datapath.svg" type="image/svg+xml">
+  <img src="docs/assets/ko/architecture/project1_shift_register_datapath.png" alt="Project 1 시프트 레지스터 데이터패스와 제어 로직 및 핵심 계약" width="100%">
+</picture>
+
+| Project | 검토용 구조도 |
+|---|---|
+| 1 | [데이터패스](docs/assets/ko/architecture/project1_shift_register_datapath.svg) · [self-checking TB](docs/assets/ko/architecture/project1_testbench_architecture.svg) · [예상 timing](docs/assets/ko/architecture/project1_expected_timing.svg) |
+| 2 | [순환 큐](docs/assets/ko/architecture/project2_circular_queue_architecture.svg) · [아키텍처 비교](docs/assets/ko/architecture/project2_architecture_comparison.svg) · [통제 PPA matrix](docs/assets/ko/architecture/project2_ppa_matrix.svg) |
+| 3 | [파일 기반 검증](docs/assets/ko/architecture/project3_file_driven_verification.svg) · [시나리오 실행 흐름](docs/assets/ko/architecture/project3_scenario_flow.svg) |
 
 ## 검증 상태
 

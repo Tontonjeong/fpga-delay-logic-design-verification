@@ -4,6 +4,8 @@
 
 # FPGA Programmable Delay Logic
 
+[![Validate portfolio](https://github.com/Tontonjeong/fpga-delay-logic-design-verification/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/Tontonjeong/fpga-delay-logic-design-verification/actions/workflows/validate.yml)
+
 **RTL Architecture · PPA Methodology · File-Driven Digital Verification**
 
 Shift Register → Circular Queue → Memory-Based DUT
@@ -46,6 +48,21 @@ Quartus was not installed on the verification host. Synthesis and numerical PPA 
 | [01 — Shift Register Baseline](01_shift_register_baseline/README.md) | cycle semantics and aligned data/valid pipelines | **PASS**, 20 checks, log + VCD |
 | [02 — Circular Queue and PPA](02_circular_queue_ppa/README.md) | one-slot updates, pointer wrap, scale study | **PASS**, 26 equivalence checks, log + VCD |
 | [03 — Memory-Based File-Driven DV](03_memory_based_dv/README.md) | reusable Driver/Checker, dynamic delay events | **PASS**, scenarios 1–3, logs + VCD |
+
+## Project-Brief Redraws
+
+The five source-brief pages were interpreted and redrawn as eight bilingual engineering diagrams. No source-slide image is published; the redraw-to-source mapping and evidence boundaries are recorded in the [provenance manifest](docs/assets/architecture/diagram_provenance.yaml).
+
+<picture>
+  <source srcset="docs/assets/en/architecture/project1_shift_register_datapath.svg" type="image/svg+xml">
+  <img src="docs/assets/en/architecture/project1_shift_register_datapath.png" alt="Project 1 shift-register datapath, control logic, and core contract" width="100%">
+</picture>
+
+| Project | Review diagrams |
+|---|---|
+| 1 | [datapath](docs/assets/en/architecture/project1_shift_register_datapath.svg) · [self-checking testbench](docs/assets/en/architecture/project1_testbench_architecture.svg) · [expected timing](docs/assets/en/architecture/project1_expected_timing.svg) |
+| 2 | [circular queue](docs/assets/en/architecture/project2_circular_queue_architecture.svg) · [architecture comparison](docs/assets/en/architecture/project2_architecture_comparison.svg) · [controlled PPA matrix](docs/assets/en/architecture/project2_ppa_matrix.svg) |
+| 3 | [file-driven verification](docs/assets/en/architecture/project3_file_driven_verification.svg) · [scenario flow](docs/assets/en/architecture/project3_scenario_flow.svg) |
 
 ## Validation Status
 

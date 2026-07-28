@@ -36,11 +36,30 @@ jobs:
       - name: Validate GitHub Pages asset graph
         run: python scripts/check_pages_assets.py
 
+      - name: Validate bilingual lecture-brief redraws
+        run: python scripts/check_lecture_diagrams.py
+
       - name: Install Icarus Verilog
         run: sudo apt-get update && sudo apt-get install -y iverilog
 
       - name: Execute all RTL regressions
         run: python scripts/run_verification.py --repo . --project all
+
+      - name: Upload executed verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fpga-delay-logic-verification-evidence-${{ github.sha }}
+          path: |
+            results/**
+            01_shift_register_baseline/results/**
+            02_circular_queue_ppa/results/**
+            03_memory_based_dv/results/**
+            docs/assets/*/results/**
+            docs/assets/*/architecture/project*.svg
+            docs/assets/architecture/diagram_provenance.yaml
+          if-no-files-found: error
+          retention-days: 30
 
       - name: Explain CI scope
         run: |

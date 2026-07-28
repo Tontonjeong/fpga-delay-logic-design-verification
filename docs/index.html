@@ -24,6 +24,7 @@
       <a class="brand" href="#top"><span>FPGA</span> Delay Logic</a>
       <nav class="nav-links" aria-label="주요 메뉴">
         <a href="#architecture">아키텍처</a>
+        <a href="#brief-redraws">과제 구조도</a>
         <a href="#verification">실행 근거</a>
         <a href="#status">검증 표</a>
         <a class="button" href="en/" lang="en">English</a>
@@ -83,6 +84,26 @@
             <span class="status pass">3 시나리오 PASS</span>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section id="brief-redraws">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Brief-to-Architecture Redraws</div><h2>강의 과제를 검토 가능한 구조도로</h2></div>
+          <p>세 프로젝트의 강의 PDF 5페이지를 분석한 뒤, 원본 슬라이드 캡처 없이 저장소 RTL·테스트벤치와 대조해 8종 구조도를 새로 그렸습니다. 각 그림은 SVG 원본과 PNG fallback을 함께 제공합니다.</p>
+        </div>
+        <div class="grid-2 diagram-grid">
+          <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project1_shift_register_datapath.svg" type="image/svg+xml"><img src="assets/ko/architecture/project1_shift_register_datapath.png" alt="Project 1 시프트 레지스터 데이터패스와 탭 선택" width="1600" height="900"></picture></div><figcaption class="caption">P1 · data/valid 파이프라인과 <code>iDelay=N → tap[N-1]</code></figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project1_testbench_architecture.svg" type="image/svg+xml"><img src="assets/ko/architecture/project1_testbench_architecture.png" alt="Project 1 self-checking 테스트벤치 구조" width="1600" height="900"></picture></div><figcaption class="caption">P1 · stimulus, DUT, 독립 reference model, scoreboard</figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project1_expected_timing.svg" type="image/svg+xml"><img src="assets/ko/architecture/project1_expected_timing.png" alt="Project 1 예상 타이밍 계약" width="1600" height="900"></picture></div><figcaption class="caption">P1 · sparse valid와 동적 delay를 포함한 cycle 계약</figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project2_circular_queue_architecture.svg" type="image/svg+xml"><img src="assets/ko/architecture/project2_circular_queue_architecture.png" alt="Project 2 순환 큐 쓰기 포인터와 읽기 주소 구조" width="1600" height="900"></picture></div><figcaption class="caption">P2 · one-slot write와 modulo read address</figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project2_architecture_comparison.svg" type="image/svg+xml"><img src="assets/ko/architecture/project2_architecture_comparison.png" alt="Project 2 시프트 레지스터와 순환 큐 아키텍처 비교" width="1600" height="900"></picture></div><figcaption class="caption">P2 · 동일 delay contract, 서로 다른 state-update cost</figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project2_ppa_matrix.svg" type="image/svg+xml"><img src="assets/ko/architecture/project2_ppa_matrix.png" alt="Project 2 네 가지 통제 PPA 구성" width="1600" height="900"></picture></div><figcaption class="caption">P2 · Shift/Circular × DEPTH 10/100 통제 비교; 수치 PPA는 BLOCKED</figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project3_file_driven_verification.svg" type="image/svg+xml"><img src="assets/ko/architecture/project3_file_driven_verification.png" alt="Project 3 파일 기반 검증 아키텍처" width="1600" height="900"></picture></div><figcaption class="caption">P3 · input/register/output 파일과 Driver·DUT·Checker</figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project3_scenario_flow.svg" type="image/svg+xml"><img src="assets/ko/architecture/project3_scenario_flow.png" alt="Project 3 세 시나리오 실행 흐름" width="1600" height="900"></picture></div><figcaption class="caption">P3 · reset, 연속 enable, delay 변경을 한 checker로 검증</figcaption></figure>
+        </div>
+        <aside class="note" style="margin-top:1rem">출처 경계: 강의자료는 요구사항과 개념 흐름을 해석하는 데만 사용했습니다. 공개 파일은 재작성한 벡터 도식이며, 원본 슬라이드 이미지는 포함하지 않습니다. 상세 매핑은 <a href="assets/architecture/diagram_provenance.yaml">diagram_provenance.yaml</a>에 기록했습니다.</aside>
       </div>
     </section>
 

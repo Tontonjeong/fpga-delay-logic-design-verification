@@ -24,6 +24,7 @@
       <a class="brand" href="#top"><span>FPGA</span> Delay Logic</a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#architecture">Architecture</a>
+        <a href="#brief-redraws">Brief redraws</a>
         <a href="#verification">Evidence</a>
         <a href="#status">Validation</a>
         <a class="button" href="../" lang="ko">한국어</a>
@@ -68,6 +69,26 @@
           <article class="card"><span class="tag">Project 2 · Scale</span><h3>Circular queue</h3><p><code>(write_ptr-iDelay) mod DEPTH</code> and one-slot writes preserve the delay behavior.</p><span class="status pass">Equivalence PASS</span></article>
           <article class="card"><span class="tag">Project 3 · DV</span><h3>Memory-based verification</h3><p>Input Driver, DUT, and Output Checker compare data, valid, and final output count.</p><span class="status pass">3 scenarios PASS</span></article>
         </div>
+      </div>
+    </section>
+
+    <section id="brief-redraws">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Brief-to-Architecture Redraws</div><h2>Project briefs, redrawn for engineering review</h2></div>
+          <p>Five pages across the three lecture PDFs were analyzed and reconciled with repository RTL and testbenches. These eight new diagrams are not source-slide captures; each is published as SVG with a PNG fallback.</p>
+        </div>
+        <div class="grid-2 diagram-grid">
+          <figure class="panel"><div class="visual dark"><picture><source srcset="../assets/en/architecture/project1_shift_register_datapath.svg" type="image/svg+xml"><img src="../assets/en/architecture/project1_shift_register_datapath.png" alt="Project 1 shift-register datapath and tap selection" width="1600" height="900"></picture></div><figcaption class="caption">P1 · data/valid pipeline and <code>iDelay=N → tap[N-1]</code></figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="../assets/en/architecture/project1_testbench_architecture.svg" type="image/svg+xml"><img src="../assets/en/architecture/project1_testbench_architecture.png" alt="Project 1 self-checking testbench architecture" width="1600" height="900"></picture></div><figcaption class="caption">P1 · stimulus, DUT, independent reference model, scoreboard</figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="../assets/en/architecture/project1_expected_timing.svg" type="image/svg+xml"><img src="../assets/en/architecture/project1_expected_timing.png" alt="Project 1 expected timing contract" width="1600" height="900"></picture></div><figcaption class="caption">P1 · cycle contract with sparse valid and dynamic delay</figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="../assets/en/architecture/project2_circular_queue_architecture.svg" type="image/svg+xml"><img src="../assets/en/architecture/project2_circular_queue_architecture.png" alt="Project 2 circular queue write pointer and read address" width="1600" height="900"></picture></div><figcaption class="caption">P2 · one-slot write and modulo read address</figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="../assets/en/architecture/project2_architecture_comparison.svg" type="image/svg+xml"><img src="../assets/en/architecture/project2_architecture_comparison.png" alt="Project 2 shift-register and circular-queue architecture comparison" width="1600" height="900"></picture></div><figcaption class="caption">P2 · one delay contract, different state-update cost</figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="../assets/en/architecture/project2_ppa_matrix.svg" type="image/svg+xml"><img src="../assets/en/architecture/project2_ppa_matrix.png" alt="Project 2 four controlled PPA configurations" width="1600" height="900"></picture></div><figcaption class="caption">P2 · Shift/Circular × DEPTH 10/100; numerical PPA remains BLOCKED</figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="../assets/en/architecture/project3_file_driven_verification.svg" type="image/svg+xml"><img src="../assets/en/architecture/project3_file_driven_verification.png" alt="Project 3 file-driven verification architecture" width="1600" height="900"></picture></div><figcaption class="caption">P3 · input/register/output files with Driver, DUT, and Checker</figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="../assets/en/architecture/project3_scenario_flow.svg" type="image/svg+xml"><img src="../assets/en/architecture/project3_scenario_flow.png" alt="Project 3 three-scenario execution flow" width="1600" height="900"></picture></div><figcaption class="caption">P3 · reset, continuous enable, and delay change under one checker</figcaption></figure>
+        </div>
+        <aside class="note" style="margin-top:1rem">Source boundary: the lecture material was used only to interpret requirements and concept flow. Public assets are original vector redraws; no source-slide image is included. See <a href="../assets/architecture/diagram_provenance.yaml">diagram_provenance.yaml</a> for the mapping.</aside>
       </div>
     </section>
 
