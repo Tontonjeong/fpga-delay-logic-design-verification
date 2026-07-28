@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="620" viewBox="0 0 1440 620" role="img" aria-labelledby="title desc">
+  <title id="title">Architecture evolution</title>
+  <desc id="desc">Shift-register baseline evolves to circular queue PPA workflow and then memory-based file-driven verification.</desc>
+  <rect width="1440" height="620" rx="24" fill="#F5F7FC"/>
+  <text x="70" y="82" fill="#0B1531" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="750">Architecture Evolution</text>
+  <text x="70" y="119" fill="#53617D" font-family="Segoe UI, Arial, sans-serif" font-size="18">One delay contract, three engineering questions</text>
+  <path d="M220 302H1220" stroke="#CAD2E7" stroke-width="8" stroke-linecap="round"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <circle cx="230" cy="302" r="25" fill="#4CC9F0"/>
+    <circle cx="720" cy="302" r="25" fill="#8B5CF6"/>
+    <circle cx="1210" cy="302" r="25" fill="#2DD4BF"/>
+    <rect x="70" y="170" width="320" height="112" rx="18" fill="#E7F7FC" stroke="#36AEDA" stroke-width="2"/>
+    <text x="94" y="208" fill="#167B9E" font-size="15" font-weight="700">01 · BASELINE RTL</text>
+    <text x="94" y="244" fill="#0B1531" font-size="25" font-weight="750">Shift Register</text>
+    <rect x="560" y="170" width="320" height="112" rx="18" fill="#F0EBFF" stroke="#8B5CF6" stroke-width="2"/>
+    <text x="584" y="208" fill="#6C42D9" font-size="15" font-weight="700">02 · SCALABILITY / PPA</text>
+    <text x="584" y="244" fill="#0B1531" font-size="25" font-weight="750">Circular Queue</text>
+    <rect x="1050" y="170" width="320" height="112" rx="18" fill="#E5FAF6" stroke="#18A991" stroke-width="2"/>
+    <text x="1074" y="208" fill="#0D826F" font-size="15" font-weight="700">03 · FEATURED DV</text>
+    <text x="1074" y="244" fill="#0B1531" font-size="25" font-weight="750">Memory-Based</text>
+    <text x="1074" y="269" fill="#0B1531" font-size="18" font-weight="650">Driver + Checker</text>
+
+    <rect x="70" y="340" width="320" height="188" rx="18" fill="#FFFFFF" stroke="#D5DDED"/>
+    <text x="94" y="379" fill="#0B1531" font-size="19" font-weight="700">Question</text>
+    <text x="94" y="411" fill="#53617D" font-size="17">How do data and valid remain</text>
+    <text x="94" y="437" fill="#53617D" font-size="17">cycle-aligned at a selected tap?</text>
+    <text x="94" y="478" fill="#0B1531" font-size="19" font-weight="700">Evidence</text>
+    <text x="94" y="507" fill="#53617D" font-size="17">RTL + expected waveform</text>
+
+    <rect x="560" y="340" width="320" height="188" rx="18" fill="#FFFFFF" stroke="#D5DDED"/>
+    <text x="584" y="379" fill="#0B1531" font-size="19" font-weight="700">Question</text>
+    <text x="584" y="411" fill="#53617D" font-size="17">Can one-entry updates scale better</text>
+    <text x="584" y="437" fill="#53617D" font-size="17">than whole-stage shifting?</text>
+    <text x="584" y="478" fill="#0B1531" font-size="19" font-weight="700">Evidence</text>
+    <text x="584" y="507" fill="#53617D" font-size="17">4-case Quartus workflow; data pending</text>
+
+    <rect x="1050" y="340" width="320" height="188" rx="18" fill="#FFFFFF" stroke="#D5DDED"/>
+    <text x="1074" y="379" fill="#0B1531" font-size="19" font-weight="700">Question</text>
+    <text x="1074" y="411" fill="#53617D" font-size="17">Can scenarios produce deterministic</text>
+    <text x="1074" y="437" fill="#53617D" font-size="17">data, valid, count, and errors?</text>
+    <text x="1074" y="478" fill="#0B1531" font-size="19" font-weight="700">Evidence</text>
+    <text x="1074" y="507" fill="#53617D" font-size="17">3 reference scenarios validated</text>
+  </g>
+</svg>
+
