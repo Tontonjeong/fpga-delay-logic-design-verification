@@ -1,0 +1,3 @@
+QUARTUS_VERSION = "25.1"
+DATE = "12:00:00  JULY 27, 2026"
+PROJECT_REVISION = "memory_delay_logic"

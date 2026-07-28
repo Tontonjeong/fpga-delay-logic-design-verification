@@ -1,0 +1,4 @@
+﻿scenario,input_cycles,reference_cycles,initial_delay,delay_changes,expected_valid_outputs,result
+1,5,8,3,0,5,REFERENCE PASS
+2,9,14,5,0,4,REFERENCE PASS
+3,12,17,3,1,14,REFERENCE PASS

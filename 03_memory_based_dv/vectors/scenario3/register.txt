@@ -1,0 +1,9 @@
+tag: data_type=data stage=pilot
+Config1 00100031
+Config2 000000a3
+Config3 01000bf1
+Config4 00004031
+Delay 00000003
+DelayAt 7 00000005
+Pilot_mode 00000001
+Ctrl_Option 00a00030

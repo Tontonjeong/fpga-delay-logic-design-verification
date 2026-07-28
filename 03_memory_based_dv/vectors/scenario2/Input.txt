@@ -1,0 +1,20 @@
+tag: data_type=data stage=pilot
+1
+2
+3
+4
+5
+6
+7
+8
+9
+tag: data_type=valid stage=pilot
+0
+0
+1
+1
+0
+1
+0
+0
+1

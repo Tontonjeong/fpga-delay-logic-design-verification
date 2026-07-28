@@ -1,0 +1,4 @@
+Project 3 reference-vector consistency check
+Scenario 1: cycles=8, valid_outputs=5, REFERENCE PASS
+Scenario 2: cycles=14, valid_outputs=4, REFERENCE PASS
+Scenario 3: cycles=17, valid_outputs=14, REFERENCE PASS

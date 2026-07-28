@@ -1,0 +1,20 @@
+# Project 3: simple dual-port memory based delay logic
+set_global_assignment -name FAMILY "Agilex 5"
+set_global_assignment -name DEVICE A5ED065BB32AE6SR0
+set_global_assignment -name TOP_LEVEL_ENTITY memory_delay_logic
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/memory_delay_logic.sv
+set_global_assignment -name SDC_FILE ../constraints/clock_100mhz.sdc
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+set_global_assignment -name OPTIMIZATION_MODE "BALANCED"
+set_global_assignment -name AUTO_RAM_RECOGNITION ON
+
+# No physical board or pin assignment is specified in the lecture material.
+# Virtual pins allow synthesis, fitting, RTL Viewer inspection, and timing checks.
+set_instance_assignment -name VIRTUAL_PIN ON -to iClk
+set_instance_assignment -name VIRTUAL_PIN ON -to iRsn
+set_instance_assignment -name VIRTUAL_PIN ON -to iDataEn
+set_instance_assignment -name VIRTUAL_PIN ON -to "iData[*]"
+set_instance_assignment -name VIRTUAL_PIN ON -to "iDelay[*]"
+set_instance_assignment -name VIRTUAL_PIN ON -to oDataEn
+set_instance_assignment -name VIRTUAL_PIN ON -to "oData[*]"
