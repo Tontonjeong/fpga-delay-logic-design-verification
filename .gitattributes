@@ -1,0 +1,15 @@
+* text=auto
+*.sv text eol=lf
+*.sdc text eol=lf
+*.tcl text eol=lf
+*.do text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.csv text eol=lf
+*.txt text eol=lf
+*.bat text eol=crlf
+*.png binary
+*.jpg binary
+

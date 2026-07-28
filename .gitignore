@@ -1,0 +1,34 @@
+# Local source material and scratch space
+_source_archive/
+_work/
+_temp/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# ModelSim
+work/
+transcript
+transcript.*
+vsim.wlf
+*.vcd
+
+# Quartus generated data
+db/
+incremental_db/
+output_files/
+qdb/
+*.qws
+*.smsg
+*.bak
+*.rpt.htm
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*~
+
