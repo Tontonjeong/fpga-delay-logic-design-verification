@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="610" viewBox="0 0 1200 610" role="img" aria-labelledby="title desc">
+  <title id="title">Shift-register delay logic block diagram</title>
+  <desc id="desc">Parallel DATA and VALID pipelines with an iDelay-selected tap.</desc>
+  <rect width="1200" height="610" rx="24" fill="#F6F8FC"/>
+  <text x="58" y="72" fill="#0B1531" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="750">Shift Register Baseline</text>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="58" y="176" fill="#197FA5" font-size="18" font-weight="750">DATA</text>
+    <text x="58" y="312" fill="#7350D4" font-size="18" font-weight="750">VALID</text>
+    <text x="58" y="474" fill="#53617D" font-size="18" font-weight="700">iDelay</text>
+    <g fill="#E8F7FC" stroke="#34AAD4" stroke-width="2">
+      <rect x="150" y="130" width="132" height="76" rx="12"/>
+      <rect x="330" y="130" width="132" height="76" rx="12"/>
+      <rect x="510" y="130" width="132" height="76" rx="12"/>
+      <rect x="690" y="130" width="132" height="76" rx="12"/>
+    </g>
+    <g fill="#F0EBFF" stroke="#8B5CF6" stroke-width="2">
+      <rect x="150" y="266" width="132" height="76" rx="12"/>
+      <rect x="330" y="266" width="132" height="76" rx="12"/>
+      <rect x="510" y="266" width="132" height="76" rx="12"/>
+      <rect x="690" y="266" width="132" height="76" rx="12"/>
+    </g>
+    <g fill="#0B1531" font-size="18" font-weight="700" text-anchor="middle">
+      <text x="216" y="176">stage 0</text><text x="396" y="176">stage 1</text>
+      <text x="576" y="176">stage N-1</text><text x="756" y="176">stage DEPTH-1</text>
+      <text x="216" y="312">valid 0</text><text x="396" y="312">valid 1</text>
+      <text x="576" y="312">valid N-1</text><text x="756" y="312">valid DEPTH-1</text>
+    </g>
+    <g stroke="#53617D" stroke-width="3" fill="none">
+      <path d="M90 168H150M282 168H330M462 168H510M642 168H690"/>
+      <path d="M90 304H150M282 304H330M462 304H510M642 304H690"/>
+    </g>
+    <g fill="#53617D">
+      <path d="M140 160L150 168 140 176"/><path d="M320 160L330 168 320 176"/>
+      <path d="M500 160L510 168 500 176"/><path d="M680 160L690 168 680 176"/>
+      <path d="M140 296L150 304 140 312"/><path d="M320 296L330 304 320 312"/>
+      <path d="M500 296L510 304 500 312"/><path d="M680 296L690 304 680 312"/>
+    </g>
+    <rect x="930" y="178" width="195" height="176" rx="18" fill="#FFFFFF" stroke="#2B3A5D" stroke-width="2"/>
+    <text x="1028" y="220" fill="#0B1531" font-size="20" font-weight="750" text-anchor="middle">Tap Select</text>
+    <text x="1028" y="257" fill="#53617D" font-size="16" text-anchor="middle">data_shift[iDelay-1]</text>
+    <text x="1028" y="288" fill="#53617D" font-size="16" text-anchor="middle">enable_shift[iDelay-1]</text>
+    <text x="1028" y="328" fill="#0B1531" font-size="17" font-weight="700" text-anchor="middle">oData / oDataEn</text>
+    <path d="M822 168C880 168 873 223 930 223M822 304C880 304 873 309 930 309" fill="none" stroke="#2B3A5D" stroke-width="3"/>
+    <path d="M118 466H1028V354" fill="none" stroke="#F59E0B" stroke-width="4"/>
+    <path d="M1020 367L1028 354 1036 367" fill="#F59E0B"/>
+    <rect x="150" y="520" width="675" height="48" rx="12" fill="#FFFFFF" stroke="#D5DDED"/>
+    <text x="487" y="550" fill="#53617D" font-size="16" text-anchor="middle">Data and valid move through identical stage depth on every clock.</text>
+  </g>
+</svg>
+

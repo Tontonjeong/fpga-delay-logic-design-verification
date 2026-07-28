@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Circular queue delay logic</title>
+  <desc id="desc">One-slot write, modulo read address, and parallel valid memory.</desc>
+  <rect width="1200" height="680" rx="24" fill="#F6F8FC"/>
+  <text x="58" y="70" fill="#0B1531" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="750">Circular Queue Architecture</text>
+  <g transform="translate(338 330)" font-family="Segoe UI, Arial, sans-serif">
+    <circle r="206" fill="#FFFFFF" stroke="#D5DDED" stroke-width="3"/>
+    <circle r="105" fill="#F0EBFF" stroke="#8B5CF6" stroke-width="3"/>
+    <text y="-12" fill="#0B1531" font-size="24" font-weight="750" text-anchor="middle">data_mem</text>
+    <text y="23" fill="#53617D" font-size="17" text-anchor="middle">+ valid_mem</text>
+    <g fill="#E8F7FC" stroke="#34AAD4" stroke-width="2">
+      <rect x="-38" y="-196" width="76" height="58" rx="10"/>
+      <rect x="88" y="-155" width="76" height="58" rx="10" transform="rotate(45 126 -126)"/>
+      <rect x="148" y="-29" width="76" height="58" rx="10" transform="rotate(90 186 0)"/>
+      <rect x="88" y="97" width="76" height="58" rx="10" transform="rotate(135 126 126)"/>
+      <rect x="-38" y="138" width="76" height="58" rx="10" transform="rotate(180 0 167)"/>
+      <rect x="-164" y="97" width="76" height="58" rx="10" transform="rotate(225 -126 126)"/>
+      <rect x="-224" y="-29" width="76" height="58" rx="10" transform="rotate(270 -186 0)"/>
+      <rect x="-164" y="-155" width="76" height="58" rx="10" transform="rotate(315 -126 -126)"/>
+    </g>
+    <path d="M-155-145A212 212 0 0 1 145-155" fill="none" stroke="#8B5CF6" stroke-width="5" stroke-linecap="round"/>
+    <path d="M132-169L155-155 136-136" fill="none" stroke="#8B5CF6" stroke-width="5"/>
+  </g>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <rect x="690" y="132" width="426" height="130" rx="18" fill="#E5FAF6" stroke="#18A991" stroke-width="2"/>
+    <text x="720" y="175" fill="#0D826F" font-size="17" font-weight="750">WRITE PORT</text>
+    <text x="720" y="209" fill="#0B1531" font-size="21" font-weight="700">data_mem[write_ptr] ← iData</text>
+    <text x="720" y="238" fill="#53617D" font-size="17">One slot updated per clock; pointer wraps.</text>
+    <rect x="690" y="305" width="426" height="150" rx="18" fill="#F0EBFF" stroke="#8B5CF6" stroke-width="2"/>
+    <text x="720" y="348" fill="#6C42D9" font-size="17" font-weight="750">READ ADDRESS</text>
+    <text x="720" y="389" fill="#0B1531" font-size="22" font-weight="700">read_ptr = (write_ptr - iDelay) mod DEPTH</text>
+    <text x="720" y="426" fill="#53617D" font-size="17">Valid range: 1..DEPTH</text>
+    <rect x="690" y="498" width="426" height="112" rx="18" fill="#FFFFFF" stroke="#D5DDED" stroke-width="2"/>
+    <text x="720" y="541" fill="#0B1531" font-size="19" font-weight="750">Reset policy</text>
+    <text x="720" y="574" fill="#53617D" font-size="17">Reset valid_mem + write_ptr; do not reset data_mem.</text>
+    <path d="M544 221H690M544 370H690" stroke="#2B3A5D" stroke-width="3"/>
+    <path d="M676 212L690 221 676 230M676 361L690 370 676 379" fill="none" stroke="#2B3A5D" stroke-width="3"/>
+    <text x="85" y="632" fill="#53617D" font-size="17">Invalid slot: oDataEn=0 and oData=0 · stale data is blocked by valid_mem.</text>
+  </g>
+</svg>
+

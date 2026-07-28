@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">FPGA Programmable Delay Logic portfolio</title>
+  <desc id="desc">Three-stage progression from shift register to circular queue to memory-based file-driven verification.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081225"/>
+      <stop offset="1" stop-color="#141A33"/>
+    </linearGradient>
+    <linearGradient id="trace" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4CC9F0"/>
+      <stop offset="0.52" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#2DD4BF"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1280" height="640" rx="30" fill="url(#bg)"/>
+  <g opacity=".16" stroke="#A8B5D8">
+    <path d="M0 96H1280M0 192H1280M0 288H1280M0 384H1280M0 480H1280M0 576H1280"/>
+    <path d="M96 0V640M192 0V640M288 0V640M384 0V640M480 0V640M576 0V640M672 0V640M768 0V640M864 0V640M960 0V640M1056 0V640M1152 0V640"/>
+  </g>
+  <text x="84" y="102" fill="#4CC9F0" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="3">FPGA · RTL · PPA · DIGITAL VERIFICATION</text>
+  <text x="84" y="181" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="750">FPGA Programmable</text>
+  <text x="84" y="245" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="750">Delay Logic</text>
+  <text x="84" y="292" fill="#B9C3E1" font-family="Segoe UI, Arial, sans-serif" font-size="23">RTL Architecture · PPA Workflow · File-Driven Verification</text>
+
+  <g transform="translate(84 355)">
+    <rect width="255" height="104" rx="16" fill="#122746" stroke="#4CC9F0" stroke-width="2"/>
+    <text x="24" y="38" fill="#4CC9F0" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">01 · BASELINE</text>
+    <text x="24" y="72" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Shift Register</text>
+    <circle cx="225" cy="52" r="7" fill="#4CC9F0"/>
+  </g>
+  <g transform="translate(395 355)">
+    <rect width="255" height="104" rx="16" fill="#211B43" stroke="#8B5CF6" stroke-width="2"/>
+    <text x="24" y="38" fill="#B69CFF" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">02 · ARCHITECTURE</text>
+    <text x="24" y="72" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Circular Queue</text>
+    <circle cx="225" cy="52" r="7" fill="#8B5CF6"/>
+  </g>
+  <g transform="translate(706 355)">
+    <rect width="310" height="104" rx="16" fill="#113234" stroke="#2DD4BF" stroke-width="2"/>
+    <text x="24" y="38" fill="#65E5D4" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">03 · FEATURED DV</text>
+    <text x="24" y="72" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Memory + Driver + Checker</text>
+    <circle cx="280" cy="52" r="7" fill="#2DD4BF"/>
+  </g>
+  <path d="M339 407H395M650 407H706" stroke="url(#trace)" stroke-width="5" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M381 395L395 407 381 419M692 395L706 407 692 419" fill="none" stroke="#D7DDF2" stroke-width="3"/>
+
+  <text x="84" y="532" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="650">SystemVerilog</text>
+  <text x="229" y="532" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="650">Quartus Prime</text>
+  <text x="383" y="532" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="650">ModelSim</text>
+  <text x="485" y="532" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="650">Python</text>
+  <text x="84" y="582" fill="#A8B5D8" font-family="Segoe UI, Arial, sans-serif" font-size="18">Hyeongrok Ryu · 류형록</text>
+  <g transform="translate(1080 484)" fill="none" stroke="#2DD4BF" stroke-width="3">
+    <rect x="0" y="0" width="112" height="84" rx="12"/>
+    <path d="M18 22H94M18 42H57M18 62H82"/>
+    <circle cx="96" cy="62" r="5" fill="#2DD4BF"/>
+  </g>
+</svg>
+

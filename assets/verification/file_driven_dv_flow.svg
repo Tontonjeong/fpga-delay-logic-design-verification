@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720" role="img" aria-labelledby="title desc">
+  <title id="title">File-driven digital verification flow</title>
+  <desc id="desc">Input and register files feed a driver, the DUT feeds a checker, and the output reference provides expected data and valid values.</desc>
+  <rect width="1400" height="720" rx="24" fill="#F6F8FC"/>
+  <text x="62" y="72" fill="#0B1531" font-family="Segoe UI, Arial, sans-serif" font-size="35" font-weight="750">File-Driven Verification Architecture</text>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <rect x="62" y="142" width="210" height="104" rx="16" fill="#E8F7FC" stroke="#34AAD4" stroke-width="2"/>
+    <text x="167" y="185" fill="#0B1531" font-size="21" font-weight="750" text-anchor="middle">Input.txt</text>
+    <text x="167" y="218" fill="#53617D" font-size="17" text-anchor="middle">iData / iDataEn</text>
+    <rect x="62" y="296" width="210" height="104" rx="16" fill="#E8F7FC" stroke="#34AAD4" stroke-width="2"/>
+    <text x="167" y="339" fill="#0B1531" font-size="21" font-weight="750" text-anchor="middle">register.txt</text>
+    <text x="167" y="372" fill="#53617D" font-size="17" text-anchor="middle">Delay / DelayAt</text>
+    <rect x="350" y="184" width="260" height="176" rx="20" fill="#E5FAF6" stroke="#18A991" stroke-width="3"/>
+    <text x="480" y="231" fill="#0D826F" font-size="17" font-weight="750" text-anchor="middle">INPUT DRIVER</text>
+    <text x="480" y="274" fill="#0B1531" font-size="23" font-weight="700" text-anchor="middle">parse → align → drive</text>
+    <text x="480" y="313" fill="#53617D" font-size="17" text-anchor="middle">reset + scenario control</text>
+    <rect x="700" y="184" width="240" height="176" rx="20" fill="#FFF7E5" stroke="#F59E0B" stroke-width="3"/>
+    <text x="820" y="231" fill="#A86500" font-size="17" font-weight="750" text-anchor="middle">DUT</text>
+    <text x="820" y="274" fill="#0B1531" font-size="23" font-weight="700" text-anchor="middle">memory_delay_logic</text>
+    <text x="820" y="313" fill="#53617D" font-size="17" text-anchor="middle">write_ptr / read_addr</text>
+    <rect x="1030" y="184" width="300" height="176" rx="20" fill="#F0EBFF" stroke="#8B5CF6" stroke-width="3"/>
+    <text x="1180" y="231" fill="#6C42D9" font-size="17" font-weight="750" text-anchor="middle">OUTPUT CHECKER</text>
+    <text x="1180" y="274" fill="#0B1531" font-size="21" font-weight="700" text-anchor="middle">data + valid + count</text>
+    <text x="1180" y="313" fill="#53617D" font-size="17" text-anchor="middle">location / expected / actual</text>
+    <rect x="1030" y="447" width="300" height="104" rx="16" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="2"/>
+    <text x="1180" y="489" fill="#0B1531" font-size="21" font-weight="750" text-anchor="middle">output.txt</text>
+    <text x="1180" y="522" fill="#53617D" font-size="17" text-anchor="middle">Reference Vector</text>
+    <path d="M272 194H350M272 348H350M610 272H700M940 272H1030M1180 447V360" stroke="#2B3A5D" stroke-width="4"/>
+    <g fill="#2B3A5D">
+      <path d="M336 185L350 194 336 203"/><path d="M336 339L350 348 336 357"/>
+      <path d="M686 263L700 272 686 281"/><path d="M1016 263L1030 272 1016 281"/>
+      <path d="M1171 374L1180 360 1189 374"/>
+    </g>
+    <text x="655" y="247" fill="#53617D" font-size="15" text-anchor="middle">iRsn, iDelay, iDataEn, iData</text>
+    <text x="985" y="247" fill="#53617D" font-size="15" text-anchor="middle">oDataEn, oData</text>
+    <rect x="350" y="447" width="590" height="154" rx="20" fill="#FFFFFF" stroke="#D5DDED" stroke-width="2"/>
+    <text x="382" y="487" fill="#0B1531" font-size="19" font-weight="750">Deterministic verdict</text>
+    <text x="382" y="526" fill="#53617D" font-size="17">Every reference cycle matches data and valid</text>
+    <text x="382" y="556" fill="#53617D" font-size="17">Actual valid count equals expected valid count</text>
+    <text x="382" y="584" fill="#53617D" font-size="17">Final markers: [CHECKER][PASS] and [TEST PASS]</text>
+    <text x="62" y="662" fill="#53617D" font-size="17">Current evidence: Python Reference Vector Consistency PASS · DUT ModelSim execution pending</text>
+  </g>
+</svg>
+
