@@ -1,4 +1,6 @@
 * text=auto
+.gitattributes text eol=lf
+.gitignore text eol=lf
 *.sv text eol=lf
 *.sdc text eol=lf
 *.tcl text eol=lf
@@ -9,7 +11,11 @@
 *.css text eol=lf
 *.csv text eol=lf
 *.txt text eol=lf
+*.svg text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.qpf text eol=lf
+*.qsf text eol=lf
 *.bat text eol=crlf
 *.png binary
 *.jpg binary
-
