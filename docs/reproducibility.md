@@ -49,9 +49,13 @@ python scripts/validate_repository.py
 python scripts/check_pages_assets.py
 ```
 
-## Optional ModelSim/Questa flow
+## ModelSim/Questa flow
 
-If `vsim`, `vlog`, `vlib`, and `vmap` are available, the original per-project ModelSim wrappers remain in each `modelsim/` directory. The committed PASS evidence in this repository was generated with Icarus Verilog, not ModelSim.
+ModelSim Intel FPGA Starter Edition 10.5b was used for the original-archive
+reruns. Questa 2024.1 is installed but fails license initialization on this
+host. Project 1/2 original testbenches have no checker, so their successful
+stimulus completion is not labeled PASS. Project 3 passes its original
+Driver/Checker after the documented one-line instance-name compatibility fix.
 
 ## Quartus Prime Pro
 
@@ -63,4 +67,6 @@ The public projects target Agilex 5 `A5ED065BB32AE6SR0`. With matching device su
 03_memory_based_dv\quartus\run_quartus_compile.bat
 ```
 
-On the verified host, all queried Quartus executables were absent. The PPA batch and chart gate are present, but synthesis and numerical PPA remain **BLOCKED** until reports are generated.
+On the verified host, Quartus Prime Pro 24.3.1 completed Project 1/3 synthesis
+and all four Project 2 Fit/Timing/Power runs. The CSV collector and dependency-
+free SVG chart generator reproduce the published tables from committed reports.

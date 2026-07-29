@@ -4,9 +4,9 @@ Evidence is reported as **PASS**, **FAIL**, **BLOCKED**, or **N/A**. A functiona
 
 | Project | Functional simulation | Synthesis | Numerical PPA |
 |---|---|---|---|
-| Project 1 | **PASS** — Icarus Verilog 13.0, 20 checks | **BLOCKED** — Quartus unavailable | N/A |
-| Project 2 | **PASS** — shift/circular/reference equivalence, 26 checks | **BLOCKED** — Quartus unavailable | **BLOCKED** — no Fit/Timing/Power reports |
-| Project 3 | **PASS** — file scenarios 1–3, Checker + Test markers | **BLOCKED** — Quartus unavailable | N/A |
+| Project 1 | **PASS** — supplemental Icarus 13.0, 20 checks | **SUCCESS** — Quartus 24.3.1, 85 estimated ALMs | N/A |
+| Project 2 | **PASS** — shift/circular/reference equivalence, 26 checks | **SUCCESS** — four Fits | **COMPLETE** — timing + power reports |
+| Project 3 | **PASS** — original Checker after one-line compatibility change | **SUCCESS** — `altdpram` inferred as LUTRAM | N/A |
 
 Project 3 executed counts:
 
@@ -16,10 +16,8 @@ Project 3 executed counts:
 | 2 | 14 | 4 | PASS |
 | 3 | 17 | 14 | PASS |
 
-Simulator: `Icarus Verilog version 13.0 (stable) (v13_0)`
+Simulators: `ModelSim Intel FPGA Starter Edition 10.5b`, `Icarus Verilog 13.0`
 
-Execution date: `2026-07-29`
-
-Source commit tested: `c356ade3998e36a76255b573aa9f93bbf274be3e`
+Execution date: `2026-07-29–30`
 
 See [evidence-matrix.md](evidence-matrix.md) and [`results/verification_summary.json`](../results/verification_summary.json).

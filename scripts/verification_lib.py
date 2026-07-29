@@ -16,12 +16,13 @@ def executable(name: str) -> str | None:
     if os.environ.get("MSYS2_ROOT"):
         roots.append(Path(os.environ["MSYS2_ROOT"]) / "ucrt64/bin")
     roots.extend(Path(f"{drive}:/") / "msys64/ucrt64/bin" for drive in "CDE")
+    drive_root = Path("D:" + os.sep)
     roots.extend(
         [
-            Path(r"D:\IntelQuartus\quartus\bin64"),
-            Path(r"D:\IntelQuartus\questa_fse\win64"),
-            Path(r"D:\IntelQuartus\questa_fe\win64"),
-            Path(r"D:\intelFPGA\18.1\modelsim_ase\win32aloem"),
+            drive_root / "IntelQuartus/quartus/bin64",
+            drive_root / "IntelQuartus/questa_fse/win64",
+            drive_root / "IntelQuartus/questa_fe/win64",
+            drive_root / "intelFPGA/18.1/modelsim_ase/win32aloem",
         ]
     )
     for root in roots:
@@ -124,6 +125,6 @@ def tool_scan() -> list[dict[str, object]]:
         "iverilog", "vvp", "verilator", "yosys",
     ]
     return [
-        {"name": name, "found": bool(executable(name)), "path": executable(name)}
+        {"name": name, "found": bool(executable(name))}
         for name in names
     ]

@@ -48,7 +48,7 @@ diagrams:
     output_ko: ../ko/architecture/project2_ppa_matrix.svg
     output_en: ../en/architecture/project2_ppa_matrix.svg
     transformation: clean-room redraw
-    evidence_boundary: "Four controlled cases from the brief; all numerical results remain BLOCKED without Quartus."
+    evidence_boundary: "Four controlled cases from the brief; actual values come only from committed Quartus 24.3 Fit, Timing, and Power reports."
     source_slide_pixels_published: false
   - id: project3_file_driven_verification
     source_document: "저전력 반도체 회로설계 - 프로젝트 3(상).pdf"

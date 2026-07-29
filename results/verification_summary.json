@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-29T00:39:16.958405+09:00",
-  "git_commit_tested": "c356ade3998e36a76255b573aa9f93bbf274be3e",
+  "generated_at": "2026-07-30T00:09:32.887092+09:00",
+  "git_commit_tested": "efeeb4b99d2def21af6d5152188ddfddf2b9b73a",
   "simulator": "Icarus Verilog",
   "simulator_version": "Icarus Verilog version 13.0 (stable) (v13_0)",
   "projects": {
@@ -34,78 +34,75 @@
     }
   },
   "synthesis": {
-    "status": "BLOCKED",
-    "reason": "Quartus Prime executables were not found on this Windows host."
+    "status": "SUCCESS",
+    "tool": "Quartus Prime Pro 24.3.1",
+    "reports": [
+      "01_shift_register_baseline/quartus/output_files/delay_logic.syn.summary",
+      "02_circular_queue_ppa/quartus/shift_depth10/output_files/shift_depth10.fit.summary",
+      "02_circular_queue_ppa/quartus/circular_depth10/output_files/circular_depth10.fit.summary",
+      "02_circular_queue_ppa/quartus/shift_depth100/output_files/shift_depth100.fit.summary",
+      "02_circular_queue_ppa/quartus/circular_depth100/output_files/circular_depth100.fit.summary",
+      "03_memory_based_dv/quartus/output_files/memory_delay_logic.syn.summary"
+    ]
   },
   "ppa": {
-    "status": "BLOCKED",
-    "reason": "Fit, Timing, and Power reports were unavailable; no numbers claimed."
+    "status": "COMPLETE",
+    "rows": 4,
+    "result_csv": "02_circular_queue_ppa/results/PPA_results.csv",
+    "power_boundary": "Fixed 12.5% default toggle, vectorless off, Low estimation confidence; not board measurement."
   },
   "tools": [
     {
       "name": "vsim",
-      "found": false,
-      "path": null
+      "found": true
     },
     {
       "name": "vlog",
-      "found": false,
-      "path": null
+      "found": true
     },
     {
       "name": "vlib",
-      "found": false,
-      "path": null
+      "found": true
     },
     {
       "name": "vmap",
-      "found": false,
-      "path": null
+      "found": true
     },
     {
       "name": "quartus_sh",
-      "found": false,
-      "path": null
+      "found": true
     },
     {
       "name": "quartus_map",
-      "found": false,
-      "path": null
+      "found": true
     },
     {
       "name": "quartus_fit",
-      "found": false,
-      "path": null
+      "found": true
     },
     {
       "name": "quartus_sta",
-      "found": false,
-      "path": null
+      "found": true
     },
     {
       "name": "quartus_pow",
-      "found": false,
-      "path": null
+      "found": true
     },
     {
       "name": "iverilog",
-      "found": true,
-      "path": "D:\\msys64\\ucrt64\\bin\\iverilog.exe"
+      "found": true
     },
     {
       "name": "vvp",
-      "found": true,
-      "path": "D:\\msys64\\ucrt64\\bin\\vvp.exe"
+      "found": true
     },
     {
       "name": "verilator",
-      "found": false,
-      "path": null
+      "found": false
     },
     {
       "name": "yosys",
-      "found": false,
-      "path": null
+      "found": false
     }
   ]
 }

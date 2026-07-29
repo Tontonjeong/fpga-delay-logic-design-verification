@@ -46,7 +46,7 @@ The original testbench remains available for manual review. A separate portable 
 | Supplied RTL/testbench | SHA-256 matched to the submitted ZIP |
 | Original ModelSim 10.5b run | **COMPILE + STIMULUS COMPLETE** — 0 errors, 0 warnings, `$finish` at 310 ns |
 | Icarus Verilog 13.0 functional regression | **PASS — 20 checks, 0 errors** |
-| Original-run evidence | [transcript](../results/archive_rerun/project1_modelsim_original.log), [VCD](../results/archive_rerun/project1_original.vcd) |
+| Original-run evidence | [transcript](../results/archive_rerun/project1_original_modelsim.log), [VCD](../results/archive_rerun/project1_original.vcd) |
 | Supplemental self-check evidence | [log](results/project1_simulation.log), [VCD](results/project1_waveform.vcd) |
 | Quartus Prime Pro 24.3.1 synthesis | **SUCCESS** — 0 errors, 1 warning, 85 estimated ALMs, 119 registers |
 

@@ -21,9 +21,16 @@ One programmable-delay contract is developed through three engineering stages:
 2. a circular queue using one-slot writes and modulo read addressing;
 3. a memory-based DUT with file-driven stimulus and a deterministic Output Checker.
 
-All three projects were compiled and executed on 2026-07-29 with **Icarus Verilog 13.0**. Project 1 passed 20 self-checks, Project 2 passed 26 architecture-equivalence checks, and all three Project 3 file scenarios emitted both `[CHECKER][PASS]` and `[TEST PASS]`.
+The supplied ZIP sources were first rerun with ModelSim 10.5b, then separate
+self-checking regressions were executed with Icarus Verilog 13.0. Project 1
+passed 20 supplemental checks, Project 2 passed 26 architecture-equivalence
+checks, and Project 3 passed all three original Driver/Checker scenarios after
+a documented one-line instance-name compatibility change.
 
-Quartus was not installed on the verification host. Synthesis and numerical PPA are therefore labeled **BLOCKED**, not estimated.
+Quartus Prime Pro 24.3.1 then executed Project 1/3 synthesis and the complete
+four-case Project 2 Fit/Timing/Power matrix. The measured result does not support
+a blanket queue-optimization claim: at depth 100 the Circular Queue uses 7.4%
+fewer registers, but 19.6% more ALMs and has 38.1% lower restricted Fmax.
 
 ## Recruiter Snapshot
 
@@ -33,7 +40,7 @@ Quartus was not installed on the verification host. Synthesis and numerical PPA 
 | Functional regression | 3/3 projects PASS using Icarus Verilog 13.0 |
 | Self-check coverage | 20 Project 1 checks + 26 Project 2 equivalence checks |
 | File-driven DV | 3 Project 3 scenarios; 8/14/17 checked cycles |
-| PPA scope | 4 equally constrained Quartus projects at DEPTH 10/100 |
+| PPA execution | 4 equally constrained Quartus 24.3.1 Fit/Timing/Power runs |
 | Evidence | compile logs, simulation logs, VCDs, rendered waveforms, JSON manifest |
 
 ## Architecture Evolution
@@ -68,9 +75,9 @@ The five source-brief pages were interpreted and redrawn as eight bilingual engi
 
 | Project | Functional simulation | Synthesis | Numerical PPA | Evidence |
 |---|---|---|---|---|
-| Project 1 | **PASS** — Icarus 13.0, 20 checks | **BLOCKED** — Quartus unavailable | N/A | [log](01_shift_register_baseline/results/project1_simulation.log), [VCD](01_shift_register_baseline/results/project1_waveform.vcd) |
-| Project 2 | **PASS** — 2 implementations + independent reference, 26 checks | **BLOCKED** — Quartus unavailable | **BLOCKED** — no Fit/Timing/Power reports | [log](02_circular_queue_ppa/results/project2_simulation.log), [VCD](02_circular_queue_ppa/results/project2_waveform.vcd) |
-| Project 3 | **PASS** — scenarios 1–3, DUT + Checker | **BLOCKED** — Quartus unavailable | N/A | [results](03_memory_based_dv/results/), [manifest](results/verification_summary.json) |
+| Project 1 | **PASS** — 20 supplemental checks | **SUCCESS** — 85 estimated ALMs, 119 registers | N/A | [source boundary](docs/source-provenance.md), [synthesis](01_shift_register_baseline/quartus/output_files/delay_logic.syn.summary) |
+| Project 2 | **PASS** — 2 implementations + independent reference, 26 checks | **SUCCESS** — four Fits | **COMPLETE** — timing and power included | [CSV](02_circular_queue_ppa/results/PPA_results.csv), [raw reports](02_circular_queue_ppa/quartus/) |
+| Project 3 | **PASS** — original Checker after one-line compatibility change | **SUCCESS** — `altdpram` inferred as LUTRAM | N/A | [archive rerun](results/archive_rerun/), [synthesis](03_memory_based_dv/quartus/output_files/memory_delay_logic.syn.rpt) |
 
 Project 3 executed results:
 
@@ -79,8 +86,6 @@ Project 3 executed results:
 | 1 | 8 | 5 | `[CHECKER][PASS]` + `[TEST PASS]` |
 | 2 | 14 | 4 | `[CHECKER][PASS]` + `[TEST PASS]` |
 | 3 | 17 | 14 | `[CHECKER][PASS]` + `[TEST PASS]` |
-
-The source implementation tested by the evidence run is commit `c356ade3998e36a76255b573aa9f93bbf274be3e`.
 
 ## Executed Waveforms
 
@@ -101,12 +106,22 @@ The Checker compares data and valid on every reference cycle, counts valid outpu
 
 ## PPA Boundary
 
-<picture>
-  <source srcset="docs/assets/en/ppa/ppa_comparison_matrix.svg" type="image/svg+xml">
-  <img src="docs/assets/en/ppa/ppa_comparison_matrix.png" alt="Four-case PPA method with numerical PPA marked BLOCKED" width="92%">
-</picture>
+<img src="02_circular_queue_ppa/figures/ppa_results/alm_comparison.svg" alt="Actual Quartus 24.3 ALM comparison for the four controlled cases" width="92%">
 
-The configured study targets Agilex 5 `A5ED065BB32AE6SR0`, 100 MHz, `BALANCED` optimization, virtual pins, vectorless Power Analyzer, and a 12.5% toggle assumption. The host scan found no Quartus executables, so utilization, Fmax, timing closure, power, and architecture-advantage numbers are not claimed.
+The study targets Agilex 5 `A5ED065BB32AE6SR0`, 100 MHz, `BALANCED`
+optimization, virtual pins, and one fixed 12.5% default-toggle assumption.
+Quartus 24.3 reports vectorless estimation as unsupported for Agilex 5, so all
+four cases use `vectorless=off`.
+
+| Architecture | DEPTH | ALMs | Registers | Restricted Fmax | Setup slack | Dynamic power |
+|---|---:|---:|---:|---:|---:|---:|
+| Shift Register | 10 | 113 | 175 | 554.02 MHz | 9.098 ns | 0.737 W |
+| Circular Queue | 10 | 162 | 178 | 536.48 MHz | 8.136 ns | 0.737 W |
+| Shift Register | 100 | 925 | 1851 | 554.02 MHz | 8.800 ns | 0.742 W |
+| Circular Queue | 100 | 1106 | 1714 | 343.05 MHz | 7.085 ns | 0.744 W |
+
+Both Circular Queue cases report zero RAM blocks. Power confidence is Low and
+the values are tool estimates, not board measurements.
 
 Read the [PPA methodology](docs/ppa-methodology.md).
 
@@ -138,8 +153,8 @@ This compiles all three projects and regenerates logs, VCD files, and the eviden
 - A PASS label requires an executed log with the expected marker.
 - VCD and waveform PNG files are retained for review.
 - The Icarus constant-select sensitivity message is a non-fatal simulator limitation; all checks completed with zero errors.
-- Synthesis and numerical PPA remain BLOCKED until Quartus Fit, Timing, and Power reports exist.
-- Vectorless power, if later generated, is an estimate rather than board measurement.
+- Synthesis, Fit, timing, and power are labeled complete only when raw reports exist.
+- Fixed-toggle power is a Low-confidence tool estimate, not a board measurement.
 
 ## Author
 

@@ -15,19 +15,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
 
+DRIVE_ROOT = Path("D:" + os.sep)
+
 CANDIDATES = {
     "Quartus Prime Pro": [
-        Path(r"D:\IntelQuartus\quartus\bin64\quartus_sh.exe"),
-        Path(r"D:\intelFPGA\18.1\quartus\bin64\quartus_sh.exe"),
+        DRIVE_ROOT / "IntelQuartus/quartus/bin64/quartus_sh.exe",
+        DRIVE_ROOT / "intelFPGA/18.1/quartus/bin64/quartus_sh.exe",
     ],
     "Questa Intel FPGA Starter Edition": [
-        Path(r"D:\IntelQuartus\questa_fse\win64\vsim.exe"),
+        DRIVE_ROOT / "IntelQuartus/questa_fse/win64/vsim.exe",
     ],
     "ModelSim Intel FPGA Starter Edition": [
-        Path(r"D:\intelFPGA\18.1\modelsim_ase\win32aloem\vsim.exe"),
+        DRIVE_ROOT / "intelFPGA/18.1/modelsim_ase/win32aloem/vsim.exe",
     ],
     "Icarus Verilog": [
-        Path(r"D:\msys64\ucrt64\bin\iverilog.exe"),
+        DRIVE_ROOT / "msys64/ucrt64/bin/iverilog.exe",
     ],
 }
 
@@ -62,7 +64,7 @@ def main() -> int:
     for name, candidates in CANDIDATES.items():
         path = first_existing(candidates)
         if not path:
-            records.append({"name": name, "found": False, "candidates": [str(x) for x in candidates]})
+            records.append({"name": name, "found": False})
             continue
         arguments = ["--version"] if "Quartus" in name else ["-version"]
         if name == "Icarus Verilog":
@@ -72,7 +74,6 @@ def main() -> int:
             {
                 "name": name,
                 "found": True,
-                "path": str(path),
                 "version_exit_code": code,
                 "version_output": output,
             }
@@ -103,7 +104,6 @@ def main() -> int:
             continue
         first_line = str(record["version_output"]).splitlines()[0] if record["version_output"] else "no output"
         lines.append(f"{record['name']}: {first_line}")
-        lines.append(f"  {record['path']}")
     (RESULTS / "tool_versions.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("\n".join(lines))
     return 0

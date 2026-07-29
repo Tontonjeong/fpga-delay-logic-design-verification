@@ -115,7 +115,7 @@ The chart script refuses incomplete data.
 |---|---|
 | Supplied RTL/testbench | SHA-256 matched to the submitted ZIP |
 | Original ModelSim 10.5b run | **COMPILE + STIMULUS COMPLETE** — 0 errors, 0 warnings, `$finish` at 320 ns |
-| Original-run evidence | [transcript](../results/archive_rerun/project2_modelsim_original.log), [VCD](../results/archive_rerun/project2_original.vcd) |
+| Original-run evidence | [transcript](../results/archive_rerun/project2_original_modelsim.log), [VCD](../results/archive_rerun/project2_original.vcd) |
 | Four Quartus projects | **Fit + timing + power complete** |
 | Icarus Verilog 13.0 equivalence | **PASS — 26 checks, 0 errors** |
 | Simulation evidence | [log](results/project2_simulation.log), [VCD](results/project2_waveform.vcd) |

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660">
+<style>text{font-family:Arial,'Noto Sans',sans-serif}.title{font-size:31px;font-weight:700;fill:#eef3ff}.label{font-size:18px;fill:#c3cee8}.value{font-size:21px;font-weight:700;fill:#fff}.note{font-size:15px;fill:#97a6c6}.grid{stroke:#32405f;stroke-width:1}</style>
+<rect width="1200" height="660" rx="28" fill="#091426"/>
+<text x="60" y="62" class="title">Restricted Fmax (MHz)</text>
+<line x1="135" y1="490.0" x2="1115" y2="490.0" class="grid"/>
+<text x="117" y="496.0" text-anchor="end" class="note">0.00</text>
+<line x1="135" y1="414.0" x2="1115" y2="414.0" class="grid"/>
+<text x="117" y="420.0" text-anchor="end" class="note">110.80</text>
+<line x1="135" y1="338.0" x2="1115" y2="338.0" class="grid"/>
+<text x="117" y="344.0" text-anchor="end" class="note">221.61</text>
+<line x1="135" y1="262.0" x2="1115" y2="262.0" class="grid"/>
+<text x="117" y="268.0" text-anchor="end" class="note">332.41</text>
+<line x1="135" y1="186.0" x2="1115" y2="186.0" class="grid"/>
+<text x="117" y="192.0" text-anchor="end" class="note">443.22</text>
+<line x1="135" y1="110.0" x2="1115" y2="110.0" class="grid"/>
+<text x="117" y="116.0" text-anchor="end" class="note">554.02</text>
+<rect x="200" y="110.0" width="150" height="380.0" rx="10" fill="#5B78F6"/>
+<text x="275.0" y="135.0" text-anchor="middle" class="value">554.02</text>
+<text x="275.0" y="524" text-anchor="middle" class="label">Shift Register</text>
+<text x="275.0" y="550" text-anchor="middle" class="note">DEPTH=10</text>
+<rect x="435" y="122.0" width="150" height="368.0" rx="10" fill="#16A394"/>
+<text x="510.0" y="135.0" text-anchor="middle" class="value">536.48</text>
+<text x="510.0" y="524" text-anchor="middle" class="label">Circular Queue</text>
+<text x="510.0" y="550" text-anchor="middle" class="note">DEPTH=10</text>
+<rect x="670" y="110.0" width="150" height="380.0" rx="10" fill="#5B78F6"/>
+<text x="745.0" y="135.0" text-anchor="middle" class="value">554.02</text>
+<text x="745.0" y="524" text-anchor="middle" class="label">Shift Register</text>
+<text x="745.0" y="550" text-anchor="middle" class="note">DEPTH=100</text>
+<rect x="905" y="254.7" width="150" height="235.3" rx="10" fill="#16A394"/>
+<text x="980.0" y="242.7" text-anchor="middle" class="value">343.05</text>
+<text x="980.0" y="524" text-anchor="middle" class="label">Circular Queue</text>
+<text x="980.0" y="550" text-anchor="middle" class="note">DEPTH=100</text>
+<text x="600" y="614" text-anchor="middle" class="note">Quartus 24.3.1 · A5ED065BB32AE6SR0 · 100 MHz · Fixed default toggle rate (vectorless off) · toggle 12.5%</text>
+</svg>
