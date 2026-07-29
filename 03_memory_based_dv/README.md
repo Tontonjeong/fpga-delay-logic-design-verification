@@ -52,12 +52,19 @@ Dynamic tap selection can revisit earlier memory slots; repeated values around t
 
 | Evidence state | Result |
 |---|---|
-| Source and scenario files | Documented |
+| Supplied RTL/Driver/Checker | SHA-256 matched to the submitted ZIP |
+| Original ModelSim 10.5b run | **FAIL at compile** — `checker` is a reserved SystemVerilog keyword |
+| One-line compatibility rerun | **PASS** — instance name only changed to `output_check`; all three scenarios pass |
 | Python reference-vector consistency | **REFERENCE PASS** for all 3 scenarios |
 | DUT + Checker Icarus Verilog 13.0 simulation | **PASS** for scenarios 1–3 |
-| Quartus synthesis | **BLOCKED — Quartus unavailable** |
+| Quartus Prime Pro 24.3.1 synthesis | **SUCCESS** — 0 errors, 1 warning, `altdpram` inferred as LUTRAM |
 
 The exact executed console logs, checker logs, and VCD files are committed in [`results/`](results/). Reference-only evidence remains separately available in [reference_validation.txt](results/reference_validation.txt) and [reference_summary.csv](results/reference_summary.csv).
+
+The supplied `run_all_batch.bat` prints a completion message even when each
+compile fails, so the batch message is not used as a verdict. The original
+failure, the one-line diff, and the compatibility-run transcript are retained
+under [`../results/archive_rerun/`](../results/archive_rerun/).
 
 ## Reproduce
 
@@ -88,6 +95,12 @@ run_quartus_compile.bat
 
 ## Limitations
 
-- The committed simulation evidence uses Icarus Verilog 13.0; no ModelSim/Questa PASS is claimed.
+- The portable repository regression uses Icarus Verilog 13.0. ModelSim 10.5b
+  separately passes the original Driver/Checker after the documented one-line
+  instance-name compatibility change.
+- Questa 2024.1 is installed but its local license initialization fails; no
+  Questa PASS is claimed.
 - The Python generator validates the reference model and vectors, while the Icarus regression separately executes SystemVerilog.
-- Memory inference and timing depend on Quartus, device support, and the final Fit report.
+- Quartus synthesis reports 32 estimated ALMs, 31 registers, and 16 RAM
+  segments for the depth-10 DUT. This is synthesis evidence; no Project 3
+  post-fit timing or board power result is claimed.

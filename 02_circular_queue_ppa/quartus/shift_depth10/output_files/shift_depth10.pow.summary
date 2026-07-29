@@ -1,0 +1,15 @@
+Power Analyzer Status : Successful - Wed Jul 29 23:47:11 2026
+Quartus Prime Version : 24.3.1 Build 102 01/14/2025 SC Pro Edition
+Revision Name : shift_depth10
+Top-level Entity Name : shift_depth10
+Family : Agilex 5
+Device : A5ED065BB32AE6SR0
+Timing Models : Preliminary
+Power Models : Preliminary
+Device Status : Preliminary
+Total Dynamic Power Dissipation : 0.737 W
+Total Static Power Dissipation (Before Savings) : 1.377 W
+Static Power Dissipation Savings : -0.000 W
+SmartVID Power Savings : -0.000 W
+Total On-Chip Power Dissipation : 2.113 W
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

@@ -35,7 +35,7 @@ if errorlevel 1 (
 )
 
 echo.
-echo [DONE] Four compilation and vectorless Power Analyzer runs completed.
+echo [DONE] Four compilation and fixed-toggle Power Analyzer runs completed.
 echo Results: results\PPA_results.csv
 pause
 exit /b 0
@@ -52,8 +52,10 @@ if errorlevel 1 (
   popd
   exit /b 1
 )
-rem Same 100 MHz SDC and identical vectorless toggle assumptions for all cases.
-quartus_pow !CASE! --no_input_file --default_input_io_toggle_rate=12.5%% --use_vectorless_estimation=on --default_toggle_rate=12.5%%
+rem Same 100 MHz SDC and identical fixed default toggle assumptions for all cases.
+rem Agilex 5 does not support Quartus vectorless estimation. Quartus 24.3 also
+rem rejects --use_vectorless_estimation=on together with --default_toggle_rate.
+quartus_pow !CASE! --no_input_file --default_input_io_toggle_rate=12.5%% --use_vectorless_estimation=off --default_toggle_rate=12.5%%
 if errorlevel 1 (
   popd
   exit /b 1

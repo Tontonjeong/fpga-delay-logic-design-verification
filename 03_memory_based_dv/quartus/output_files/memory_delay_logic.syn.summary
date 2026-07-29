@@ -1,0 +1,9 @@
+Synthesis Status : Successful - Thu Jul 30 00:03:34 2026
+Revision Name : memory_delay_logic
+Top-level Entity Name : memory_delay_logic
+Family : Agilex 5
+Quartus Prime Version : 24.3.1 Build 102 01/14/2025 SC Pro Edition
+Device : A5ED065BB32AE6SR0
+Logic utilization estimate (in ALMs) : 32 / 222,400 ( < 1 % )
+Total dedicated logic registers : 31
+Estimated DSP Blocks Post-Merging : 0

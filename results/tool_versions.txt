@@ -1,0 +1,10 @@
+Captured: 2026-07-30T00:07:54.268620+09:00
+Host: Windows-10-10.0.26200-SP0
+Quartus Prime Pro: Quartus Prime Shell
+  D:\IntelQuartus\quartus\bin64\quartus_sh.exe
+Questa Intel FPGA Starter Edition: Questa Intel Starter FPGA Edition-64 vsim 2024.1 Simulator 2024.04 Apr 19 2024
+  D:\IntelQuartus\questa_fse\win64\vsim.exe
+ModelSim Intel FPGA Starter Edition: Model Technology ModelSim ALTERA STARTER EDITION vsim 10.5b Simulator 2016.10 Oct  5 2016
+  D:\intelFPGA\18.1\modelsim_ase\win32aloem\vsim.exe
+Icarus Verilog: Icarus Verilog version 13.0 (stable) (v13_0)
+  D:\msys64\ucrt64\bin\iverilog.exe

@@ -1,4 +1,4 @@
-$ D:\msys64\ucrt64\bin\vvp.EXE build\project3_regression.vvp +SCENARIO=2 +DUMP_VCD
+$ D:\msys64\ucrt64\bin\vvp.exe build\project3_regression.vvp +SCENARIO=2 +DUMP_VCD
 [INPUT DRIVER] Loaded 9 input cycles from vectors/scenario2/Input.txt
 [INPUT DRIVER] Initial iDelay=5, scheduled changes=0
 [CHECKER] Loaded 14 reference cycles, valid outputs=4

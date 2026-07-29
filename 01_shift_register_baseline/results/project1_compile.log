@@ -1,3 +1,3 @@
-$ D:\msys64\ucrt64\bin\iverilog.EXE -g2012 -Wall -s tb_delay_logic_regression -o build\project1_regression.vvp rtl/delay_logic.sv tb/tb_delay_logic_regression.sv
+$ D:\msys64\ucrt64\bin\iverilog.exe -g2012 -Wall -s tb_delay_logic_regression -o build\project1_regression.vvp rtl/delay_logic.sv tb/tb_delay_logic_regression.sv
 
 [exit_code=0]

@@ -1,0 +1,20 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'iClk'
+Slack : 9.098
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Hold 'iClk'
+Slack : 0.117
+TNS   : 0.000
+Corner: Fast fix6 0C Model
+
+Type  : Minimum Pulse Width 'iClk'
+Slack : 4.579
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+------------------------------------------------------------

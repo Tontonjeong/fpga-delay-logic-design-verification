@@ -85,25 +85,47 @@ def parse_case(architecture: str, depth: int, case: str) -> dict[str, str | int]
     ])
 
     fmax = first_match(sta, [
-        r"iClk[^\n;]*;\s*([0-9.]+)\s*MHz",
-        r"([0-9.]+)\s*MHz[^\n]*iClk",
+        r";\s*([0-9.]+)\s*MHz\s*;\s*[0-9.]+\s*MHz\s*;\s*iClk\s*;",
         r"Fmax[^\n]*?([0-9.]+)\s*MHz",
+    ])
+    restricted_fmax = first_match(sta, [
+        r";\s*[0-9.]+\s*MHz\s*;\s*([0-9.]+)\s*MHz\s*;\s*iClk\s*;",
+    ])
+    setup_slack = first_match(sta, [
+        r"Worst-case\s+Slack\s*;\s*([-0-9.]+)\s*;\s*[-0-9.]+\s*;",
+        r"Setup\s+'?iClk'?[^\n]*\nSlack\s*:\s*([-0-9.]+)",
+        r"Setup\s+slack[^\n;]*;\s*([-0-9.]+)",
+    ])
+    hold_slack = first_match(sta, [
+        r"Worst-case\s+Slack\s*;\s*[-0-9.]+\s*;\s*([-0-9.]+)\s*;",
+        r"Hold\s+'?iClk'?[^\n]*\nSlack\s*:\s*([-0-9.]+)",
+        r"Hold\s+slack[^\n;]*;\s*([-0-9.]+)",
     ])
 
     total_power = first_match(power, [
+        r"Total\s+On-Chip\s+Power\s+Dissipation\s*;\s*([0-9.]+)\s*W",
+        r"Total\s+On-Chip\s+Power\s+Dissipation\s*:\s*([0-9.]+)\s*W",
         r"Total\s+Thermal\s+Power\s+Dissipation[^\n;]*;\s*([0-9.]+)\s*W",
         r"Total\s+Thermal\s+Power\s+Dissipation[^\n]*?([0-9.]+)\s*W",
     ])
     dynamic_power = first_match(power, [
+        r"Total\s+Dynamic\s+Power\s+Dissipation\s*;\s*([0-9.]+)\s*W",
+        r"Total\s+Dynamic\s+Power\s+Dissipation\s*:\s*([0-9.]+)\s*W",
         r"Core\s+Dynamic\s+Thermal\s+Power\s+Dissipation[^\n;]*;\s*([0-9.]+)\s*W",
         r"Dynamic\s+Thermal\s+Power\s+Dissipation[^\n;]*;\s*([0-9.]+)\s*W",
     ])
     static_power = first_match(power, [
+        r"Total\s+Static\s+Power\s+Dissipation(?:\s+\(Before\s+Savings\))?\s*;\s*([0-9.]+)\s*W",
+        r"Total\s+Static\s+Power\s+Dissipation[^\n:]*[^:]*:\s*([0-9.]+)\s*W",
         r"Static\s+Thermal\s+Power\s+Dissipation[^\n;]*;\s*([0-9.]+)\s*W",
         r"Device\s+Static[^\n;]*;\s*([0-9.]+)\s*W",
     ])
     io_power = first_match(power, [
+        r";\s*IO\s*;\s*([0-9.]+)\s*;",
         r"I/O\s+Thermal\s+Power\s+Dissipation[^\n;]*;\s*([0-9.]+)\s*W",
+    ])
+    power_confidence = first_match(power, [
+        r"Power\s+Estimation\s+Confidence\s*;\s*([^;\n]+)",
     ])
 
     return {
@@ -113,17 +135,21 @@ def parse_case(architecture: str, depth: int, case: str) -> dict[str, str | int]
         "Quartus Version": quartus_version,
         "FPGA Device": device,
         "Clock Constraint (MHz)": "100",
-        "Power Method": "Vectorless estimation",
+        "Power Method": "Fixed default toggle rate (vectorless off)",
         "Toggle Assumption": "12.5%",
         "ALMs/Logic Utilization": alms,
         "Registers": registers,
         "Memory Bits": memory_bits,
         "Memory Blocks": memory_blocks,
         "Fmax (MHz)": fmax,
+        "Restricted Fmax (MHz)": restricted_fmax,
+        "Setup Slack (ns)": setup_slack,
+        "Hold Slack (ns)": hold_slack,
         "Total Power (W)": total_power,
-        "Core Dynamic Power (W)": dynamic_power,
+        "Dynamic Power (W)": dynamic_power,
         "Static Power (W)": static_power,
         "I/O Power (W)": io_power,
+        "Power Estimation Confidence": power_confidence,
         "Fit Report": str(fit_path.relative_to(ROOT)),
         "Timing Report": str(sta_path.relative_to(ROOT)),
         "Power Report": str(pow_path.relative_to(ROOT)),

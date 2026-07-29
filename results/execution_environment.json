@@ -1,0 +1,43 @@
+{
+  "captured_at": "2026-07-30T00:07:54.268620+09:00",
+  "host": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "processor": "AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD"
+  },
+  "tools": [
+    {
+      "name": "Quartus Prime Pro",
+      "found": true,
+      "path": "D:\\IntelQuartus\\quartus\\bin64\\quartus_sh.exe",
+      "version_exit_code": 0,
+      "version_output": "Quartus Prime Shell\nVersion 24.3.1 Build 102 01/14/2025 SC Pro Edition\nCopyright (C) 2025  Intel Corporation. All rights reserved."
+    },
+    {
+      "name": "Questa Intel FPGA Starter Edition",
+      "found": true,
+      "path": "D:\\IntelQuartus\\questa_fse\\win64\\vsim.exe",
+      "version_exit_code": 0,
+      "version_output": "Questa Intel Starter FPGA Edition-64 vsim 2024.1 Simulator 2024.04 Apr 19 2024"
+    },
+    {
+      "name": "ModelSim Intel FPGA Starter Edition",
+      "found": true,
+      "path": "D:\\intelFPGA\\18.1\\modelsim_ase\\win32aloem\\vsim.exe",
+      "version_exit_code": 0,
+      "version_output": "Model Technology ModelSim ALTERA STARTER EDITION vsim 10.5b Simulator 2016.10 Oct  5 2016"
+    },
+    {
+      "name": "Icarus Verilog",
+      "found": true,
+      "path": "D:\\msys64\\ucrt64\\bin\\iverilog.exe",
+      "version_exit_code": 0,
+      "version_output": "Icarus Verilog version 13.0 (stable) (v13_0)\n\nCopyright (c) 2000-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Preprocessor version 13.0 (stable) (v13_0)\n\nCopyright (c) 1999-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nIcarus Verilog Parser/Elaborator version 13.0 (stable) (v13_0)\n\nCopyright (c) 1998-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\n FLAGS DLL vvp.tgt\nvvp.tgt: Icarus Verilog VVP Code Generator 13.0 (stable) (v13_0)\n\nCopyright (c) 2001-2026 Stephen Williams (steve@icarus.com)\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 2 of the License, or\n  (at your option) any later version.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License along\n  with this program; if not, write to the Free Software Foundation, Inc.,\n  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+    }
+  ],
+  "notes": {
+    "questa_2024": "Installed; simulation initialization is blocked by the local license environment.",
+    "modelsim_10_5b": "Installed; used for original archive reruns.",
+    "quartus_24_3_1": "Installed; used for synthesis, fit, timing, and power reports."
+  }
+}

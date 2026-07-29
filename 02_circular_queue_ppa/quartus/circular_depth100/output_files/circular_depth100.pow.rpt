@@ -1,0 +1,279 @@
+Power Analyzer report for circular_depth100
+Wed Jul 29 23:38:33 2026
+Quartus Prime Version 24.3.1 Build 102 01/14/2025 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Power Analyzer Summary
+  3. Power Analyzer Settings
+  4. Power Analyzer Messages
+  5. Indeterminate Toggle Rates
+  6. Power Analyzer Generated Files
+  7. Current Drawn per Supply
+  8. On-Chip Power Dissipation by Block Type
+  9. On-Chip Power Dissipation by Hierarchy
+ 10. Confidence Metric Details
+ 11. Signal Activities
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the Intel FPGA Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++----------------------------------------------------------------------------------------------------+
+; Power Analyzer Summary                                                                             ;
++-------------------------------------------------+--------------------------------------------------+
+; Power Analyzer Status                           ; Successful - Wed Jul 29 23:38:32 2026            ;
+; Quartus Prime Version                           ; 24.3.1 Build 102 01/14/2025 SC Pro Edition       ;
+; Revision Name                                   ; circular_depth100                                ;
+; Top-level Entity Name                           ; circular_depth100                                ;
+; Family                                          ; Agilex 5                                         ;
+; Device                                          ; A5ED065BB32AE6SR0                                ;
+; Timing Models                                   ; Preliminary                                      ;
+; Power Models                                    ; Preliminary                                      ;
+; Device Status                                   ; Preliminary                                      ;
+; Total Dynamic Power Dissipation                 ; 0.744 W                                          ;
+; Total Static Power Dissipation (Before Savings) ; 1.377 W                                          ;
+; Static Power Dissipation Savings                ; -0.000 W                                         ;
+; SmartVID Power Savings                          ; -0.000 W                                         ;
+; Total On-Chip Power Dissipation                 ; 2.121 W                                          ;
+; Power Estimation Confidence                     ; Low: user provided insufficient toggle rate data ;
++-------------------------------------------------+--------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Power Analyzer Settings                                                                                            ;
++------------------------------------------------------------------+------------------------+------------------------+
+; Option                                                           ; Setting                ; Default Value          ;
++------------------------------------------------------------------+------------------------+------------------------+
+; Maximum processors allowed for parallel compilation              ; All                    ;                        ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                     ; On                     ;
+; Enable compact report table                                      ; Off                    ; Off                    ;
+; Enable Design Assistant in the compilation flow                  ; On                     ; On                     ;
+; Design Assistant include IP blocks                               ; Off                    ; Off                    ;
+; High fanout net threshold for RAM inference                      ; 15                     ; 15                     ;
+; Design Assistant limit on reported violations per rule           ; 5000                   ; 5000                   ;
+; Default Power Toggle Rate                                        ; 12.5%                  ; 12.5%                  ;
+; Default Power Input I/O Toggle Rate                              ; 12.5%                  ; 12.5%                  ;
+; Use vectorless estimation                                        ; Off                    ; On                     ;
+; Use Input Files                                                  ; Off                    ; Off                    ;
+; Filter Glitches in VCD File Reader                               ; On                     ; On                     ;
+; Power Analyzer Report Signal Activity                            ; Off                    ; Off                    ;
+; Power Analyzer Report Power Dissipation                          ; Off                    ; Off                    ;
+; Device Power Characteristics                                     ; MAXIMUM                ; MAXIMUM                ;
+; Specified Junction Temperature                                   ; 25                     ; 25                     ;
+; Ambient Temperature                                              ; 50                     ; 50                     ;
+; Find cooling solution for maximum junction temperature limit     ; Off                    ; Off                    ;
+; Maximum junction temperature limit                               ; 100                    ; 100                    ;
+; Case-to-ambient thermal resistance                               ; 0.5                    ; 0.5                    ;
+; Apply additional margin                                          ; Off                    ; Off                    ;
+; Apply additional margin                                          ; 0.0                    ; 0.0                    ;
+; Temperature measurement method                                   ; DTS                    ; DTS                    ;
+; Power and Thermal Calculator Export File                         ; circular_depth100.qptc ; circular_depth100.qptc ;
++------------------------------------------------------------------+------------------------+------------------------+
+
+
++-------------------------+
+; Power Analyzer Messages ;
++-------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Power Analyzer
+    Info: Version 24.3.1 Build 102 01/14/2025 SC Pro Edition
+    Info: Copyright (C) 2025  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the Intel FPGA Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Wed Jul 29 23:37:36 2026
+    Info: System process ID: 47116
+Info: Command: quartus_pow circular_depth100 --no_input_file --default_input_io_toggle_rate=12.5% --use_vectorless_estimation=off --default_toggle_rate=12.5%
+Info (16677): Loading final database.
+Info (16734): Loading "final" snapshot for partition "root_partition".
+Info (16678): Successfully loaded final database: elapsed time is 00:00:04.
+Info (21076): High junction temperature operating condition is not set. Assuming a default value of '100'.
+Info (21076): Low junction temperature operating condition is not set. Assuming a default value of '0'.
+Info (19539): Reading the HDL-embedded SDC files elapsed 00:00:00.
+Info (332104): Reading SDC File: '../../constraints/clock_100mhz.sdc'
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Info (19449): Reading SDC files elapsed 00:00:00.
+Warning (332158): Clock uncertainty characteristics of the Agilex 5 device family are preliminary
+Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
+Warning (222013): Relative toggle rates could not be calculated because no clock domain could be identified for some nodes
+Warning (22299): The power calculated in the constant junction temperature mode is not representative of actual power during use. It is unlikely that all components of the die are at uniform temperature during normal operation. For more representative power, use the other calculation modes that utilize the thermal calculator.
+Warning (18291): Timing characteristics of device A5ED065BB32AE6SR0 are preliminary
+Info (21674): Created Power and Thermal Calculator export file "circular_depth100.qptc"
+Info (215049): Average toggle rate for this design is 12.591 millions of transitions / sec.
+Info (215031): Total on-chip power estimate for the design is 2120.60 mW.
+Info: Quartus Prime Power Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 3267 megabytes
+    Info: Processing ended: Wed Jul 29 23:38:33 2026
+    Info: Elapsed time: 00:00:57
+    Info: System process ID: 47116
+
+
++----------------------------------------------+
+; Indeterminate Toggle Rates                   ;
++----------------+-----------------------------+
+; Node           ; Reason                      ;
++----------------+-----------------------------+
+; u_dut|add_0~37 ; No valid clock domain found ;
++----------------+-----------------------------+
+
+
++--------------------------------------------------------------------------+
+; Power Analyzer Generated Files                                           ;
++-------------------------------------------------+------------------------+
+; Description                                     ; Filename               ;
++-------------------------------------------------+------------------------+
+; Design summary for Power and Thermal Calculator ; circular_depth100.qptc ;
++-------------------------------------------------+------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Current Drawn per Supply                                                                                                 ;
++----------------+---------+---------------------+-----------------------+----------------------+--------------------------+
+; Supply         ; Voltage ; Total Current Drawn ; Dynamic Current Drawn ; Static Current Drawn ; SmartVID Current Savings ;
++----------------+---------+---------------------+-----------------------+----------------------+--------------------------+
+; VCC            ; 0.750 V ; 0.557 A             ; 0.356 A               ; 0.201 A              ; 0.000 A                  ;
+; VCCADC         ; 1.800 V ; 0.005 A             ; 0.004 A               ; 0.001 A              ; 0.000 A                  ;
+; VCCBAT         ; 1.800 V ; 5.78E-07 A          ; 0.000 A               ; 5.78E-07 A           ; 0.000 A                  ;
+; VCCEHT_GTSL1A  ; 1.800 V ; 0.010 A             ; 0.000 A               ; 0.010 A              ; 0.000 A                  ;
+; VCCEHT_GTSL1B  ; 1.800 V ; 0.010 A             ; 0.000 A               ; 0.010 A              ; 0.000 A                  ;
+; VCCEHT_GTSL1C  ; 1.800 V ; 0.010 A             ; 0.000 A               ; 0.010 A              ; 0.000 A                  ;
+; VCCEHT_GTSR4A  ; 1.800 V ; 0.010 A             ; 0.000 A               ; 0.010 A              ; 0.000 A                  ;
+; VCCEHT_GTSR4B  ; 1.800 V ; 0.010 A             ; 0.000 A               ; 0.010 A              ; 0.000 A                  ;
+; VCCEHT_GTSR4C  ; 1.800 V ; 0.010 A             ; 0.000 A               ; 0.010 A              ; 0.000 A                  ;
+; VCCERT_GTSL1A  ; 1.000 V ; 0.007 A             ; 0.000 A               ; 0.007 A              ; 0.000 A                  ;
+; VCCERT_GTSL1B  ; 1.000 V ; 0.007 A             ; 0.000 A               ; 0.007 A              ; 0.000 A                  ;
+; VCCERT_GTSL1C  ; 1.000 V ; 0.007 A             ; 0.000 A               ; 0.007 A              ; 0.000 A                  ;
+; VCCERT_GTSR4A  ; 1.000 V ; 0.007 A             ; 0.000 A               ; 0.007 A              ; 0.000 A                  ;
+; VCCERT_GTSR4B  ; 1.000 V ; 0.007 A             ; 0.000 A               ; 0.007 A              ; 0.000 A                  ;
+; VCCERT_GTSR4C  ; 1.000 V ; 0.007 A             ; 0.000 A               ; 0.007 A              ; 0.000 A                  ;
+; VCCFUSEWR_SDM  ; 1.800 V ; 2.23E-04 A          ; 0.000 A               ; 2.23E-04 A           ; 0.000 A                  ;
+; VCCH_SDM       ; 1.000 V ; 4.19E-05 A          ; 0.000 A               ; 4.19E-05 A           ; 0.000 A                  ;
+; VCCIO_HPS      ; 1.800 V ; 0.007 A             ; 0.007 A               ; 4.64E-05 A           ; 0.000 A                  ;
+; VCCIO_HVIO_5A  ; 3.300 V ; 9.69E-04 A          ; 1.90E-04 A            ; 7.79E-04 A           ; 0.000 A                  ;
+; VCCIO_HVIO_5B  ; 3.300 V ; 9.69E-04 A          ; 1.90E-04 A            ; 7.79E-04 A           ; 0.000 A                  ;
+; VCCIO_HVIO_6A  ; 3.300 V ; 9.69E-04 A          ; 1.90E-04 A            ; 7.79E-04 A           ; 0.000 A                  ;
+; VCCIO_HVIO_6B  ; 3.300 V ; 9.69E-04 A          ; 1.90E-04 A            ; 7.79E-04 A           ; 0.000 A                  ;
+; VCCIO_HVIO_6C  ; 3.300 V ; 9.69E-04 A          ; 1.90E-04 A            ; 7.79E-04 A           ; 0.000 A                  ;
+; VCCIO_HVIO_6D  ; 3.300 V ; 9.69E-04 A          ; 1.90E-04 A            ; 7.79E-04 A           ; 0.000 A                  ;
+; VCCIO_PIO_2A_B ; 1.200 V ; 0.014 A             ; 0.008 A               ; 0.005 A              ; 0.000 A                  ;
+; VCCIO_PIO_2A_T ; 1.200 V ; 0.010 A             ; 0.005 A               ; 0.005 A              ; 0.000 A                  ;
+; VCCIO_PIO_2B_B ; 1.200 V ; 0.014 A             ; 0.008 A               ; 0.005 A              ; 0.000 A                  ;
+; VCCIO_PIO_2B_T ; 1.200 V ; 0.010 A             ; 0.005 A               ; 0.005 A              ; 0.000 A                  ;
+; VCCIO_PIO_3A_B ; 1.200 V ; 0.014 A             ; 0.008 A               ; 0.005 A              ; 0.000 A                  ;
+; VCCIO_PIO_3A_T ; 1.200 V ; 0.010 A             ; 0.005 A               ; 0.005 A              ; 0.000 A                  ;
+; VCCIO_PIO_3B_B ; 1.200 V ; 0.014 A             ; 0.008 A               ; 0.005 A              ; 0.000 A                  ;
+; VCCIO_PIO_3B_T ; 1.200 V ; 0.010 A             ; 0.005 A               ; 0.005 A              ; 0.000 A                  ;
+; VCCIO_PIO_SDM  ; 1.200 V ; 1.88E-05 A          ; 0.000 A               ; 1.88E-05 A           ; 0.000 A                  ;
+; VCCIO_SDM      ; 1.800 V ; 1.92E-04 A          ; 1.50E-04 A            ; 4.16E-05 A           ; 0.000 A                  ;
+; VCCL_HPS       ; 0.750 V ; 0.126 A             ; 0.088 A               ; 0.038 A              ; 0.000 A                  ;
+; VCCL_SDM       ; 0.750 V ; 0.068 A             ; 0.049 A               ; 0.018 A              ; 0.000 A                  ;
+; VCCP           ; 0.750 V ; 0.330 A             ; 0.161 A               ; 0.169 A              ; 0.000 A                  ;
+; VCCPLL1_HPS    ; 1.800 V ; 0.001 A             ; 9.78E-04 A            ; 2.81E-05 A           ; 0.000 A                  ;
+; VCCPLL2_HPS    ; 1.800 V ; 0.001 A             ; 9.78E-04 A            ; 2.81E-05 A           ; 0.000 A                  ;
+; VCCPLLDIG1_HPS ; 0.750 V ; 0.003 A             ; 0.003 A               ; 6.62E-05 A           ; 0.000 A                  ;
+; VCCPLLDIG2_HPS ; 0.750 V ; 0.003 A             ; 0.003 A               ; 6.62E-05 A           ; 0.000 A                  ;
+; VCCPLLDIG_SDM  ; 0.750 V ; 2.99E-04 A          ; 2.47E-04 A            ; 5.21E-05 A           ; 0.000 A                  ;
+; VCCPLL_SDM     ; 1.800 V ; 1.30E-04 A          ; 9.06E-05 A            ; 3.99E-05 A           ; 0.000 A                  ;
+; VCCPT          ; 1.800 V ; 0.108 A             ; 0.058 A               ; 0.050 A              ; 0.000 A                  ;
+; VCCPT_HVIO     ; 1.800 V ; 0.044 A             ; 0.008 A               ; 0.036 A              ; 0.000 A                  ;
+; VCCRCORE       ; 1.200 V ; 0.497 A             ; 0.002 A               ; 0.494 A              ; 0.000 A                  ;
+; VCC_HSSI_L1    ; 0.750 V ; 0.086 A             ; 0.022 A               ; 0.064 A              ; 0.000 A                  ;
+; VCC_HSSI_R4    ; 0.750 V ; 0.086 A             ; 0.022 A               ; 0.064 A              ; 0.000 A                  ;
+; VCC_IO_SDM     ; 0.750 V ; 3.48E-05 A          ; 0.000 A               ; 3.48E-05 A           ; 0.000 A                  ;
++----------------+---------+---------------------+-----------------------+----------------------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; On-Chip Power Dissipation by Block Type                                                                                  ;
++---------------+---------------------------------------+---------------------------------+--------------------------------+
+; Block Type    ; Total On-Chip Power by Block Type (W) ; Block On-Chip Dynamic Power (W) ; Block On-Chip Static Power (W) ;
++---------------+---------------------------------------+---------------------------------+--------------------------------+
+; Clock         ; 0.018                                 ; 0.003                           ; 0.015                          ;
+; DSP           ; 0.005                                 ; 0.001                           ; 0.003                          ;
+; IO            ; 0.672                                 ; 0.332                           ; 0.339                          ;
+; Logic         ; 0.189                                 ; 0.005                           ; 0.184                          ;
+; Miscellaneous ; 0.866                                 ; 0.313                           ; 0.554                          ;
+; PLL           ; 0.003                                 ; 0.000                           ; 0.003                          ;
+; RAM           ; 0.037                                 ; 0.012                           ; 0.025                          ;
+; Transceiver   ; 0.331                                 ; 0.077                           ; 0.254                          ;
++---------------+---------------------------------------+---------------------------------+--------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; On-Chip Power Dissipation by Hierarchy                                                                                                                             ;
++----------------------------+------------------------------------------+-----------------------------------------+---------------------+----------------------------+
+; Compilation Hierarchy Node ; Cumulative Dynamic On-Chip Power (W) (1) ; Current Level Dynamic On-Chip Power (W) ; Full Hierarchy Name ; Entity Name                ;
++----------------------------+------------------------------------------+-----------------------------------------+---------------------+----------------------------+
+; Global Resources           ; 0.744                                    ; 0.736                                   ;                     ;                            ;
+;     |                      ; 0.008                                    ; 0.004                                   ;                     ; circular_depth100          ;
+;         |u_dut             ; 0.004                                    ; 0.004                                   ; u_dut               ; circular_queue_delay_logic ;
++----------------------------+------------------------------------------+-----------------------------------------+---------------------+----------------------------+
+(1) Cumulative power is the power consumed at that level of hierarchy plus the power consumed by all levels of hierarchy below it.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Confidence Metric Details                                                                                                                           ;
++----------------------------------------------------------------------------------------+--------------+-------------+---------------+---------------+
+; Data Source                                                                            ; Total        ; Pin         ; Registered    ; Combinational ;
++----------------------------------------------------------------------------------------+--------------+-------------+---------------+---------------+
+; Simulation (from file)                                                                 ;              ;             ;               ;               ;
+;     -- Number of signals with Toggle Rate from Simulation                              ; 0 (0.0%)     ; 0 (0.0%)    ; 0 (0.0%)      ; 0 (0.0%)      ;
+;     -- Number of signals with Static Probability from Simulation                       ; 0 (0.0%)     ; 0 (0.0%)    ; 0 (0.0%)      ; 0 (0.0%)      ;
+;                                                                                        ;              ;             ;               ;               ;
+; Node, entity or clock assignment                                                       ;              ;             ;               ;               ;
+;     -- Number of signals with Toggle Rate from Node, entity or clock assignment        ; 2 (0.1%)     ; 0 (0.0%)    ; 0 (0.0%)      ; 2 (0.2%)      ;
+;     -- Number of signals with Static Probability from Node, entity or clock assignment ; 2 (0.1%)     ; 0 (0.0%)    ; 0 (0.0%)      ; 2 (0.2%)      ;
+;                                                                                        ;              ;             ;               ;               ;
+; Vectorless estimation                                                                  ;              ;             ;               ;               ;
+;     -- Number of signals with Toggle Rate from Vectorless estimation                   ; 0 (0.0%)     ; 0 (0.0%)    ; 0 (0.0%)      ; 0 (0.0%)      ;
+;     -- Number of signals with Static Probability from Vectorless estimation            ; 0 (0.0%)     ; 0 (0.0%)    ; 0 (0.0%)      ; 0 (0.0%)      ;
+;                                                                                        ;              ;             ;               ;               ;
+; Default assignment                                                                     ;              ;             ;               ;               ;
+;     -- Number of signals with Toggle Rate from Default assignment                      ; 2608 (99.0%) ; 0 (0.0%)    ; 1714 (100.0%) ; 894 (98.6%)   ;
+;     -- Number of signals with Static Probability from Default assignment               ; 2633 (99.9%) ; 14 (100.0%) ; 1714 (100.0%) ; 905 (99.8%)   ;
+;                                                                                        ;              ;             ;               ;               ;
+; Assumed 0                                                                              ;              ;             ;               ;               ;
+;     -- Number of signals with Toggle Rate assumed 0                                    ; 25 (0.9%)    ; 14 (100.0%) ; 0 (0.0%)      ; 11 (1.2%)     ;
++----------------------------------------------------------------------------------------+--------------+-------------+---------------+---------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Activities                                                                                                                           ;
++--------+------+---------------------------------------------+-------------------------+--------------------+--------------------------------+
+; Signal ; Type ; Toggle Rate (millions of transitions / sec) ; Toggle Rate Data Source ; Static Probability ; Static Probability Data Source ;
++--------+------+---------------------------------------------+-------------------------+--------------------+--------------------------------+
+(1) The "Signal Activity" Table has been hidden. To show this table, please select the "Write signal activities to report file" option under "Power Analyzer Settings".
+
+

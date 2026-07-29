@@ -1,4 +1,4 @@
-$ D:\msys64\ucrt64\bin\iverilog.EXE -g2012 -Wall -s tb_architecture_equivalence_regression -o build\project2_regression.vvp rtl/shift_register_delay_logic_ppa.sv rtl/circular_queue_delay_logic.sv tb/tb_architecture_equivalence_regression.sv
+$ D:\msys64\ucrt64\bin\iverilog.exe -g2012 -Wall -s tb_architecture_equivalence_regression -o build\project2_regression.vvp rtl/shift_register_delay_logic_ppa.sv rtl/circular_queue_delay_logic.sv tb/tb_architecture_equivalence_regression.sv
 rtl/circular_queue_delay_logic.sv:52: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+read_index_int[31:0]').
 
 [exit_code=0]
