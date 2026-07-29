@@ -1,67 +1,54 @@
 [
   {
     "name": "vsim",
-    "found": false,
-    "path": null
+    "found": true
   },
   {
     "name": "vlog",
-    "found": false,
-    "path": null
+    "found": true
   },
   {
     "name": "vlib",
-    "found": false,
-    "path": null
+    "found": true
   },
   {
     "name": "vmap",
-    "found": false,
-    "path": null
+    "found": true
   },
   {
     "name": "quartus_sh",
-    "found": false,
-    "path": null
+    "found": true
   },
   {
     "name": "quartus_map",
-    "found": false,
-    "path": null
+    "found": true
   },
   {
     "name": "quartus_fit",
-    "found": false,
-    "path": null
+    "found": true
   },
   {
     "name": "quartus_sta",
-    "found": false,
-    "path": null
+    "found": true
   },
   {
     "name": "quartus_pow",
-    "found": false,
-    "path": null
+    "found": true
   },
   {
     "name": "iverilog",
-    "found": true,
-    "path": "D:\\msys64\\ucrt64\\bin\\iverilog.exe"
+    "found": true
   },
   {
     "name": "vvp",
-    "found": true,
-    "path": "D:\\msys64\\ucrt64\\bin\\vvp.exe"
+    "found": true
   },
   {
     "name": "verilator",
-    "found": false,
-    "path": null
+    "found": false
   },
   {
     "name": "yosys",
-    "found": false,
-    "path": null
+    "found": false
   }
 ]

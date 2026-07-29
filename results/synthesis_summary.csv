@@ -1,0 +1,7 @@
+project,configuration,tool,status,device,logic_alms,registers,memory_result,evidence
+Project 1,Shift Register baseline,Quartus Prime Pro 24.3.1,SUCCESS,A5EC065BB32AE4S,85,119,No RAM claim,01_shift_register_baseline/quartus/output_files/delay_logic.syn.summary
+Project 2,Shift Register DEPTH=10,Quartus Prime Pro 24.3.1,SUCCESS,A5ED065BB32AE6SR0,113,175,0 RAM blocks,02_circular_queue_ppa/quartus/shift_depth10/output_files/shift_depth10.fit.summary
+Project 2,Circular Queue DEPTH=10,Quartus Prime Pro 24.3.1,SUCCESS,A5ED065BB32AE6SR0,162,178,0 RAM blocks,02_circular_queue_ppa/quartus/circular_depth10/output_files/circular_depth10.fit.summary
+Project 2,Shift Register DEPTH=100,Quartus Prime Pro 24.3.1,SUCCESS,A5ED065BB32AE6SR0,925,1851,0 RAM blocks,02_circular_queue_ppa/quartus/shift_depth100/output_files/shift_depth100.fit.summary
+Project 2,Circular Queue DEPTH=100,Quartus Prime Pro 24.3.1,SUCCESS,A5ED065BB32AE6SR0,1106,1714,0 RAM blocks,02_circular_queue_ppa/quartus/circular_depth100/output_files/circular_depth100.fit.summary
+Project 3,Memory-Based DUT DEPTH=10,Quartus Prime Pro 24.3.1,SUCCESS,A5ED065BB32AE6SR0,32,31,altdpram inferred as LUTRAM (16 RAM segments),03_memory_based_dv/quartus/output_files/memory_delay_logic.syn.rpt

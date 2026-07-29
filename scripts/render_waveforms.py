@@ -102,6 +102,7 @@ def render(
         events = all_changes.get(identifier, [])
         points = sorted(set([0, maximum] + [time for time, _ in events]))
         color = CYAN if kind == "bit" else MINT
+        last_text_right = LEFT - 10
         for start, end in zip(points, points[1:]):
             x1 = LEFT + round(plot_width * start / maximum)
             x2 = LEFT + round(plot_width * end / maximum)
@@ -118,14 +119,20 @@ def render(
             else:
                 draw.line((x1, center, x2, center), fill=color, width=4)
                 integer = normalized(value)
-                if x2 - x1 > 43:
+                if x2 - x1 > 18:
                     if integer is None:
                         text = "X"
                     elif kind == "hex":
                         text = f"0x{integer:04X}"
                     else:
                         text = str(integer)
-                    draw.text((x1 + 5, center - 27), text, font=font(14, True), fill=INK)
+                    label_font = font(12, True)
+                    box = draw.textbbox((0, 0), text, font=label_font)
+                    text_width = box[2] - box[0]
+                    text_x = x1 + 4
+                    if text_x > last_text_right + 5 and text_x + text_width < WIDTH - RIGHT:
+                        draw.text((text_x, center - 25), text, font=label_font, fill=INK)
+                        last_text_right = text_x + text_width
     destination.parent.mkdir(parents=True, exist_ok=True)
     image.save(destination, "PNG", optimize=True)
 
@@ -173,6 +180,30 @@ def main() -> None:
             "Project 3 · 동적 지연 파일 기반 검증",
             "Scenario 3 · delay changes 3 → 5 · Checker PASS",
             "시나리오 3 · 지연값 3 → 5 변경 · Checker PASS",
+        ),
+        (
+            "results/archive_rerun/project1_original.vcd",
+            "project1_original_modelsim_waveform.png",
+            "Project 1 · Original archive stimulus run",
+            "Project 1 · 원본 아카이브 자극 실행",
+            "ModelSim 10.5b · 310 ns complete · original TB has no checker",
+            "ModelSim 10.5b · 310 ns 완료 · 원본 TB에 Checker 없음",
+        ),
+        (
+            "results/archive_rerun/project2_original.vcd",
+            "project2_original_modelsim_waveform.png",
+            "Project 2 · Original archive stimulus run",
+            "Project 2 · 원본 아카이브 자극 실행",
+            "ModelSim 10.5b · 320 ns complete · original TB has no checker",
+            "ModelSim 10.5b · 320 ns 완료 · 원본 TB에 Checker 없음",
+        ),
+        (
+            "results/archive_rerun/project3_scenario3_compatibility_patch.vcd",
+            "project3_modelsim_compatibility_patch_waveform.png",
+            "Project 3 · Compatibility-patched original Checker",
+            "Project 3 · 원본 Checker 호환성 패치",
+            "ModelSim 10.5b · scenario 3 · 17 cycles / 14 valid · PASS",
+            "ModelSim 10.5b · 시나리오 3 · 17주기 / 유효 14개 · PASS",
         ),
     ]
     for source, name, en_title, ko_title, en_sub, ko_sub in cases:

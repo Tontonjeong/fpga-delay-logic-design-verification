@@ -1,0 +1,124 @@
+Flow report for shift_depth10
+Wed Jul 29 23:47:12 2026
+Quartus Prime Version 24.3.1 Build 102 01/14/2025 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Flow Summary
+  2. Flow Settings
+  3. Flow Non-Default Global Settings
+  4. Flow Elapsed Time
+  5. Flow OS Summary
+  6. Flow Log
+  7. Legal Notice
+
+
+
++------------------------------------------------------------------------------+
+; Flow Summary                                                                 ;
++---------------------------------+--------------------------------------------+
+; Flow Status                     ; Successful - Wed Jul 29 23:47:11 2026      ;
+; Quartus Prime Version           ; 24.3.1 Build 102 01/14/2025 SC Pro Edition ;
+; Revision Name                   ; shift_depth10                              ;
+; Top-level Entity Name           ; shift_depth10                              ;
+; Family                          ; Agilex 5                                   ;
+; Device                          ; A5ED065BB32AE6SR0                          ;
+; Timing Models                   ; Preliminary                                ;
+; Power Models                    ; Preliminary                                ;
+; Device Status                   ; Preliminary                                ;
+; Logic utilization (in ALMs)     ; 113 / 222,400 ( < 1 % )                    ;
+; Total dedicated logic registers ; 175                                        ;
+; Total pins                      ; 0 / 624 ( 0 % )                            ;
+; Total block memory bits         ; 0 / 32,993,280 ( 0 % )                     ;
+; Total RAM Blocks                ; 0 / 1,611 ( 0 % )                          ;
+; Total DSP Blocks                ; 0 / 846 ( 0 % )                            ;
+; Total GTS Transceiver Channels  ; 0 / 24 ( 0 % )                             ;
+; Total HSSI Ethernet Channels    ; 0 / 6 ( 0 % )                              ;
+; Total HSSI PCIEs                ; 0 / 6 ( 0 % )                              ;
+; Total HSSI HPS                  ; 0 / 1 ( 0 % )                              ;
+; Total PLLs                      ; 0 / 15 ( 0 % )                             ;
++---------------------------------+--------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 07/29/2026 23:39:28 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; shift_depth10       ;
++-------------------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                                                      ;
++--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------+
+; Assignment Name          ; Value                                                                                                                                           ; Default Value ; Entity Name ; Section Id ;
++--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID    ; 126298350567763.178533596827992                                                                                                                 ; --            ; --          ; --         ;
+; NUM_PARALLEL_PROCESSORS  ; All                                                                                                                                             ; --            ; --          ; --         ;
+; PROJECT_OUTPUT_DIRECTORY ; C:/Users/User/Documents/Codex/2026-07-28/files-mentioned-by-the-user-shift/work/fpga_rerun_ascii/p2_original/quartus/shift_depth10/output_files ; --            ; --          ; --         ;
++--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------+
+
+
++------------------------------------------------------+
+; Flow Elapsed Time                                    ;
++-----------------+--------------+---------------------+
+; Module Name     ; Elapsed Time ; Peak Virtual Memory ;
++-----------------+--------------+---------------------+
+; Synthesis       ; 00:00:16     ; 768 MB              ;
+; Fitter          ; 00:03:51     ; 7679 MB             ;
+; Timing Analyzer ; 00:00:41     ; 1025 MB             ;
+; Assembler       ; 00:00:34     ; 2948 MB             ;
+; Power Analyzer  ; 00:00:56     ; 3253 MB             ;
+; Total           ; 00:06:18     ; --                  ;
++-----------------+--------------+---------------------+
+
+
++-------------------------------------------------------------------------------+
+; Flow OS Summary                                                               ;
++-----------------+------------------+------------+------------+----------------+
+; Module Name     ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++-----------------+------------------+------------+------------+----------------+
+; Synthesis       ; DESKTOP-2JAQG8I  ; Windows 11 ; 10.0.26200 ; x86_64         ;
+; Fitter          ; DESKTOP-2JAQG8I  ; Windows 11 ; 10.0.26200 ; x86_64         ;
+; Timing Analyzer ; DESKTOP-2JAQG8I  ; Windows 11 ; 10.0.26200 ; x86_64         ;
+; Assembler       ; DESKTOP-2JAQG8I  ; Windows 11 ; 10.0.26200 ; x86_64         ;
+; Power Analyzer  ; DESKTOP-2JAQG8I  ; Windows 11 ; 10.0.26200 ; x86_64         ;
++-----------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_syn --read_settings_files=on --write_settings_files=off shift_depth10 -c shift_depth10
+quartus_fit --read_settings_files=on --write_settings_files=off shift_depth10 -c shift_depth10
+quartus_sta shift_depth10 -c shift_depth10 --mode=finalize
+quartus_asm --read_settings_files=on --write_settings_files=off shift_depth10 -c shift_depth10
+quartus_pow shift_depth10 --no_input_file --default_input_io_toggle_rate=12.5% --use_vectorless_estimation=off --default_toggle_rate=12.5%
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the Intel FPGA Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+

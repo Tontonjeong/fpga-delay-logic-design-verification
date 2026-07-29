@@ -36,7 +36,8 @@ REQUIRED = [
 ]
 
 FORBIDDEN_SUFFIXES = {".zip", ".docx", ".wlf", ".qdb"}
-FORBIDDEN_DIRS = {"db", "incremental_db", "output_files", "work", "__pycache__"}
+FORBIDDEN_DIRS = {"db", "incremental_db", "output_files", "work"}
+QUARTUS_EVIDENCE_SUFFIXES = {".rpt", ".summary"}
 TEXT_SUFFIXES = {
     ".md",
     ".txt",
@@ -69,7 +70,13 @@ def validate_required(errors: list[str]) -> None:
 def validate_public_scope(errors: list[str]) -> None:
     for path in ROOT.rglob("*"):
         relative = path.relative_to(ROOT)
-        if any(part.lower() in FORBIDDEN_DIRS for part in relative.parts):
+        parts = {part.lower() for part in relative.parts}
+        selected_quartus_evidence = (
+            "quartus" in parts
+            and "output_files" in parts
+            and (path.is_dir() or path.suffix.lower() in QUARTUS_EVIDENCE_SUFFIXES)
+        )
+        if any(part in FORBIDDEN_DIRS for part in parts) and not selected_quartus_evidence:
             fail(f"forbidden generated directory: {relative}", errors)
         if path.is_file() and path.suffix.lower() in FORBIDDEN_SUFFIXES:
             fail(f"forbidden public file: {relative}", errors)
@@ -162,7 +169,7 @@ def validate_ppa(errors: list[str]) -> None:
         "Memory Blocks",
         "Fmax (MHz)",
         "Total Power (W)",
-        "Core Dynamic Power (W)",
+        "Dynamic Power (W)",
         "Static Power (W)",
     ]
     if len(rows) != 4:

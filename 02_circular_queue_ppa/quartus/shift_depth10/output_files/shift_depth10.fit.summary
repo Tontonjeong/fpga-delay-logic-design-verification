@@ -1,0 +1,20 @@
+Fitter Status : Successful - Wed Jul 29 23:43:34 2026
+Quartus Prime Version : 24.3.1 Build 102 01/14/2025 SC Pro Edition
+Revision Name : shift_depth10
+Top-level Entity Name : shift_depth10
+Family : Agilex 5
+Device : A5ED065BB32AE6SR0
+Timing Models : Preliminary
+Power Models : Preliminary
+Device Status : Preliminary
+Logic utilization (in ALMs) : 113 / 222,400 ( < 1 % )
+Total dedicated logic registers : 175
+Total pins : 0 / 624 ( 0 % )
+Total block memory bits : 0 / 32,993,280 ( 0 % )
+Total RAM Blocks : 0 / 1,611 ( 0 % )
+Total DSP Blocks : 0 / 846 ( 0 % )
+Total GTS Transceiver Channels : 0 / 24 ( 0 % )
+Total HSSI Ethernet Channels : 0 / 6 ( 0 % )
+Total HSSI PCIEs : 0 / 6 ( 0 % )
+Total HSSI HPS : 0 / 1 ( 0 % )
+Total PLLs : 0 / 15 ( 0 % )

@@ -1,0 +1,757 @@
+$date
+	Wed Jul 29 22:59:02 2026
+$end
+$version
+	ModelSim Version 10.5b
+$end
+$timescale
+	1ps
+$end
+
+$scope module tb_memory_delay_logic $end
+$var parameter 32 ! DATA_WIDTH $end
+$var parameter 32 " DEPTH $end
+$var parameter 32 # DELAY_WIDTH $end
+$var parameter 64 $ CLK_PERIOD $end
+$var reg 1 % iClk $end
+$var reg 1 & iRsn $end
+$var reg 1 ' iDataEn $end
+$var reg 16 ( iData [15:0] $end
+$var reg 4 ) iDelay [3:0] $end
+$var reg 1 * oDataEn $end
+$var reg 16 + oData [15:0] $end
+$var reg 1 , driver_done $end
+$var reg 1 - checker_done $end
+$var integer 32 . driven_cycle_count $end
+$var integer 32 / error_count $end
+$var integer 32 0 compared_sample_count $end
+$var integer 32 1 actual_valid_count $end
+$var integer 32 2 scenario_id $end
+
+$scope module dut $end
+$var parameter 32 3 DATA_WIDTH $end
+$var parameter 32 4 DEPTH $end
+$var parameter 32 5 ADDR_WIDTH $end
+$var parameter 32 6 DELAY_WIDTH $end
+$var wire 1 7 iClk $end
+$var wire 1 8 iRsn $end
+$var wire 1 9 iDataEn $end
+$var wire 1 : iData [15] $end
+$var wire 1 ; iData [14] $end
+$var wire 1 < iData [13] $end
+$var wire 1 = iData [12] $end
+$var wire 1 > iData [11] $end
+$var wire 1 ? iData [10] $end
+$var wire 1 @ iData [9] $end
+$var wire 1 A iData [8] $end
+$var wire 1 B iData [7] $end
+$var wire 1 C iData [6] $end
+$var wire 1 D iData [5] $end
+$var wire 1 E iData [4] $end
+$var wire 1 F iData [3] $end
+$var wire 1 G iData [2] $end
+$var wire 1 H iData [1] $end
+$var wire 1 I iData [0] $end
+$var wire 1 J iDelay [3] $end
+$var wire 1 K iDelay [2] $end
+$var wire 1 L iDelay [1] $end
+$var wire 1 M iDelay [0] $end
+$var reg 1 N oDataEn $end
+$var reg 16 O oData [15:0] $end
+$var reg 4 P write_ptr [3:0] $end
+$var reg 4 Q read_addr [3:0] $end
+$var integer 32 R reset_index $end
+$upscope $end
+
+$scope module driver $end
+$var parameter 32 S DATA_WIDTH $end
+$var parameter 32 T DEPTH $end
+$var parameter 32 U DELAY_WIDTH $end
+$var parameter 32 V MAX_VECTORS $end
+$var parameter 32 W MAX_DELAY_EVENTS $end
+$var wire 1 X iClk $end
+$var reg 1 Y iRsn $end
+$var reg 1 Z iDataEn $end
+$var reg 16 [ iData [15:0] $end
+$var reg 4 \ iDelay [3:0] $end
+$var reg 1 ] driver_done $end
+$var integer 32 ^ driven_cycle_count $end
+$var integer 32 _ data_count $end
+$var integer 32 ` valid_count $end
+$var integer 32 a delay_event_count $end
+$var reg 4 b initial_delay [3:0] $end
+$var integer 32 c scenario_id $end
+
+$scope begin DRIVER_MAIN $end
+$var integer 32 d vector_index $end
+$upscope $end
+$upscope $end
+
+$scope module u_checker $end
+$var parameter 32 e DATA_WIDTH $end
+$var parameter 32 f MAX_VECTORS $end
+$var wire 1 g iClk $end
+$var wire 1 h iRsn $end
+$var wire 1 i oDataEn $end
+$var wire 1 j oData [15] $end
+$var wire 1 k oData [14] $end
+$var wire 1 l oData [13] $end
+$var wire 1 m oData [12] $end
+$var wire 1 n oData [11] $end
+$var wire 1 o oData [10] $end
+$var wire 1 p oData [9] $end
+$var wire 1 q oData [8] $end
+$var wire 1 r oData [7] $end
+$var wire 1 s oData [6] $end
+$var wire 1 t oData [5] $end
+$var wire 1 u oData [4] $end
+$var wire 1 v oData [3] $end
+$var wire 1 w oData [2] $end
+$var wire 1 x oData [1] $end
+$var wire 1 y oData [0] $end
+$var reg 1 z checker_done $end
+$var integer 32 { error_count $end
+$var integer 32 | compared_sample_count $end
+$var integer 32 } actual_valid_count $end
+$var integer 32 ~ expected_data_count $end
+$var integer 32 !! expected_valid_vector_count $end
+$var integer 32 "! expected_valid_count $end
+$var integer 32 #! scenario_id $end
+
+$scope begin CHECKER_MAIN $end
+$var integer 32 $! sample_index $end
+$var integer 32 %! log_fd $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0%
+0&
+0'
+b0 (
+b0 )
+0*
+b0 +
+0,
+0-
+0N
+b0 O
+b0 P
+b0 Q
+0Y
+0Z
+b0 [
+b0 \
+0]
+b11 b
+0z
+b10000 !
+b1010 "
+b100 #
+b1010 $
+b10000 3
+b1010 4
+b100 5
+b100 6
+b10000 S
+b1010 T
+b100 U
+b10000000000 V
+b100000 W
+b10000 e
+b100000000000 f
+b0 .
+b0 /
+b0 0
+b0 1
+b11 2
+b1010 R
+b0 ^
+b1100 _
+b1100 `
+b1 a
+b11 c
+bx d
+b0 {
+b0 |
+b0 }
+b10001 ~
+b10001 !!
+b1110 "!
+b11 #!
+bx $!
+b10000000000000000000000000000011 %!
+07
+08
+09
+0I
+0H
+0G
+0F
+0E
+0D
+0C
+0B
+0A
+0@
+0?
+0>
+0=
+0<
+0;
+0:
+0M
+0L
+0K
+0J
+0X
+0g
+0h
+0i
+0y
+0x
+0w
+0v
+0u
+0t
+0s
+0r
+0q
+0p
+0o
+0n
+0m
+0l
+0k
+0j
+$end
+#5000
+1%
+1g
+1X
+17
+b0 R
+b1 R
+b10 R
+b11 R
+b100 R
+b101 R
+b110 R
+b111 R
+b1000 R
+b1001 R
+b1010 R
+#10000
+0%
+0g
+0X
+07
+#15000
+1%
+1g
+1X
+17
+b0 R
+b1 R
+b10 R
+b11 R
+b100 R
+b101 R
+b110 R
+b111 R
+b1000 R
+b1001 R
+b1010 R
+#20000
+0%
+0g
+0X
+07
+1Y
+b11 \
+b0 d
+b1100101 [
+1Z
+b1 ^
+b1 .
+1'
+b1100101 (
+b11 )
+1&
+19
+1I
+1G
+1D
+1C
+1h
+1M
+1L
+18
+b111 Q
+b0 $!
+#25000
+1%
+1g
+1X
+17
+b1 P
+b1000 Q
+#26000
+b1 |
+b1 $!
+b1 0
+#30000
+0%
+0g
+0X
+07
+b1 d
+b1100110 [
+b10 ^
+b10 .
+b1100110 (
+0I
+1H
+#35000
+1%
+1g
+1X
+17
+b10 P
+b1001 Q
+#36000
+b10 |
+b10 $!
+b10 0
+#40000
+0%
+0g
+0X
+07
+b10 d
+b1100111 [
+b11 ^
+b11 .
+b1100111 (
+1I
+#45000
+1%
+1g
+1X
+17
+b11 P
+b0 Q
+#46000
+b11 |
+b11 $!
+b11 0
+#50000
+0%
+0g
+0X
+07
+b11 d
+b1101000 [
+b100 ^
+b100 .
+b1101000 (
+0I
+0H
+0G
+1F
+#55000
+1%
+1g
+1X
+17
+b100 P
+1N
+b1100101 O
+b1100101 +
+1*
+1y
+1w
+1t
+1s
+1i
+b1 Q
+#56000
+b100 |
+b1 }
+b100 $!
+b1 1
+b100 0
+#60000
+0%
+0g
+0X
+07
+b100 d
+b1101001 [
+b101 ^
+b101 .
+b1101001 (
+1I
+#65000
+1%
+1g
+1X
+17
+b101 P
+b1100110 O
+b1100110 +
+0y
+1x
+b10 Q
+#66000
+b101 |
+b10 }
+b101 $!
+b10 1
+b101 0
+#70000
+0%
+0g
+0X
+07
+b101 d
+b1101010 [
+b110 ^
+b110 .
+b1101010 (
+0I
+1H
+#75000
+1%
+1g
+1X
+17
+b110 P
+b1100111 O
+b1100111 +
+1y
+b11 Q
+#76000
+b110 |
+b11 }
+b110 $!
+b11 1
+b110 0
+#80000
+0%
+0g
+0X
+07
+b110 d
+b101 \
+b1101011 [
+b111 ^
+b111 .
+b1101011 (
+b101 )
+1I
+0L
+1K
+b1 Q
+#85000
+1%
+1g
+1X
+17
+b111 P
+b1100110 O
+b1100110 +
+0y
+b10 Q
+#86000
+b111 |
+b100 }
+b111 $!
+b100 1
+b111 0
+#90000
+0%
+0g
+0X
+07
+b111 d
+b1101100 [
+b1000 ^
+b1000 .
+b1101100 (
+0I
+0H
+1G
+#95000
+1%
+1g
+1X
+17
+b1000 P
+b1100111 O
+b1100111 +
+1y
+b11 Q
+#96000
+b1000 |
+b101 }
+b1000 $!
+b101 1
+b1000 0
+#100000
+0%
+0g
+0X
+07
+b1000 d
+b1101101 [
+b1001 ^
+b1001 .
+b1101101 (
+1I
+#105000
+1%
+1g
+1X
+17
+b1001 P
+b1101000 O
+b1101000 +
+0y
+0x
+0w
+1v
+b100 Q
+#106000
+b1001 |
+b110 }
+b1001 $!
+b110 1
+b1001 0
+#110000
+0%
+0g
+0X
+07
+b1001 d
+b1101110 [
+b1010 ^
+b1010 .
+b1101110 (
+0I
+1H
+#115000
+1%
+1g
+1X
+17
+b0 P
+b1101001 O
+b1101001 +
+1y
+b101 Q
+#116000
+b1010 |
+b111 }
+b1010 $!
+b111 1
+b1010 0
+#120000
+0%
+0g
+0X
+07
+b1010 d
+b1101111 [
+b1011 ^
+b1011 .
+b1101111 (
+1I
+#125000
+1%
+1g
+1X
+17
+b1 P
+b1101010 O
+b1101010 +
+0y
+1x
+b110 Q
+#126000
+b1011 |
+b1000 }
+b1011 $!
+b1000 1
+b1011 0
+#130000
+0%
+0g
+0X
+07
+b1011 d
+b1110000 [
+b1100 ^
+b1100 .
+b1110000 (
+0I
+0H
+0G
+0F
+1E
+#135000
+1%
+1g
+1X
+17
+b10 P
+b1101011 O
+b1101011 +
+1y
+b111 Q
+#136000
+b1100 |
+b1001 }
+b1100 $!
+b1001 1
+b1100 0
+#140000
+0%
+0g
+0X
+07
+b1100 d
+b0 [
+0Z
+0'
+b0 (
+09
+0E
+0D
+0C
+#145000
+1%
+1g
+1X
+17
+b11 P
+b1101100 O
+b1101100 +
+0y
+0x
+1w
+b1000 Q
+#146000
+b1101 |
+b1010 }
+b1101 $!
+b1010 1
+b1101 0
+#150000
+0%
+0g
+0X
+07
+#155000
+1%
+1g
+1X
+17
+b100 P
+b1101101 O
+b1101101 +
+1y
+b1001 Q
+#156000
+b1110 |
+b1011 }
+b1110 $!
+b1011 1
+b1110 0
+#160000
+0%
+0g
+0X
+07
+#165000
+1%
+1g
+1X
+17
+b101 P
+b1101110 O
+b1101110 +
+0y
+1x
+b0 Q
+#166000
+b1111 |
+b1100 }
+b1111 $!
+b1100 1
+b1111 0
+#170000
+0%
+0g
+0X
+07
+#175000
+1%
+1g
+1X
+17
+b110 P
+b1101111 O
+b1101111 +
+1y
+b1 Q
+#176000
+b10000 |
+b1101 }
+b10000 $!
+b1101 1
+b10000 0
+#180000
+0%
+0g
+0X
+07
+#185000
+1%
+1g
+1X
+17
+b111 P
+b1110000 O
+b1110000 +
+0y
+0x
+0w
+0v
+1u
+b10 Q
+#186000
+b10001 |
+b1110 }
+b10001 $!
+1z
+1-
+b1110 1
+b10001 0
+#190000
+0%
+0g
+0X
+07
+#195000
+1%
+1g
+1X
+17
+b1000 P
+0N
+0*
+0i
+b11 Q

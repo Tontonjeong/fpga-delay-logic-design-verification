@@ -12,10 +12,19 @@ def executable(name: str) -> str | None:
     found = shutil.which(name)
     if found:
         return found
-    roots = []
+    roots: list[Path] = []
     if os.environ.get("MSYS2_ROOT"):
         roots.append(Path(os.environ["MSYS2_ROOT"]) / "ucrt64/bin")
     roots.extend(Path(f"{drive}:/") / "msys64/ucrt64/bin" for drive in "CDE")
+    drive_root = Path("D:" + os.sep)
+    roots.extend(
+        [
+            drive_root / "IntelQuartus/quartus/bin64",
+            drive_root / "IntelQuartus/questa_fse/win64",
+            drive_root / "IntelQuartus/questa_fe/win64",
+            drive_root / "intelFPGA/18.1/modelsim_ase/win32aloem",
+        ]
+    )
     for root in roots:
         candidate = root / f"{name}.exe"
         if candidate.exists():
@@ -116,6 +125,6 @@ def tool_scan() -> list[dict[str, object]]:
         "iverilog", "vvp", "verilator", "yosys",
     ]
     return [
-        {"name": name, "found": bool(executable(name)), "path": executable(name)}
+        {"name": name, "found": bool(executable(name))}
         for name in names
     ]

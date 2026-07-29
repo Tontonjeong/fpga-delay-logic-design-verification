@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="프로그래머블 지연 로직을 시프트 레지스터, 순환 큐, 메모리 기반 파일 검증으로 발전시킨 FPGA RTL·DV 포트폴리오입니다. Icarus Verilog 13.0 실제 회귀 로그와 VCD 파형을 제공합니다.">
+  <meta name="description" content="ModelSim·Icarus 실제 시뮬레이션과 Quartus 24.3 합성·Fit·Timing·Power 보고서로 검증한 FPGA RTL·DV 포트폴리오입니다.">
   <meta name="theme-color" content="#071020">
   <meta property="og:type" content="website">
   <meta property="og:title" content="FPGA 프로그래머블 지연 로직 | RTL · PPA · DV">
@@ -38,7 +38,7 @@
       <div class="wrap">
         <div class="eyebrow">SystemVerilog · RTL Architecture · Digital Verification</div>
         <h1>FPGA 지연 로직을<br>검증 가능한 구조로</h1>
-        <p class="lead">동일한 지연 규약을 시프트 레지스터, 순환 큐, 메모리 기반 DUT로 전개했습니다. 설계 설명에 그치지 않고 Icarus Verilog 13.0으로 세 프로젝트를 실제 실행해 로그, VCD, 파형 PNG를 함께 공개합니다.</p>
+        <p class="lead">동일한 지연 규약을 시프트 레지스터, 순환 큐, 메모리 기반 DUT로 전개했습니다. 원본 ZIP을 ModelSim으로 재실행하고, Icarus self-check와 Quartus 24.3 합성·Fit·Timing·Power raw report까지 함께 공개합니다.</p>
         <div class="hero-actions">
           <a class="button primary" href="#verification">실행 근거 보기</a>
           <a class="button" href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/README.ko.md">한글 README</a>
@@ -99,7 +99,7 @@
           <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project1_expected_timing.svg" type="image/svg+xml"><img src="assets/ko/architecture/project1_expected_timing.png" alt="Project 1 예상 타이밍 계약" width="1600" height="900"></picture></div><figcaption class="caption">P1 · sparse valid와 동적 delay를 포함한 cycle 계약</figcaption></figure>
           <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project2_circular_queue_architecture.svg" type="image/svg+xml"><img src="assets/ko/architecture/project2_circular_queue_architecture.png" alt="Project 2 순환 큐 쓰기 포인터와 읽기 주소 구조" width="1600" height="900"></picture></div><figcaption class="caption">P2 · one-slot write와 modulo read address</figcaption></figure>
           <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project2_architecture_comparison.svg" type="image/svg+xml"><img src="assets/ko/architecture/project2_architecture_comparison.png" alt="Project 2 시프트 레지스터와 순환 큐 아키텍처 비교" width="1600" height="900"></picture></div><figcaption class="caption">P2 · 동일 delay contract, 서로 다른 state-update cost</figcaption></figure>
-          <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project2_ppa_matrix.svg" type="image/svg+xml"><img src="assets/ko/architecture/project2_ppa_matrix.png" alt="Project 2 네 가지 통제 PPA 구성" width="1600" height="900"></picture></div><figcaption class="caption">P2 · Shift/Circular × DEPTH 10/100 통제 비교; 수치 PPA는 BLOCKED</figcaption></figure>
+          <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project2_ppa_matrix.svg" type="image/svg+xml"><img src="assets/ko/architecture/project2_ppa_matrix.png" alt="Project 2 네 가지 통제 PPA 구성" width="1600" height="900"></picture></div><figcaption class="caption">P2 · Shift/Circular × DEPTH 10/100 · 실제 Fit/Timing/Power 완료</figcaption></figure>
           <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project3_file_driven_verification.svg" type="image/svg+xml"><img src="assets/ko/architecture/project3_file_driven_verification.png" alt="Project 3 파일 기반 검증 아키텍처" width="1600" height="900"></picture></div><figcaption class="caption">P3 · input/register/output 파일과 Driver·DUT·Checker</figcaption></figure>
           <figure class="panel"><div class="visual dark"><picture><source srcset="assets/ko/architecture/project3_scenario_flow.svg" type="image/svg+xml"><img src="assets/ko/architecture/project3_scenario_flow.png" alt="Project 3 세 시나리오 실행 흐름" width="1600" height="900"></picture></div><figcaption class="caption">P3 · reset, 연속 enable, delay 변경을 한 checker로 검증</figcaption></figure>
         </div>
@@ -126,7 +126,7 @@
       <div class="wrap">
         <div class="section-head">
           <div><div class="eyebrow">Executed Evidence</div><h2>실행 로그에서 만든 파형</h2></div>
-          <p>아래 그림은 예상 파형이 아닙니다. 커밋 <code>c356ade</code>의 RTL/TB를 Icarus Verilog 13.0으로 실행해 생성한 VCD에서 직접 렌더링했습니다.</p>
+          <p>아래 그림은 예상 파형이 아닙니다. RTL/TB를 Icarus Verilog 13.0으로 실행해 생성한 VCD에서 직접 렌더링했습니다.</p>
         </div>
         <div class="waveforms">
           <figure class="panel visual dark">
@@ -145,11 +145,26 @@
       </div>
     </section>
 
+    <section id="archive-evidence">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Original Archive Rerun</div><h2>원본 실행과 보완 검증을 분리</h2></div>
+          <p>원본 Project 1·2 TB는 입력 자극만 있고 assertion/scoreboard가 없습니다. 따라서 아래 ModelSim 실행은 PASS가 아니라 컴파일 및 자극 완료 증거입니다. Project 3는 원본 실패와 인스턴스명 1줄 호환성 패치 후 PASS를 모두 보존했습니다.</p>
+        </div>
+        <div class="waveforms">
+          <figure class="panel visual dark"><img src="assets/ko/results/project1_original_modelsim_waveform.png" alt="Project 1 원본 아카이브 ModelSim 자극 실행 파형" width="1500" height="722"><figcaption class="caption">P1 원본 · ModelSim 10.5b · 310 ns 완료 · Checker 없음</figcaption></figure>
+          <figure class="panel visual dark"><img src="assets/ko/results/project2_original_modelsim_waveform.png" alt="Project 2 원본 아카이브 ModelSim 자극 실행 파형" width="1500" height="722"><figcaption class="caption">P2 원본 · ModelSim 10.5b · 320 ns 완료 · Checker 없음</figcaption></figure>
+          <figure class="panel visual dark"><img src="assets/ko/results/project3_modelsim_compatibility_patch_waveform.png" alt="Project 3 원본 Checker 호환성 패치 후 ModelSim PASS 파형" width="1500" height="722"><figcaption class="caption">P3 원본 DUT/Driver/Checker · 예약어 인스턴스명 1줄 수정 · 시나리오 3 PASS</figcaption></figure>
+        </div>
+        <p class="note"><strong>발견된 원본 결함.</strong> Project 3의 <code>checker</code> 인스턴스명은 SystemVerilog 예약어라 원본 배치가 컴파일에 실패합니다. 또한 배치파일은 이 실패를 종료코드 0과 “completed” 문구로 가립니다. <a href="https://github.com/Tontonjeong/fpga-delay-logic-design-verification/blob/main/docs/source-provenance.md">원본 해시·실패 로그·패치 경계 보기</a></p>
+      </div>
+    </section>
+
     <section id="status">
       <div class="wrap">
         <div class="section-head">
-          <div><div class="eyebrow">Validation Matrix</div><h2>PASS와 BLOCKED를 분리</h2></div>
-          <p>기능 시뮬레이션은 실제 실행 결과로 PASS를 표시합니다. Quartus가 없는 호스트에서 합성·수치 PPA를 실행한 것처럼 표시하지 않고 BLOCKED로 명시합니다.</p>
+          <div><div class="eyebrow">Validation Matrix</div><h2>원본·보완·구현 증거를 분리</h2></div>
+          <p>PASS는 checker가 있는 실제 실행에만 표시합니다. 원본 stimulus-only TB, 보완 self-check, Quartus 합성·Fit 결과는 서로 다른 증거 층으로 유지합니다.</p>
         </div>
         <div class="table-wrap">
           <table>
@@ -159,21 +174,21 @@
                 <td data-label="Project">1 · Shift Register</td>
                 <td data-label="RTL"><span class="status pass">검토 완료</span></td>
                 <td data-label="Simulation"><span class="status pass">PASS</span><br>Icarus 13.0 · 20 checks</td>
-                <td data-label="Synthesis"><span class="status blocked">BLOCKED</span><br>Quartus 미설치</td>
+                <td data-label="Synthesis"><span class="status pass">SUCCESS</span><br>Quartus 24.3.1 · 85 ALM estimate</td>
                 <td data-label="PPA"><span class="status na">N/A</span></td>
               </tr>
               <tr>
                 <td data-label="Project">2 · Circular Queue</td>
                 <td data-label="RTL"><span class="status pass">검토 완료</span></td>
                 <td data-label="Simulation"><span class="status pass">PASS</span><br>두 구현 + 참조 모델 · 26 checks</td>
-                <td data-label="Synthesis"><span class="status blocked">BLOCKED</span><br>Quartus 미설치</td>
-                <td data-label="PPA"><span class="status blocked">BLOCKED</span><br>Fit/Timing/Power 보고서 없음</td>
+                <td data-label="Synthesis"><span class="status pass">SUCCESS</span><br>4개 Fit 완료</td>
+                <td data-label="PPA"><span class="status pass">COMPLETE</span><br>Timing + Power raw report</td>
               </tr>
               <tr>
                 <td data-label="Project">3 · Memory DV</td>
                 <td data-label="RTL"><span class="status pass">검토 완료</span></td>
                 <td data-label="Simulation"><span class="status pass">PASS</span><br>시나리오 1–3 · Checker + Test PASS</td>
-                <td data-label="Synthesis"><span class="status blocked">BLOCKED</span><br>Quartus 미설치</td>
+                <td data-label="Synthesis"><span class="status pass">SUCCESS</span><br><code>altdpram</code> LUTRAM 추론</td>
                 <td data-label="PPA"><span class="status na">N/A</span></td>
               </tr>
             </tbody>
@@ -190,11 +205,23 @@
     <section id="ppa">
       <div class="wrap">
         <div class="section-head">
-          <div><div class="eyebrow">PPA Boundary</div><h2>방법은 준비, 수치는 미주장</h2></div>
-          <p>DEPTH 10/100, 동일 device·clock·optimization·virtual pin·toggle 가정으로 4개 프로젝트를 구성했습니다. 하지만 Quartus Fit/Timing/Power 보고서가 없으므로 면적·Fmax·전력 우위 수치는 공개하지 않습니다.</p>
+          <div><div class="eyebrow">Measured PPA</div><h2>네 가지 구성의 실제 Quartus 결과</h2></div>
+          <p>Agilex 5, 100 MHz, BALANCED, virtual pin, 고정 12.5% toggle 조건으로 DEPTH 10/100의 Shift Register와 Circular Queue를 합성·배치배선했습니다.</p>
         </div>
-        <div class="panel visual"><picture><source srcset="assets/ko/ppa/ppa_comparison_matrix.svg" type="image/svg+xml"><img src="assets/ko/ppa/ppa_comparison_matrix.png" alt="4개 구성 PPA 비교 방법과 BLOCKED 상태" width="1200" height="650"></picture></div>
-        <p class="note"><strong>수치 PPA: BLOCKED.</strong> 대상 호스트에서 <code>quartus_sh</code>, <code>quartus_fit</code>, <code>quartus_sta</code>, <code>quartus_pow</code>를 찾지 못했습니다. 빈 CSV를 결과처럼 시각화하거나 추정치를 만들지 않았습니다.</p>
+        <div class="waveforms">
+          <figure class="panel visual dark"><img src="assets/ko/ppa/actual/alm_comparison.svg" alt="Quartus 24.3 네 구성의 실제 ALM 비교" width="1200" height="660"><figcaption class="caption">실제 Fit 결과 · Circular Queue는 두 깊이 모두 ALM 증가</figcaption></figure>
+          <figure class="panel visual dark"><img src="assets/ko/ppa/actual/restricted_fmax_comparison.svg" alt="Quartus 24.3 네 구성의 제한 Fmax 비교" width="1200" height="660"><figcaption class="caption">실제 Timing Analyzer 결과 · 모든 구성 100 MHz timing closure</figcaption></figure>
+        </div>
+        <div class="table-wrap" style="margin-top:1rem"><table>
+          <thead><tr><th>Architecture</th><th>DEPTH</th><th>ALM</th><th>Registers</th><th>Restricted Fmax</th><th>Setup slack</th><th>Dynamic power</th></tr></thead>
+          <tbody>
+            <tr><td>Shift Register</td><td>10</td><td>113</td><td>175</td><td>554.02 MHz</td><td>9.098 ns</td><td>0.737 W</td></tr>
+            <tr><td>Circular Queue</td><td>10</td><td>162</td><td>178</td><td>536.48 MHz</td><td>8.136 ns</td><td>0.737 W</td></tr>
+            <tr><td>Shift Register</td><td>100</td><td>925</td><td>1851</td><td>554.02 MHz</td><td>8.800 ns</td><td>0.742 W</td></tr>
+            <tr><td>Circular Queue</td><td>100</td><td>1106</td><td>1714</td><td>343.05 MHz</td><td>7.085 ns</td><td>0.744 W</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><strong>핵심 해석.</strong> DEPTH 100 Queue는 register를 7.4% 줄였지만 ALM은 19.6% 늘고 제한 Fmax는 38.1% 낮았습니다. 두 Queue 모두 RAM block 0개로, 현재 비동기 indexed-read RTL은 RAM 추론 이점을 얻지 못했습니다. 전력값은 Low-confidence 고정 활동률 추정이며 보드 실측이 아닙니다.</p>
       </div>
     </section>
 
@@ -216,7 +243,7 @@
   <footer class="footer">
     <div class="wrap footer-inner">
       <div>류형록 · FPGA / RTL / Digital Verification Portfolio</div>
-      <div>검증일 2026-07-29 · source commit <code>c356ade</code></div>
+      <div>검증일 2026-07-29~30 · ModelSim 10.5b · Icarus 13.0 · Quartus 24.3.1</div>
     </div>
   </footer>
 </body>

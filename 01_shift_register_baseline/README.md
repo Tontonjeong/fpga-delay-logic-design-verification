@@ -43,10 +43,17 @@ The original testbench remains available for manual review. A separate portable 
 
 | Evidence | Status |
 |---|---|
-| RTL and regression testbench | Source available |
+| Supplied RTL/testbench | SHA-256 matched to the submitted ZIP |
+| Original ModelSim 10.5b run | **COMPILE + STIMULUS COMPLETE** — 0 errors, 0 warnings, `$finish` at 310 ns |
 | Icarus Verilog 13.0 functional regression | **PASS — 20 checks, 0 errors** |
-| Simulation evidence | [log](results/project1_simulation.log), [VCD](results/project1_waveform.vcd) |
-| Quartus compilation | **BLOCKED — Quartus unavailable on verified host** |
+| Original-run evidence | [transcript](../results/archive_rerun/project1_original_modelsim.log), [VCD](../results/archive_rerun/project1_original.vcd) |
+| Supplemental self-check evidence | [log](results/project1_simulation.log), [VCD](results/project1_waveform.vcd) |
+| Quartus Prime Pro 24.3.1 synthesis | **SUCCESS** — 0 errors, 1 warning, 85 estimated ALMs, 119 registers |
+
+The original testbench contains stimulus but no assertion, scoreboard, or PASS marker.
+Its run is therefore not relabeled as a functional PASS. The 20-check verdict
+belongs to the separate repository regression and is presented as supplemental
+verification.
 
 ## Reproduce
 
@@ -62,12 +69,18 @@ From `01_shift_register_baseline/quartus` in a Quartus Prime Pro command prompt:
 run_quartus_compile.bat
 ```
 
-The Quartus project targets Agilex 5 `A5ED065BB32AE6SR0`, uses virtual pins, and applies a 10 ns clock constraint.
+The supplied QSF uses Agilex 5 with `DEVICE AUTO`. Quartus 24.3 reports that
+auto-selection is unsupported for this family and selects
+`A5EC065BB32AE4S`; the untouched project then synthesizes successfully. This
+device differs from Project 2, so the Project 1 estimates are not used in the
+four-case PPA comparison.
 
 ## Limitations
 
 - The 3-bit baseline interface cannot select delays above 7 even though `DEPTH` defaults to 10.
 - The supplied scenarios use delays 2, 3, and 5; `iDelay=0` is not part of the baseline contract.
-- The executed self-check and transcript are committed; no synthesis report is claimed.
+- Original and supplemental runs are kept as separate evidence layers.
+- The synthesis report is evidence of RTL elaboration/resource estimation, not
+  a board implementation or hardware measurement.
 
 See [provenance](PROVENANCE.md) and the [expected waveform table](results/expected_waveform_table.csv).

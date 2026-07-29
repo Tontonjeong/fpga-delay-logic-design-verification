@@ -1,0 +1,675 @@
+$date
+	Wed Jul 29 22:58:53 2026
+$end
+$version
+	ModelSim Version 10.5b
+$end
+$timescale
+	1ps
+$end
+
+$scope module tb_circular_queue_delay_logic $end
+$var parameter 32 ! DATA_WIDTH $end
+$var parameter 32 " DEPTH $end
+$var parameter 32 # DELAY_WIDTH $end
+$var parameter 64 $ CLK_PERIOD $end
+$var reg 1 % iClk $end
+$var reg 1 & iRsn $end
+$var reg 1 ' iDataEn $end
+$var reg 16 ( iData [15:0] $end
+$var reg 4 ) iDelay [3:0] $end
+$var reg 1 * oDataEn $end
+$var reg 16 + oData [15:0] $end
+
+$scope module dut $end
+$var parameter 32 , DATA_WIDTH $end
+$var parameter 32 - DEPTH $end
+$var parameter 32 . PTR_WIDTH $end
+$var parameter 32 / DELAY_WIDTH $end
+$var wire 1 0 iClk $end
+$var wire 1 1 iRsn $end
+$var wire 1 2 iDataEn $end
+$var wire 1 3 iData [15] $end
+$var wire 1 4 iData [14] $end
+$var wire 1 5 iData [13] $end
+$var wire 1 6 iData [12] $end
+$var wire 1 7 iData [11] $end
+$var wire 1 8 iData [10] $end
+$var wire 1 9 iData [9] $end
+$var wire 1 : iData [8] $end
+$var wire 1 ; iData [7] $end
+$var wire 1 < iData [6] $end
+$var wire 1 = iData [5] $end
+$var wire 1 > iData [4] $end
+$var wire 1 ? iData [3] $end
+$var wire 1 @ iData [2] $end
+$var wire 1 A iData [1] $end
+$var wire 1 B iData [0] $end
+$var wire 1 C iDelay [3] $end
+$var wire 1 D iDelay [2] $end
+$var wire 1 E iDelay [1] $end
+$var wire 1 F iDelay [0] $end
+$var reg 1 G oDataEn $end
+$var reg 16 H oData [15:0] $end
+$var reg 10 I valid_mem [9:0] $end
+$var reg 4 J write_ptr [3:0] $end
+$var reg 4 K read_ptr [3:0] $end
+$var reg 1 L delay_is_valid $end
+$var integer 32 M read_index_int $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0%
+0&
+0'
+b0 (
+b11 )
+0*
+b0 +
+0G
+b0 H
+b0 I
+b0 J
+b111 K
+1L
+b10000 !
+b1010 "
+b100 #
+b1010 $
+b10000 ,
+b1010 -
+b100 .
+b100 /
+b111 M
+00
+01
+02
+0B
+0A
+0@
+0?
+0>
+0=
+0<
+0;
+0:
+09
+08
+07
+06
+05
+04
+03
+1F
+1E
+0D
+0C
+$end
+#5000
+1%
+10
+#10000
+0%
+00
+#15000
+1%
+10
+#20000
+0%
+00
+#25000
+1%
+10
+#30000
+0%
+00
+1&
+11
+#35000
+1%
+10
+b1 J
+b0 M
+b0 K
+0L
+1L
+b1000 M
+b1000 K
+#40000
+0%
+00
+#45000
+1%
+10
+b10 J
+b0 M
+b0 K
+0L
+1L
+b1001 M
+b1001 K
+#50000
+0%
+00
+#55000
+1%
+10
+b11 J
+b0 M
+b0 K
+0L
+1L
+#60000
+0%
+00
+1'
+b1000000000001 (
+12
+1B
+16
+#65000
+1%
+10
+b1000 I
+b100 J
+0L
+1L
+b1 M
+b1 K
+#70000
+0%
+00
+b1000000000010 (
+0B
+1A
+#75000
+1%
+10
+b11000 I
+b101 J
+b0 M
+b0 K
+0L
+1L
+b10 M
+b10 K
+#80000
+0%
+00
+b1000000000011 (
+1B
+#85000
+1%
+10
+b111000 I
+b110 J
+b0 M
+b0 K
+0L
+1L
+b11 M
+b11 K
+1G
+b1000000000001 H
+b1000000000001 +
+1*
+#90000
+0%
+00
+b1000000000100 (
+0B
+0A
+1@
+#95000
+1%
+10
+b1111000 I
+b111 J
+b0 M
+b0 K
+0L
+1L
+b100 M
+b100 K
+0G
+b0 H
+1G
+b1000000000010 H
+b1000000000010 +
+#100000
+0%
+00
+b1000000000101 (
+1B
+#105000
+1%
+10
+b11111000 I
+b1000 J
+b0 M
+b0 K
+0L
+1L
+b101 M
+b101 K
+0G
+b0 H
+1G
+b1000000000011 H
+b1000000000011 +
+#110000
+0%
+00
+b1000000000110 (
+0B
+1A
+#115000
+1%
+10
+b111111000 I
+b1001 J
+b0 M
+b0 K
+0L
+1L
+b110 M
+b110 K
+0G
+b0 H
+1G
+b1000000000100 H
+b1000000000100 +
+#120000
+0%
+00
+0'
+b0 (
+02
+0A
+0@
+06
+#125000
+1%
+10
+b0 J
+b0 M
+b0 K
+0L
+1L
+b111 M
+b111 K
+0G
+b0 H
+1G
+b1000000000101 H
+b1000000000101 +
+#130000
+0%
+00
+#135000
+1%
+10
+b1 J
+b0 M
+b0 K
+0L
+1L
+b1000 M
+b1000 K
+0G
+b0 H
+1G
+b1000000000110 H
+b1000000000110 +
+#140000
+0%
+00
+#145000
+1%
+10
+b10 J
+b0 M
+b0 K
+0L
+1L
+b1001 M
+b1001 K
+0G
+b0 H
+b0 +
+0*
+#150000
+0%
+00
+#155000
+1%
+10
+b11 J
+b0 M
+b0 K
+0L
+1L
+#160000
+0%
+00
+1'
+b10000000000001 (
+b10 )
+12
+1B
+15
+0F
+0L
+1L
+b1 M
+b1 K
+#165000
+1%
+10
+b100 J
+b0 M
+b0 K
+0L
+1L
+b10 M
+b10 K
+#170000
+0%
+00
+b10000000000010 (
+0B
+1A
+#175000
+1%
+10
+b101 J
+b0 M
+b0 K
+0L
+1L
+b11 M
+b11 K
+1G
+b10000000000001 H
+b10000000000001 +
+1*
+#180000
+0%
+00
+b10000000000011 (
+1B
+#185000
+1%
+10
+b110 J
+b0 M
+b0 K
+0L
+1L
+b100 M
+b100 K
+0G
+b0 H
+1G
+b10000000000010 H
+b10000000000010 +
+#190000
+0%
+00
+b10000000000100 (
+0B
+0A
+1@
+#195000
+1%
+10
+b111 J
+b0 M
+b0 K
+0L
+1L
+b101 M
+b101 K
+0G
+b0 H
+1G
+b10000000000011 H
+b10000000000011 +
+#200000
+0%
+00
+b11000000000001 (
+b101 )
+1B
+0@
+16
+1F
+0E
+1D
+b0 M
+b0 K
+0L
+1L
+b10 M
+b10 K
+0G
+b0 H
+b0 +
+0*
+#205000
+1%
+10
+b1000 J
+b0 M
+b0 K
+0L
+1L
+b11 M
+b11 K
+1G
+b10000000000001 H
+b10000000000001 +
+1*
+#210000
+0%
+00
+b11000000000010 (
+0B
+1A
+#215000
+1%
+10
+b1001 J
+b0 M
+b0 K
+0L
+1L
+b100 M
+b100 K
+0G
+b0 H
+1G
+b10000000000010 H
+b10000000000010 +
+#220000
+0%
+00
+b11000000000011 (
+1B
+#225000
+1%
+10
+b1111111000 I
+b0 J
+b0 M
+b0 K
+0L
+1L
+b101 M
+b101 K
+0G
+b0 H
+1G
+b10000000000011 H
+b10000000000011 +
+#230000
+0%
+00
+b11000000000100 (
+0B
+0A
+1@
+#235000
+1%
+10
+b1111111001 I
+b1 J
+b0 M
+b0 K
+0L
+1L
+b110 M
+b110 K
+0G
+b0 H
+1G
+b10000000000100 H
+b10000000000100 +
+#240000
+0%
+00
+0'
+b0 (
+02
+0@
+06
+05
+#245000
+1%
+10
+b10 J
+b0 M
+b0 K
+0L
+1L
+b111 M
+b111 K
+0G
+b0 H
+1G
+b11000000000001 H
+b11000000000001 +
+#250000
+0%
+00
+#255000
+1%
+10
+b11 J
+b0 M
+b0 K
+0L
+1L
+b1000 M
+b1000 K
+0G
+b0 H
+1G
+b11000000000010 H
+b11000000000010 +
+#260000
+0%
+00
+#265000
+1%
+10
+b1111110001 I
+b100 J
+b0 M
+b0 K
+0L
+1L
+b1001 M
+b1001 K
+0G
+b0 H
+1G
+b11000000000011 H
+b11000000000011 +
+#270000
+0%
+00
+#275000
+1%
+10
+b1111100001 I
+b101 J
+b0 M
+b0 K
+0L
+1L
+0G
+b0 H
+1G
+b11000000000100 H
+b11000000000100 +
+#280000
+0%
+00
+#285000
+1%
+10
+b1111000001 I
+b110 J
+0L
+1L
+b1 M
+b1 K
+0G
+b0 H
+b0 +
+0*
+#290000
+0%
+00
+#295000
+1%
+10
+b1110000001 I
+b111 J
+b0 M
+b0 K
+0L
+1L
+b10 M
+b10 K
+#300000
+0%
+00
+#305000
+1%
+10
+b1100000001 I
+b1000 J
+b0 M
+b0 K
+0L
+1L
+b11 M
+b11 K
+#310000
+0%
+00
+#315000
+1%
+10
+b1000000001 I
+b1001 J
+b0 M
+b0 K
+0L
+1L
+b100 M
+b100 K
