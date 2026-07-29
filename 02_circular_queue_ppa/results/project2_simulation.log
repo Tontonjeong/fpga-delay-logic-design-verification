@@ -1,4 +1,4 @@
-$ D:\msys64\ucrt64\bin\vvp.exe build\project2_regression.vvp
+$ D:\msys64\ucrt64\bin\vvp.EXE build\project2_regression.vvp
 VCD info: dumpfile results/project2_waveform.vcd opened for output.
 [P2][PASS] checks=26 errors=0; shift and circular implementations match the reference model
 

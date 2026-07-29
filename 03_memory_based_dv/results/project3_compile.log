@@ -1,4 +1,4 @@
-$ D:\msys64\ucrt64\bin\iverilog.exe -g2012 -Wall -s tb_memory_delay_logic -o build\project3_regression.vvp rtl/memory_delay_logic.sv tb/input_driver.sv tb/output_checker.sv tb/tb_memory_delay_logic.sv
+$ D:\msys64\ucrt64\bin\iverilog.EXE -g2012 -Wall -s tb_memory_delay_logic -o build\project3_regression.vvp rtl/memory_delay_logic.sv tb/input_driver.sv tb/output_checker.sv tb/tb_memory_delay_logic.sv
 rtl/memory_delay_logic.sv:58: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+tmp_addr[31:0]').
 
 [exit_code=0]

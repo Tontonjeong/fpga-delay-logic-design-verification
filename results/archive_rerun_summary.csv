@@ -1,0 +1,8 @@
+project,evidence_layer,tool,source_state,compile,stimulus_complete,self_check,result,notes
+Project 1,Original archive,ModelSim Intel FPGA Starter Edition 10.5b,Untouched,0 errors / 0 warnings,310 ns,None,COMPILE_AND_STIMULUS_COMPLETE,Original testbench has no assertion or scoreboard
+Project 1,Supplemental regression,Icarus Verilog 13.0,Original RTL + repository self-check TB,PASS,PASS,20 checks / 0 errors,PASS,Independent reference pipeline
+Project 2,Original archive,ModelSim Intel FPGA Starter Edition 10.5b,Untouched,0 errors / 0 warnings,320 ns,None,COMPILE_AND_STIMULUS_COMPLETE,Original testbench has no assertion or scoreboard
+Project 2,Supplemental regression,Icarus Verilog 13.0,Original RTL + repository equivalence TB,PASS,PASS,26 checks / 0 errors,PASS,Shift and circular implementations compared with an independent reference model
+Project 3,Original archive,ModelSim Intel FPGA Starter Edition 10.5b,Untouched,FAIL,N/A,Not reached,FAIL,Instance name checker conflicts with a SystemVerilog reserved keyword; supplied batch masks the failure
+Project 3,Compatibility patch,ModelSim Intel FPGA Starter Edition 10.5b,One instance rename only,0 errors / 0 warnings,PASS,3 scenarios / 0 errors,PASS,Scenario 1 8/5; Scenario 2 14/4; Scenario 3 17/14 cycles/valid outputs
+Project 3,Supplemental portable rerun,Icarus Verilog 13.0,Same compatibility patch,PASS,PASS,3 scenarios / 0 errors,PASS,Non-fatal constant-select sensitivity warning retained in compile log
