@@ -4,14 +4,14 @@
 
 # FPGA Programmable Delay Logic
 
-[![Validate portfolio](https://github.com/Tontonjeong/fpga-delay-logic-design-verification/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/Tontonjeong/fpga-delay-logic-design-verification/actions/workflows/validate.yml)
+[![Validate portfolio](https://github.com/Dororok9061/fpga-delay-logic-design-verification/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/Dororok9061/fpga-delay-logic-design-verification/actions/workflows/validate.yml)
 
 **RTL Architecture · PPA Methodology · File-Driven Digital Verification**
 
 Shift Register → Circular Queue → Memory-Based DUT
 SystemVerilog · Icarus Verilog 13.0 · Quartus Project Automation · Python
 
-[한국어 README](README.ko.md) · [한국어 Portfolio](https://tontonjeong.github.io/fpga-delay-logic-design-verification/) · [English Portfolio](https://tontonjeong.github.io/fpga-delay-logic-design-verification/en/) · [Evidence Manifest](results/verification_summary.json)
+[한국어 README](README.ko.md) · [한국어 Portfolio](https://dororok9061.github.io/fpga-delay-logic-design-verification/) · [English Portfolio](https://dororok9061.github.io/fpga-delay-logic-design-verification/en/) · [Evidence Manifest](results/verification_summary.json)
 
 ## Outcome
 
@@ -88,7 +88,7 @@ The source implementation tested by the evidence run is commit `c356ade3998e36a7
   <img src="docs/assets/en/results/project2_waveform.png" alt="Project 2 shift-register and circular-queue equivalence waveform" width="100%">
 </p>
 
-The PNGs above are rendered from committed VCD files, not reconstructed expected behavior. Additional Project 1 and Project 3 waveforms are shown on the [English portfolio](https://tontonjeong.github.io/fpga-delay-logic-design-verification/en/).
+The PNGs above are rendered from committed VCD files, not reconstructed expected behavior. Additional Project 1 and Project 3 waveforms are shown on the [English portfolio](https://dororok9061.github.io/fpga-delay-logic-design-verification/en/).
 
 ## File-Driven Verification
 

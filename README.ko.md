@@ -4,14 +4,14 @@
 
 # FPGA Programmable Delay Logic
 
-[![Validate portfolio](https://github.com/Tontonjeong/fpga-delay-logic-design-verification/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/Tontonjeong/fpga-delay-logic-design-verification/actions/workflows/validate.yml)
+[![Validate portfolio](https://github.com/Dororok9061/fpga-delay-logic-design-verification/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/Dororok9061/fpga-delay-logic-design-verification/actions/workflows/validate.yml)
 
 **RTL Architecture · PPA Methodology · File-Driven Digital Verification**
 
 Shift Register → Circular Queue → Memory-Based DUT
 SystemVerilog · Icarus Verilog 13.0 · Quartus Project Automation · Python
 
-[English README](README.md) · [한국어 Portfolio](https://tontonjeong.github.io/fpga-delay-logic-design-verification/) · [English Portfolio](https://tontonjeong.github.io/fpga-delay-logic-design-verification/en/) · [검증 Manifest](results/verification_summary.json)
+[English README](README.md) · [한국어 Portfolio](https://dororok9061.github.io/fpga-delay-logic-design-verification/) · [English Portfolio](https://dororok9061.github.io/fpga-delay-logic-design-verification/en/) · [검증 Manifest](results/verification_summary.json)
 
 ## 결과 요약
 
@@ -88,7 +88,7 @@ Project 3 실제 실행 결과:
   <img src="docs/assets/ko/results/project3_scenario3_waveform.png" alt="Project 3에서 delay가 3에서 5로 바뀌는 파일 기반 검증 PASS 파형" width="100%">
 </p>
 
-파형 PNG는 예상값을 다시 그린 그림이 아니라 커밋된 VCD에서 직접 렌더링했습니다. Project 1·2 파형은 [한국어 포트폴리오](https://tontonjeong.github.io/fpga-delay-logic-design-verification/)에서 함께 확인할 수 있습니다.
+파형 PNG는 예상값을 다시 그린 그림이 아니라 커밋된 VCD에서 직접 렌더링했습니다. Project 1·2 파형은 [한국어 포트폴리오](https://dororok9061.github.io/fpga-delay-logic-design-verification/)에서 함께 확인할 수 있습니다.
 
 ## 파일 기반 검증 구조
 
